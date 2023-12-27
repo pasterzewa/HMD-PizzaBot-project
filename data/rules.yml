@@ -1,0 +1,36 @@
+version: "3.1"
+
+rules:
+- rule: Activate form
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+
+
+- rule: submit form
+  condition:
+    - active_loop: pizza_order_form
+  steps:
+      - action: pizza_order_form      # run the form
+      - active_loop: null
+      - action: utter_item_change
+
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+- rule: start
+  steps:
+    - intent: init_request
+    - action: utter_init_request
+
+
+- rule: where are you?
+  steps:
+    - intent: request_restaurant_location
+    - action: action_get_restaurant_location
+    - action: utter_inform_restaurant_location
+    - action: utter_anything_else

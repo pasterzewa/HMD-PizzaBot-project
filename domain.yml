@@ -1,0 +1,202 @@
+version: '3.1'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- explain
+- extra_order_negative
+- extra_order_postive
+- init_pizza_question
+- init_request
+- item_amount
+- item_change
+- item_change_request_without_entity
+- item_confirm_no
+- item_confirm_yes
+- item_size
+- item_start_generic
+- item_topping
+- item_type
+- item_type_start
+- order_confirm_final
+- order_confirm_negative
+- order_confirm_positive
+- order_delivery
+- order_delivery_address
+- order_take_home
+- out_of_scope
+- pizza_questions
+- response_name_phone
+- response_negative
+- response_positive
+- welcome_greet
+entities:
+- pizza_size
+- pizza_type
+- pizza_amount
+- anti_pizza_type
+- active_form_pizza_order_form
+- toppings
+- client_name
+- phone_number
+- order_number
+slots:
+  anti_pizza_type:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: anti_pizza_type
+  client_name:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: client_name
+  order_number:
+    type: any
+    mappings:
+    - type: custom
+  phone_number:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: phone_number
+  pizza_amount:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: pizza_amount
+  pizza_size:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: pizza_size
+  pizza_type:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: pizza_type
+  requested_slot:
+    type: categorical
+    values:
+    - pizza_amount
+    - pizza_type
+    - pizza_size
+    mappings:
+    - type: custom
+    influence_conversation: true
+  toppings:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: toppings
+  total_order:
+    type: any
+    mappings:
+    - type: custom
+  restaurant_location:
+    type: any
+    mappings:
+    - type: custom
+responses:
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
+  utter_welcome_greet:
+  - text: Hello There! Welcome to Pizzbot. How can I help you?
+  utter_init_request:
+  - text: Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian, all available in sizes Small, Medium or Large . What would you like to have?
+  utter_init_pizza_question:
+  - text: For pizza without meat we have.... For pizza without cheese we have. Sizes available are Small, Medium and Large. What would you love to have?
+  utter_ask_pizza_size:
+  - text: What size of pizza do you want?
+  utter_ask_pizza_type:
+  - text: What type of pizza do you want?
+  utter_ask_pizza_amount:
+  - text: How many pizzas do you want?
+  utter_order_confirm_negative:
+  - text: What would you like to change?
+  utter_order_confirm_positive:
+  - text: Great. Anything else?
+  utter_item_change:
+  - text: Ok! So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that correct?
+  utter_extra_order:
+  - text: Would you like to order anything else?
+  utter_final_order:
+  - text: Your total order is {pizza_amount} {pizza_type} pizzas in {pizza_size}. Do you prefer take away or home delivery?
+  utter_total_order_final:
+  - text: Do you prefer takeaway or home delivery
+  utter_name_phone:
+  - text: Here is your total order, {total_order} . what is your name and phone number?
+  utter_order_complete:
+  - text: Here is your order number {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
+  utter_delivery_address:
+  - text: Please provide us with your home/ office address
+  utter_order_add:
+  - text: which pizza like to add in your order?
+  utter_default:
+  - text: Sorry, I didn’t understand that. Can you please retype it?
+  utter_item_type_start_negative:
+  - text: sadly , we don't offer {pizza_type}
+  utter_item_type_start_postive:
+  - text: yes, we do offer {pizza_type} would you like to order one?
+  utter_item_type:
+  - text: what pizza type would you like?
+  utter_item_size:
+  - text: what size do you want your {pizza_type} in
+  utter_item_amount:
+  - text: how many would like?
+  utter_pizza_questions:
+  - text: what would you like on your pizza?
+  utter_order_processing_positive:
+  - text: Great. Your order is being processed. Please wait. We will get back to your shortly?
+  utter_order_processing_negative:
+  - text: Sorry, there is a problem with your order
+  utter_explain_pizza_quantities:
+  - text: In this specific question, we are asking you how many pizzas of the same type you would like in your order.
+  utter_summarize_order:
+  - text: Okay Great. Your order is {} {} pizzas in {}. Can you confirm please
+  utter_inform_restaurant_location:
+  - text: Our restaurant is located at {restaurant_location}. We're waiting for you.
+  utter_anything_else:
+  - text: Is there anything else I can do for you?
+actions:
+- utter_welcome_greet
+- utter_anything_else
+- utter_order_complete
+- utter_item_change
+- validate_pizza_order_form
+- utter_inform_restaurant_location
+- utter_explain_pizza_quantities
+- utter_total_order_final
+- utter_ask_pizza_size
+- action_pizza_order_add
+- action_get_restaurant_location
+- utter_init_request
+- utter_init_pizza_question
+- utter_ask_pizza_type
+- utter_ask_pizza_amount
+- utter_order_confirm_negative
+- utter_order_confirm_positive
+- utter_extra_order
+- utter_final_order
+- utter_name_phone
+- utter_delivery_address
+- action_change_order
+- action_reset_pizza_form
+- action_order_number
+- utter_item_type_start_negative
+- utter_item_type_start_postive
+- utter_item_type
+- utter_item_size
+- utter_item_amount
+- utter_pizza_questions
+- utter_order_processing_positive
+- utter_order_processing_negative
+- utter_order_add
+- utter_default
+- utter_summarize_order
+forms:
+  pizza_order_form:
+    required_slots:
+    - pizza_amount
+    - pizza_type
+    - pizza_size
