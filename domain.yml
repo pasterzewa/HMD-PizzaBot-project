@@ -16,6 +16,9 @@ intents:
 - item_size
 - item_start_generic
 - item_topping
+- item_crust
+- affirm_sliced
+- deny_sliced
 - item_type
 - item_type_start
 - order_confirm_final
@@ -34,6 +37,8 @@ entities:
 - pizza_size
 - pizza_type
 - pizza_amount
+- pizza_crust
+- pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
 - toppings
@@ -75,12 +80,34 @@ slots:
     mappings:
     - type: from_entity
       entity: pizza_type
+  pizza_crust:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: pizza_crust
+  pizza_sliced:
+    type: bool
+    mappings:
+    - type: from_intent
+      intent: affirm_sliced
+      value: yes
+      #conditions:
+      #- active_loop: pizza_order_form
+      #  requested_slot: pizza_sliced
+    - type: from_intent
+      intent: deny_sliced
+      value: no
+      #conditions:
+      #- active_loop: pizza_order_form
+      #  requested_slot: pizza_sliced
   requested_slot:
     type: categorical
     values:
     - pizza_amount
     - pizza_type
     - pizza_size
+    - pizza_crust
+    - pizza_sliced
     mappings:
     - type: custom
     influence_conversation: true
@@ -112,16 +139,20 @@ responses:
   - text: What type of pizza do you want?
   utter_ask_pizza_amount:
   - text: How many pizzas do you want?
+  utter_ask_pizza_crust:
+  - text: What type of crust do you want?
+  utter_ask_pizza_sliced:
+  - text: Would you like your pizzas to be sliced?
   utter_order_confirm_negative:
   - text: What would you like to change?
   utter_order_confirm_positive:
   - text: Great. Anything else?
   utter_item_change:
-  - text: Ok! So you want {pizza_amount} {pizza_type} pizzas in {pizza_size}. Is that correct?
+  - text: Ok! So you want {pizza_amount} {pizza_type} pizzas on {pizza_crust} in {pizza_size}. Is that correct?
   utter_extra_order:
   - text: Would you like to order anything else?
   utter_final_order:
-  - text: Your total order is {pizza_amount} {pizza_type} pizzas in {pizza_size}. Do you prefer take away or home delivery?
+  - text: Your total order is {pizza_amount} {pizza_type} pizzas on {pizza_crust} in {pizza_size}. Do you prefer take away or home delivery?
   utter_total_order_final:
   - text: Do you prefer takeaway or home delivery
   utter_name_phone:
@@ -174,6 +205,8 @@ actions:
 - utter_init_pizza_question
 - utter_ask_pizza_type
 - utter_ask_pizza_amount
+- utter_ask_pizza_crust
+- utter_ask_pizza_sliced
 - utter_order_confirm_negative
 - utter_order_confirm_positive
 - utter_extra_order
@@ -200,3 +233,5 @@ forms:
     - pizza_amount
     - pizza_type
     - pizza_size
+    - pizza_crust
+    - pizza_sliced
