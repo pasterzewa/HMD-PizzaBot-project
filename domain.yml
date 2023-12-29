@@ -29,6 +29,10 @@ intents:
 - order_take_home
 - out_of_scope
 - pizza_questions
+- request_all_pizzas
+- request_meat_pizzas
+- request_restaurant_location
+- request_vege_pizzas
 - response_name_phone
 - response_negative
 - response_positive
@@ -116,6 +120,14 @@ slots:
     mappings:
     - type: from_entity
       entity: toppings
+  meat_pizzas:
+    type: any
+    mappings:
+    - type: custom
+  vege_pizzas:
+    type: any
+    mappings:
+    - type: custom
   total_order:
     type: any
     mappings:
@@ -183,6 +195,12 @@ responses:
   - text: Sorry, there is a problem with your order
   utter_explain_pizza_quantities:
   - text: In this specific question, we are asking you how many pizzas of the same type you would like in your order.
+  utter_inform_meat_pizzas:
+  - text: Our restaurant has several pizzas with meat. They are {meat_pizzas}.
+  utter_inform_vege_pizzas:
+  - text: Our restaurant has several vegeterian pizzas. They are {vege_pizzas}.
+  utter_inform_all_pizzas:
+  - text: Our restaurant has many pizzas. They are {meat_pizzas}, {vege_pizzas}.
   utter_summarize_order:
   - text: Okay Great. Your order is {} {} pizzas in {}. Can you confirm please
   utter_inform_restaurant_location:
@@ -201,6 +219,12 @@ actions:
 - utter_ask_pizza_size
 - action_pizza_order_add
 - action_get_restaurant_location
+- action_get_meat_pizzas
+- action_get_vege_pizzas
+- action_get_all_pizzas
+- utter_inform_meat_pizzas
+- utter_inform_vege_pizzas
+- utter_inform_all_pizzas
 - utter_init_request
 - utter_init_pizza_question
 - utter_ask_pizza_type

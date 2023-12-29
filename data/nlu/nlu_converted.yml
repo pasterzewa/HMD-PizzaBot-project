@@ -309,6 +309,27 @@ nlu:
     - where are you guys?
     - where's my pizza?
     - what's your address?
+- intent: request_meat_pizzas
+  examples: |
+    - what pizzas with meat do you have?
+    - do you offer non-vegetarian pizzas?
+    - what are the options with meat?
+    - what types with meat do you have?
+    - what meat pizzas do you have
+- intent: request_vege_pizzas
+  examples: |
+    - what pizzas without meat do you have?
+    - do you offer vegetarian pizzas?
+    - what are the options with no meat?
+    - what types without meat do you have?
+    - what vege pizzas do you have
+- intent: request_all_pizzas
+  examples: |
+    - what pizzas do you have?
+    - what pizzas do you offer?
+    - what are the pizza options?
+    - what do you have?
+    - what type of pizza do you have?
 - intent: item_amount
   examples: |
     - [3](pizza_amount)
