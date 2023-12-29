@@ -16,52 +16,6 @@ nlu:
     - greetings
     - long time no see
     - hello
-- intent: init_pizza_question
-  examples: |
-    - do you have pizza with no [meat](pizza_type)?
-    - do you have pizza with no [cheese](pizza_type)?
-    - do you have pizza with no [pepper](pizza_type)?
-    - do you have pizza with no [vegetables](pizza_type)?
-    - do you have pizza without [meat](pizza_type)?
-    - do you have pizza without [cheese](pizza_type)?
-    - do you have pizza without [pepper](pizza_type)?
-    - do you have pizza without [vegetables](pizza_type)?
-    - do you have pizza with no [meat](pizza_type) please?
-    - do you have pizza with no [cheese](pizza_type) please?
-    - do you have pizza with no [pepper](pizza_type) please?
-    - do you have pizza with no [vegetables](pizza_type) please?
-    - do you have pizza without [meat](pizza_type) please?
-    - do you have pizza without [cheese](pizza_type) please?
-    - do you have pizza without [pepper](pizza_type) please?
-    - do you have pizza without [vegetables](pizza_type) please?
-    - do you have [hawaii](pizza_type)
-    - do you offer pizza [margherita](pizza_type)
-    - do you have [Americana](pizza_type)
-    - do you offer pizza [Americana](pizza_type)
-    - pizza with no [meat](pizza_type)?
-    - pizza with no [cheese](pizza_type)?
-    - pizza with no [pepper](pizza_type)?
-    - pizza with no [vegetables](pizza_type)?
-    - pizza without [meat](pizza_type)?
-    - pizza without [cheese](pizza_type)?
-    - pizza without [pepper](pizza_type)?
-    - pizza without [vegetables](pizza_type)?
-    - pizza with no [meat](pizza_type) please?
-    - pizza with no [cheese](pizza_type) please?
-    - pizza with no [pepper](pizza_type) please?
-    - pizza with no [vegetables](pizza_type) please?
-    - pizza without [meat](pizza_type) please?
-    - pizza without [cheese](pizza_type) please?
-    - pizza without [pepper](pizza_type) please?
-    - pizza without [vegetables](pizza_type) please?
-    - any pizza with no [meat](pizza_type)?
-    - any pizza with no [cheese](pizza_type)?
-    - any pizza with no [pepper](pizza_type)?
-    - any pizza with no [vegetables](pizza_type)?
-    - any pizza without [meat](pizza_type) please?
-    - any pizza without [cheese](pizza_type) please?
-    - any pizza without [pepper](pizza_type) please?
-    - any pizza without [vegetables](pizza_type) please?
 - intent: item_start_generic
   examples: |
     - i want to buy a pizza
@@ -158,6 +112,7 @@ nlu:
     - i want to buy a [margherita](pizza_type) pizza
     - I want to buy a [margherita](pizza_type) pizza
     - i want pizza
+    - i want a pizza
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -176,6 +131,15 @@ nlu:
     - actually, I want it on [thin crust](pizza_crust)
     - wait, no, I want [flat bread crust](pizza_crust)
     - I want [cracker crust](pizza_crust)
+- intent: item_change_request_without_entity
+  examples: |
+    - wait, I want to make some changes.
+    - i want to make some changes
+    - i want to change my order
+    - i changed my mind
+    - go back, I need to change something
+    - Actually i want to modify pizza type.
+    - Actually i want to modify pizza size.
 - intent: response_negative
   examples: |
     - actually no
@@ -204,11 +168,13 @@ nlu:
     - [Raymond](client_name) and [098765432](phone_number)
     - [Raymond](client_name) [098765432](phone_number)
     - [Raymond](client_name) and my number is [098765432](phone_number)
-- intent: order_take_home
+- intent: order_pickup
   examples: |
-    - take away
+    - I'll pick it up
     - i prefer take away
     - take away please
+    - pick up please
+    - pick up
 - intent: order_delivery
   examples: |
     - delivery please
@@ -216,42 +182,33 @@ nlu:
     - i prefer delivery
 - intent: order_delivery_address
   examples: |
-    - my address is #46, 655 avenue du techno pole
-    - #46, 655 avenue du techno polef
-    - house number 46 street 655 avenue du technopole
-    - house num 46  655 avenue du techno pole street
-    - House No 46  655 avenue du techno pole street
-    - House No. 46  655 avenue du techno pole street
-    - my address is house number 46 street 655 avenue du techno pole
-    - my address is house num 46  655 avenue du techno pole street
-    - my address is No 46  655 avenue du techno pole street
-    - my address is No. 46  655 avenue du techno pole street
-- intent: item_change_request_without_entity
+    - my address is [#46, 655 avenue du techno pole](delivery_address)
+    - [#46, 655 avenue du techno polef](delivery_address)
+    - [house number 46 street 655 avenue du technopole](delivery_address)
+    - [house num 46  655 avenue du techno pole street](delivery_address)
+    - [House No 46  655 avenue du techno pole street](delivery_address)
+    - [House No. 46  655 avenue du techno pole street](delivery_address)
+    - my address is [house number 46 street 655 avenue du techno pole](delivery_address)
+    - my address is [house num 46  655 avenue du techno pole street](delivery_address)
+    - my address is [No 46  655 avenue du techno pole street](delivery_address)
+    - my address is [No. 46  655 avenue du techno pole street](delivery_address)
+    - my address is [via del Posso 23](delivery_address)
+    - [via del Posso 23](delivery_address)
+    - bring it to [via del posso 23](delivery_address)
+    - my address is [del Posso street, number 23](delivery_address)
+- intent: order_customer_details
   examples: |
-    - Actually i want to modify pizza type.
-    - Actually i want to modify pizza size.
-    - i want to change my order.
+    - my name is [John Doe](client_name) and phone is [123456789](phone_number)
+    - I'm [John Doe](client_name), phone [12344565](phone_number)
+    - [John Doe](client_name), [1274327843](phone_number)
+    - sure, my phone is [12374323](phone_number) and name's [John Doe](client_name)
+    - right, name [Alice Cooper](client_name), phone [43532433](phone_number)
+    - i'm [Alice Cooper](client_name), my phone number is [678839211](phone_number)
+    - you can contact me at number [777888999](phone_number), my name is [Alice Cooper](client_name)
 - intent: item_type
   examples: |
     - [hawaii](pizza_type)
     - [margherita](pizza_type)
-    - [margherita](pizza_type)
-- intent: item_size
-  examples: |
-    - [small](pizza_size)
-    - [large](pizza_size)
-    - I want to order [large](pizza_size) pizza
-    - I want a [large](pizza_size) pizza
-    - I think its [large](pizza_size)
-    - [medium](pizza_size) pizza
-    - huge pizza
-    - Little pizza
-    - Probably avg
-    - [medium](pizza_size)
-    - [large](pizza_size) please
-    - [large](pizza_size)
-- intent: item_topping
-  examples: |
     - I want to order pizza with [olives](pizza_type)
     - My favourite topping is [cheese](pizza_type)
     - I like [olive](pizza_type)
@@ -269,6 +226,21 @@ nlu:
     - [mushrooms](pizza_type), [artichokes](pizza_type) and [olives](pizza_type)
     - [ham](pizza_type), [mushrooms](pizza_type), [bacon](pizza_type) and [brie](pizza_type)
     - [onions](pizza_type) and [tuna](pizza_type)
+    - [margherita](pizza_type)
+- intent: item_size
+  examples: |
+    - [small](pizza_size)
+    - [large](pizza_size)
+    - I want to order [large](pizza_size) pizza
+    - I want a [large](pizza_size) pizza
+    - I think its [large](pizza_size)
+    - [medium](pizza_size) pizza
+    - huge pizza
+    - Little pizza
+    - Probably avg
+    - [medium](pizza_size)
+    - [large](pizza_size) please
+    - [large](pizza_size)
 - intent: item_crust
   examples: |
     - [thin crust](pizza_crust)
@@ -277,7 +249,7 @@ nlu:
     - with [stuffed crust](pizza_crust) please
     - maybe [flat bread crust](pizza_crust)
     - I want [thin crust](pizza_crust)
-    - [thin crust](pizza_crust)
+    - [stuffed crust](pizza_crust)
 - intent: affirm_sliced
   examples: |
     - yes
@@ -290,6 +262,22 @@ nlu:
     - never
     - I don't want it sliced
     - no, I don't want it
+    - no, thank you
+- intent: affirm_correct_order
+  examples: |
+    - yes
+    - of course
+    - exactly what i ordered
+    - yes, that's what i ordered
+    - yep
+    - perfect
+    - i confirm
+- intent: deny_correct_order
+  examples: |
+    - no
+    - no, that's not it
+    - you got it wrong
+    - no, you made a mistake
 - intent: explain
   examples: |
     - can you explain more?
@@ -323,6 +311,7 @@ nlu:
     - what are the options with no meat?
     - what types without meat do you have?
     - what vege pizzas do you have
+    - what vegetarian options do you have?
 - intent: request_all_pizzas
   examples: |
     - what pizzas do you have?
@@ -343,6 +332,7 @@ nlu:
     - just [one](pizza_amount)
     - just [1](pizza_amount)
     - [one](pizza_amount)
+    - [1](pizza_amount)
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -354,6 +344,9 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
+- intent: extra_order_negative
+  examples: |
+    - no, that's all
 - synonym: Americana
   examples: |
     - Americana
@@ -406,6 +399,7 @@ nlu:
 - synonym: Hawaii
   examples: |
     - Hawaii
+    - ham and pineapple
 - synonym: Margherita
   examples: |
     - Margherita
@@ -413,7 +407,12 @@ nlu:
 - synonym: Pepperoni
   examples: |
     - Pepp
+    - Peperoni
 - synonym: Vegetarian
   examples: |
     - Vegetarian
     - Vegetable
+    - Vege
+    - Veggie
+    - veggie
+    - vegetables

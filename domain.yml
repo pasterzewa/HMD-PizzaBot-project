@@ -3,45 +3,37 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- affirm_correct_order
+- affirm_sliced
+- deny_correct_order
+- deny_sliced
 - explain
 - extra_order_negative
 - extra_order_postive
-- init_pizza_question
-- init_request
 - item_amount
 - item_change
 - item_change_request_without_entity
-- item_confirm_no
-- item_confirm_yes
+- item_crust
 - item_size
 - item_start_generic
-- item_topping
-- item_crust
-- affirm_sliced
-- deny_sliced
 - item_type
-- item_type_start
-- order_confirm_final
-- order_confirm_negative
-- order_confirm_positive
+- order_customer_details
 - order_delivery
 - order_delivery_address
-- order_take_home
+- order_pickup
 - out_of_scope
-- pizza_questions
 - request_all_pizzas
 - request_meat_pizzas
 - request_restaurant_location
 - request_vege_pizzas
-- response_name_phone
 - response_negative
 - response_positive
 - welcome_greet
 entities:
 - pizza_size
-- pizza_type
 - pizza_amount
 - pizza_crust
+- pizza_type
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
@@ -49,6 +41,7 @@ entities:
 - client_name
 - phone_number
 - order_number
+- delivery_address
 slots:
   anti_pizza_type:
     type: any
@@ -69,6 +62,11 @@ slots:
     mappings:
     - type: from_entity
       entity: phone_number
+  delivery_address:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: delivery_address
   pizza_amount:
     type: any
     mappings:
@@ -95,15 +93,9 @@ slots:
     - type: from_intent
       intent: affirm_sliced
       value: yes
-      #conditions:
-      #- active_loop: pizza_order_form
-      #  requested_slot: pizza_sliced
     - type: from_intent
       intent: deny_sliced
       value: no
-      #conditions:
-      #- active_loop: pizza_order_form
-      #  requested_slot: pizza_sliced
   requested_slot:
     type: categorical
     values:
@@ -115,11 +107,6 @@ slots:
     mappings:
     - type: custom
     influence_conversation: true
-  toppings:
-    type: any
-    mappings:
-    - type: from_entity
-      entity: toppings
   meat_pizzas:
     type: any
     mappings:
@@ -140,11 +127,7 @@ responses:
   utter_out_of_scope:
   - text: Sorry, I can't handle that request.
   utter_welcome_greet:
-  - text: Hello There! Welcome to Pizzbot. How can I help you?
-  utter_init_request:
-  - text: Okay. In today's menu, we have Funghi, Hawaii, Margherita, Pepperoni, Vegetarian, all available in sizes Small, Medium or Large . What would you like to have?
-  utter_init_pizza_question:
-  - text: For pizza without meat we have.... For pizza without cheese we have. Sizes available are Small, Medium and Large. What would you love to have?
+  - text: Hello There! Welcome to Pizzbot of New Trento pizzeria. How can I help you?
   utter_ask_pizza_size:
   - text: What size of pizza do you want?
   utter_ask_pizza_type:
@@ -157,98 +140,79 @@ responses:
   - text: Would you like your pizzas to be sliced?
   utter_order_confirm_negative:
   - text: What would you like to change?
-  utter_order_confirm_positive:
-  - text: Great. Anything else?
   utter_item_change:
   - text: Ok! So you want {pizza_amount} {pizza_type} pizzas on {pizza_crust} in {pizza_size}. Is that correct?
   utter_extra_order:
-  - text: Would you like to order anything else?
-  utter_final_order:
-  - text: Your total order is {pizza_amount} {pizza_type} pizzas on {pizza_crust} in {pizza_size}. Do you prefer take away or home delivery?
-  utter_total_order_final:
-  - text: Do you prefer takeaway or home delivery
-  utter_name_phone:
-  - text: Here is your total order, {total_order} . what is your name and phone number?
+  - text: Would you like to order more pizzas?
+  utter_total_and_delivery:
+  - text: Your total order is {total_order}. Do you prefer take away or home delivery?
+  utter_customer_details:
+  - text: To finish your order I need your name and phone number.
   utter_order_complete:
-  - text: Here is your order number {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
+  - text: Your order number is {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
-  - text: Please provide us with your home/ office address
-  utter_order_add:
-  - text: which pizza like to add in your order?
+  - text: To what address would you like your pizza to be delivered to?
   utter_default:
   - text: Sorry, I didn’t understand that. Can you please retype it?
-  utter_item_type_start_negative:
-  - text: sadly , we don't offer {pizza_type}
-  utter_item_type_start_postive:
-  - text: yes, we do offer {pizza_type} would you like to order one?
-  utter_item_type:
-  - text: what pizza type would you like?
-  utter_item_size:
-  - text: what size do you want your {pizza_type} in
-  utter_item_amount:
-  - text: how many would like?
-  utter_pizza_questions:
-  - text: what would you like on your pizza?
-  utter_order_processing_positive:
-  - text: Great. Your order is being processed. Please wait. We will get back to your shortly?
-  utter_order_processing_negative:
-  - text: Sorry, there is a problem with your order
   utter_explain_pizza_quantities:
   - text: In this specific question, we are asking you how many pizzas of the same type you would like in your order.
+  utter_explain_pizza_sizes:
+  - text: In this specific question, we are asking you what size would you like your pizza to be. We offer four sizes. Small - 10", medium - 12", large - 14", extra large - 18".
+  utter_explain_pizza_crust:
+  - text: Our restaurant offers several types of pizza dough. You can choose from thin crust, stuffed crust, flat bread crust and cracker crust.
+  utter_explain_pizza_types:
+  - text: I'm asking about what you would like on your pizza. We offer {meat_pizzas}, {vege_pizzas}.
   utter_inform_meat_pizzas:
   - text: Our restaurant has several pizzas with meat. They are {meat_pizzas}.
   utter_inform_vege_pizzas:
   - text: Our restaurant has several vegeterian pizzas. They are {vege_pizzas}.
   utter_inform_all_pizzas:
   - text: Our restaurant has many pizzas. They are {meat_pizzas}, {vege_pizzas}.
-  utter_summarize_order:
-  - text: Okay Great. Your order is {} {} pizzas in {}. Can you confirm please
+  utter_pizza_confirm:
+  - text: Great! Your order is {pizza_amount} {pizza_type} pizzas on {pizza_crust} in {pizza_size}. Can you confirm, please?
   utter_inform_restaurant_location:
   - text: Our restaurant is located at {restaurant_location}. We're waiting for you.
   utter_anything_else:
   - text: Is there anything else I can do for you?
+  utter_promotion_not_valid:
+  - text: Sorry, your order doesn't meet the requirements for the promotion. Would you like to extend your order?
+  utter_promotion_valid:
+  - text: The promotion has been included in your total order.
+  utter_promotion_almost:
+  - text: I've noticed you can qualify for the {possible_promotion} promotion, if you order some more pizzas - would you like to extend your order?
+  utter_promotion:
+  - text: I've noticed you qualify for the {possible_promotion} promotion - would you like to include it in your total order?
 actions:
 - utter_welcome_greet
+- utter_pizza_confirm
+- utter_total_and_delivery
+- action_reset_pizza_form
+- action_pizza_order_add
+- utter_extra_order
+- utter_item_change
+- action_get_vege_pizzas
+- utter_inform_vege_pizzas
 - utter_anything_else
 - utter_order_complete
-- utter_item_change
 - validate_pizza_order_form
 - utter_inform_restaurant_location
 - utter_explain_pizza_quantities
-- utter_total_order_final
 - utter_ask_pizza_size
-- action_pizza_order_add
 - action_get_restaurant_location
 - action_get_meat_pizzas
-- action_get_vege_pizzas
 - action_get_all_pizzas
 - utter_inform_meat_pizzas
-- utter_inform_vege_pizzas
 - utter_inform_all_pizzas
-- utter_init_request
-- utter_init_pizza_question
 - utter_ask_pizza_type
 - utter_ask_pizza_amount
 - utter_ask_pizza_crust
 - utter_ask_pizza_sliced
 - utter_order_confirm_negative
-- utter_order_confirm_positive
-- utter_extra_order
 - utter_final_order
 - utter_name_phone
 - utter_delivery_address
 - action_change_order
-- action_reset_pizza_form
 - action_order_number
-- utter_item_type_start_negative
-- utter_item_type_start_postive
-- utter_item_type
-- utter_item_size
-- utter_item_amount
-- utter_pizza_questions
-- utter_order_processing_positive
-- utter_order_processing_negative
-- utter_order_add
 - utter_default
 - utter_summarize_order
 forms:

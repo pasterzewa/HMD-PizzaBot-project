@@ -7,6 +7,11 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
+- rule: Activate form again
+  steps:
+  - intent: extra_order_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
 
 - rule: submit form
   condition:
@@ -14,19 +19,24 @@ rules:
   steps:
       - action: pizza_order_form      # run the form
       - active_loop: null
-      - action: utter_item_change
+      - action: utter_pizza_confirm
 
+#- rule: move on after pizza form
+#  steps:
+#      - intent: affirm_correct_order
+#      - action: action_pizza_order_add
+#      - action: action_reset_pizza_form
+#      - action: utter_extra_order
 
 - rule: out-of-scope
   steps:
   - intent: out_of_scope
   - action: utter_out_of_scope
 
-- rule: start
-  steps:
-    - intent: init_request
-    - action: utter_init_request
-
+#- rule: start
+#  steps:
+#    - intent: init_request
+#    - action: utter_init_request
 
 - rule: where are you?
   steps:
@@ -34,3 +44,21 @@ rules:
     - action: action_get_restaurant_location
     - action: utter_inform_restaurant_location
     - action: utter_anything_else
+
+- rule: what meat pizzas do you have?
+  steps:
+    - intent: request_meat_pizzas
+    - action: action_get_meat_pizzas
+    - action: utter_inform_meat_pizzas
+
+- rule: what vegetarian pizzas do you have?
+  steps:
+    - intent: request_vege_pizzas
+    - action: action_get_vege_pizzas
+    - action: utter_inform_vege_pizzas
+
+- rule: what pizzas do you have?
+  steps:
+    - intent: request_all_pizzas
+    - action: action_get_all_pizzas
+    - action: utter_inform_all_pizzas

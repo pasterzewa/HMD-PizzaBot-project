@@ -27,9 +27,13 @@ class ActionChangeOrder(Action):
 		pizza_size = tracker.get_slot("pizza_size")
 		pizza_type = tracker.get_slot("pizza_type")
 		pizza_amount = tracker.get_slot("pizza_amount")
+		pizza_crust = tracker.get_slot("pizza_crust")
+		pizza_sliced = tracker.get_slot("pizza_sliced")
 		SlotSet("pizza_type", pizza_type)
 		SlotSet("pizza_size", pizza_size)
 		SlotSet("pizza_amount", pizza_amount)
+		SlotSet("pizza_crust", pizza_crust)
+		SlotSet("pizza_sliced", pizza_sliced)
 		return[]
 
 class ActionPizzaOrderAdd(Action):
@@ -40,9 +44,16 @@ class ActionPizzaOrderAdd(Action):
 		pizza_size = tracker.get_slot("pizza_size")
 		pizza_type = tracker.get_slot("pizza_type")
 		pizza_amount = tracker.get_slot("pizza_amount")
+		pizza_crust = tracker.get_slot("pizza_crust")
+		pizza_sliced = tracker.get_slot("pizza_sliced")
 		if pizza_size is None:
 			pizza_size = "standard"
-		order_details =  str(pizza_amount + " "+pizza_type + " is of "+pizza_size )
+		sliced = ""
+		if pizza_sliced: # must test it!
+			sliced = "sliced"
+		else:
+			sliced = "not sliced"
+		order_details =  str(pizza_amount + " "+pizza_type + " of size "+pizza_size + " on " + pizza_crust + ", " + sliced)
 		old_order = tracker.get_slot("total_order")
 		return[SlotSet("total_order", [order_details]) if old_order is None else SlotSet("total_order", [old_order[0]+' and '+order_details])]
 
@@ -52,7 +63,7 @@ class ActionResetPizzaForm(Action):
 
 	def run(self, dispatcher, tracker, domain):
 
-		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None)]
+		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("pizza_crust", None),SlotSet("pizza_sliced", None)]
 
 class ActionOrderNumber(Action):
 	def name(self):
