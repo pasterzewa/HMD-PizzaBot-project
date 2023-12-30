@@ -13,7 +13,6 @@ rules:
 #  - action: pizza_order_form
 #  - active_loop: pizza_order_form
 
-
 - rule: submit form
   condition:
     - active_loop: pizza_order_form
@@ -63,3 +62,27 @@ rules:
     - intent: request_all_pizzas
     - action: action_get_all_pizzas
     - action: utter_inform_all_pizzas
+
+- rule: explain amount
+  condition:
+    - slot_was_set:
+      - requested_slot: pizza_amount
+  steps: 
+    - intent: explain
+    - action: utter_explain_pizza_quantities
+
+- rule: explain sizes
+  condition:
+    - slot_was_set:
+      - requested_slot: pizza_size
+  steps: 
+    - intent: explain
+    - action: utter_explain_pizza_sizes
+
+- rule: explain crust
+  condition:
+    - slot_was_set:
+      - requested_slot: pizza_crust
+  steps: 
+    - intent: explain
+    - action: utter_explain_pizza_crust

@@ -24,11 +24,11 @@ intents:
 - response_positive
 - welcome_greet
 entities:
-- pizza_crust
-- phone_number
 - pizza_amount
-- pizza_size
+- pizza_crust
 - pizza_type
+- pizza_size
+- phone_number
 - client_name
 - delivery_address
 - pizza_sliced
@@ -160,8 +160,6 @@ responses:
   - text: In this specific question, we are asking you what size would you like your pizza to be. We offer four sizes. Small - 10", medium - 12", large - 14", extra large - 18".
   utter_explain_pizza_crust:
   - text: Our restaurant offers several types of pizza dough. You can choose from thin crust, stuffed crust, flat bread crust and cracker crust.
-  utter_explain_pizza_types:
-  - text: I'm asking about what you would like on your pizza. We offer {meat_pizzas}, {vege_pizzas}.
   utter_inform_meat_pizzas:
   - text: Our restaurant has several pizzas with meat. They are {meat_pizzas}.
   utter_inform_vege_pizzas:
@@ -187,28 +185,30 @@ responses:
   utter_name_phone:
   - text: To finish your order I need your name and phone number.
 actions:
-- utter_welcome_greet
+- utter_explain_pizza_quantities
+- utter_extra_order
 - action_reset_pizza_form
 - action_pizza_order_add
+- utter_welcome_greet
+- utter_pizza_confirm
+- utter_explain_pizza_crust
+- utter_explain_pizza_sizes
+- utter_inform_vege_pizzas
+- action_get_vege_pizzas
+- utter_inform_all_pizzas
+- action_get_all_pizzas
 - utter_total_and_delivery
 - utter_customer_details
-- utter_pizza_confirm
-- utter_extra_order
 - utter_delivery_address
 - utter_order_complete
 - validate_pizza_order_form
 - utter_item_change
-- action_get_vege_pizzas
-- utter_inform_vege_pizzas
 - utter_anything_else
 - utter_inform_restaurant_location
-- utter_explain_pizza_quantities
 - utter_ask_pizza_size
 - action_get_restaurant_location
 - action_get_meat_pizzas
-- action_get_all_pizzas
 - utter_inform_meat_pizzas
-- utter_inform_all_pizzas
 - utter_ask_pizza_type
 - utter_ask_pizza_amount
 - utter_ask_pizza_crust

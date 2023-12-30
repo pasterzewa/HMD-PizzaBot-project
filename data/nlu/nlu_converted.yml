@@ -115,6 +115,7 @@ nlu:
     - i want a pizza
     - [hawaiian](pizza_type) pizza
     - i want to order pizza
+    - i want a [margherita](pizza_type) pizza
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -169,6 +170,7 @@ nlu:
     - yes, correct
     - es
     - yes, that's correct
+    - yes, that's right
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -241,7 +243,8 @@ nlu:
     - [onions](pizza_type) and [tuna](pizza_type)
     - with [onion](pizza_type)
     - with [olives](pizza_type)
-    - with [onion](pizza_type)
+    - i want [funghi](pizza_type) pizza
+    - [olives](pizza_type) pizza
 - intent: item_size
   examples: |
     - [small](pizza_size)
@@ -255,7 +258,7 @@ nlu:
     - Probably avg
     - [medium](pizza_size)
     - [large](pizza_size) please
-    - [medium](pizza_size)
+    - [large](pizza_size)
 - intent: item_crust
   examples: |
     - [thin crust](pizza_crust)
@@ -266,7 +269,8 @@ nlu:
     - I want [thin crust](pizza_crust)
     - [stuffed crust](pizza_crust)
     - [flat bread crust](pizza_crust)
-    - [thin crust](pizza_crust)
+    - [thin crust](pizza_crust) would be nice
+    - [cracker crust](pizza_crust)
 - intent: explain
   examples: |
     - can you explain more?
@@ -278,6 +282,12 @@ nlu:
     - explain
     - tell me more about it
     - what do you mean
+    - what do you offer
+    - what do you carry
+    - what sizes do you have
+    - what crusts do you offer
+    - what do you mean by that
+    - what crusts do yu offer
 - intent: request_restaurant_location
   examples: |
     - Where is the restaurant?
@@ -301,6 +311,7 @@ nlu:
     - what types without meat do you have?
     - what vege pizzas do you have
     - what vegetarian options do you have?
+    - what vegetarian pizzas do you have?
 - intent: request_all_pizzas
   examples: |
     - what pizzas do you have?
@@ -321,7 +332,7 @@ nlu:
     - just [one](pizza_amount)
     - just [1](pizza_amount)
     - [one](pizza_amount)
-    - [two](pizza_amount) please
+    - just [one](pizza_amount)
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
