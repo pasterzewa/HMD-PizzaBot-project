@@ -7,11 +7,12 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
-- rule: Activate form again
-  steps:
-  - intent: extra_order_positive
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
+#- rule: Activate form again
+#  steps:
+#  - intent: extra_order_positive
+#  - action: pizza_order_form
+#  - active_loop: pizza_order_form
+
 
 - rule: submit form
   condition:

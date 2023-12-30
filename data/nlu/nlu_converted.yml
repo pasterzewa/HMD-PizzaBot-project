@@ -113,6 +113,8 @@ nlu:
     - I want to buy a [margherita](pizza_type) pizza
     - i want pizza
     - i want a pizza
+    - [hawaiian](pizza_type) pizza
+    - i want to order pizza
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -149,6 +151,8 @@ nlu:
     - No, I want to make a change
     - Noo
     - no, that's all
+    - no, thanks
+    - no, thank you
 - intent: response_positive
   examples: |
     - all good
@@ -162,6 +166,9 @@ nlu:
     - correct
     - Yes
     - Yeah
+    - yes, correct
+    - es
+    - yes, that's correct
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -175,6 +182,7 @@ nlu:
     - take away please
     - pick up please
     - pick up
+    - pickup
 - intent: order_delivery
   examples: |
     - delivery please
@@ -196,6 +204,8 @@ nlu:
     - [via del Posso 23](delivery_address)
     - bring it to [via del posso 23](delivery_address)
     - my address is [del Posso street, number 23](delivery_address)
+    - to [via del Giuseppe 23](delivery_address)
+    - deliver it to my work, at [Prezzo street, number 42](delivery_address)
 - intent: order_customer_details
   examples: |
     - my name is [John Doe](client_name) and phone is [123456789](phone_number)
@@ -205,6 +215,9 @@ nlu:
     - right, name [Alice Cooper](client_name), phone [43532433](phone_number)
     - i'm [Alice Cooper](client_name), my phone number is [678839211](phone_number)
     - you can contact me at number [777888999](phone_number), my name is [Alice Cooper](client_name)
+    - I'm [John Doe](client_name) and my number is [123532343](phone_number)
+    - sure, name is [Julia Montecchi](client_name), phone is [768389193](phone_number)
+    - i'm [Anna Doen](client_name), my phone is [1284378933](phone_number)
 - intent: item_type
   examples: |
     - [hawaii](pizza_type)
@@ -226,7 +239,9 @@ nlu:
     - [mushrooms](pizza_type), [artichokes](pizza_type) and [olives](pizza_type)
     - [ham](pizza_type), [mushrooms](pizza_type), [bacon](pizza_type) and [brie](pizza_type)
     - [onions](pizza_type) and [tuna](pizza_type)
-    - [margherita](pizza_type)
+    - with [onion](pizza_type)
+    - with [olives](pizza_type)
+    - with [onion](pizza_type)
 - intent: item_size
   examples: |
     - [small](pizza_size)
@@ -240,7 +255,7 @@ nlu:
     - Probably avg
     - [medium](pizza_size)
     - [large](pizza_size) please
-    - [large](pizza_size)
+    - [medium](pizza_size)
 - intent: item_crust
   examples: |
     - [thin crust](pizza_crust)
@@ -250,34 +265,8 @@ nlu:
     - maybe [flat bread crust](pizza_crust)
     - I want [thin crust](pizza_crust)
     - [stuffed crust](pizza_crust)
-- intent: affirm_sliced
-  examples: |
-    - yes
-    - of course
-    - i want it sliced
-    - Yes, I want slices
-- intent: deny_sliced
-  examples: |
-    - no
-    - never
-    - I don't want it sliced
-    - no, I don't want it
-    - no, thank you
-- intent: affirm_correct_order
-  examples: |
-    - yes
-    - of course
-    - exactly what i ordered
-    - yes, that's what i ordered
-    - yep
-    - perfect
-    - i confirm
-- intent: deny_correct_order
-  examples: |
-    - no
-    - no, that's not it
-    - you got it wrong
-    - no, you made a mistake
+    - [flat bread crust](pizza_crust)
+    - [thin crust](pizza_crust)
 - intent: explain
   examples: |
     - can you explain more?
@@ -332,7 +321,7 @@ nlu:
     - just [one](pizza_amount)
     - just [1](pizza_amount)
     - [one](pizza_amount)
-    - [1](pizza_amount)
+    - [two](pizza_amount) please
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -344,9 +333,6 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
-- intent: extra_order_negative
-  examples: |
-    - no, that's all
 - synonym: Americana
   examples: |
     - Americana

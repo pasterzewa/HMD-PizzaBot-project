@@ -3,13 +3,7 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- affirm_correct_order
-- affirm_sliced
-- deny_correct_order
-- deny_sliced
 - explain
-- extra_order_negative
-- extra_order_postive
 - item_amount
 - item_change
 - item_change_request_without_entity
@@ -30,18 +24,18 @@ intents:
 - response_positive
 - welcome_greet
 entities:
-- pizza_size
-- pizza_amount
 - pizza_crust
+- phone_number
+- pizza_amount
+- pizza_size
 - pizza_type
+- client_name
+- delivery_address
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
 - toppings
-- client_name
-- phone_number
 - order_number
-- delivery_address
 slots:
   anti_pizza_type:
     type: any
@@ -91,11 +85,17 @@ slots:
     type: bool
     mappings:
     - type: from_intent
-      intent: affirm_sliced
+      intent: response_positive
       value: yes
+      conditions:
+      - active_loop: pizza_order_form
+        requested_slot: pizza_sliced
     - type: from_intent
-      intent: deny_sliced
+      intent: response_negative
       value: no
+      conditions:
+      - active_loop: pizza_order_form
+        requested_slot: pizza_sliced
   requested_slot:
     type: categorical
     values:
@@ -182,19 +182,25 @@ responses:
   - text: I've noticed you can qualify for the {possible_promotion} promotion, if you order some more pizzas - would you like to extend your order?
   utter_promotion:
   - text: I've noticed you qualify for the {possible_promotion} promotion - would you like to include it in your total order?
+  utter_summarize_order:
+  - text: placeholder for utter summarize order
+  utter_name_phone:
+  - text: To finish your order I need your name and phone number.
 actions:
 - utter_welcome_greet
-- utter_pizza_confirm
-- utter_total_and_delivery
 - action_reset_pizza_form
 - action_pizza_order_add
+- utter_total_and_delivery
+- utter_customer_details
+- utter_pizza_confirm
 - utter_extra_order
+- utter_delivery_address
+- utter_order_complete
+- validate_pizza_order_form
 - utter_item_change
 - action_get_vege_pizzas
 - utter_inform_vege_pizzas
 - utter_anything_else
-- utter_order_complete
-- validate_pizza_order_form
 - utter_inform_restaurant_location
 - utter_explain_pizza_quantities
 - utter_ask_pizza_size
@@ -208,9 +214,7 @@ actions:
 - utter_ask_pizza_crust
 - utter_ask_pizza_sliced
 - utter_order_confirm_negative
-- utter_final_order
 - utter_name_phone
-- utter_delivery_address
 - action_change_order
 - action_order_number
 - utter_default
