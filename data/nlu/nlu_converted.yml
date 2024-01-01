@@ -128,6 +128,7 @@ nlu:
     - hello, i want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas
     - hello, i wan to order [two](pizza_amount) [medium](pizza_size) [pepperoni](pizza_type) pizzas
     - hello, i want a [large](pizza_size) [margherita](pizza_type) pizza
+    - hello, i want to order pizza
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -281,6 +282,7 @@ nlu:
     - with [bacon](pizza_type)
     - a pizza with [bacon](pizza_type)
     - [funghi](pizza_type)
+    - [ham](pizza_type) pizza
 - intent: item_size
   examples: |
     - [small](pizza_size)
@@ -305,7 +307,7 @@ nlu:
     - [stuffed crust](pizza_crust)
     - [flat bread crust](pizza_crust)
     - [thin crust](pizza_crust) would be nice
-- intent: explain/ask_amount
+- intent: explain
   examples: |
     - what do you mean?
     - elaborate more on that?
@@ -316,14 +318,10 @@ nlu:
     - what do you mean
     - how many of what
     - what do you mean by how many pizzas do I want
-- intent: explain/ask_crust
-  examples: |
     - what crusts do you have
     - what choice do I have
     - what crusts are there
     - i need examples
-- intent: explain/ask_size
-  examples: |
     - what sizes do you have
     - what options are there
     - what sizes can I choose from
@@ -375,7 +373,7 @@ nlu:
     - just [1](pizza_amount)
     - [one](pizza_amount)
     - [5](pizza_amount)
-    - [one](pizza_amount)
+    - just [one](pizza_amount)
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?

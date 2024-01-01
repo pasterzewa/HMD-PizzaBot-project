@@ -32,10 +32,15 @@ rules:
     - action: utter_inform_vege_pizzas
 
 - rule: what pizzas do you have?
+  condition:
+    - active_loop: pizza_order_form
   steps:
     - intent: request_all_pizzas
     - action: action_get_all_pizzas
     - action: utter_inform_all_pizzas
+    - slot_was_set:
+      - requested_slot: pizza_type
+    - action: pizza_order_form
 
 # - rule: explain amount in pizza form
 #   condition:
@@ -49,10 +54,10 @@ rules:
 #     - action: pizza_order_form
 #     - active_loop: pizza_order_form
 
-- rule: explain pizza amount
-  steps:
-  - intent: explain
-  - action: utter_explain
+# - rule: explain pizza amount
+#   steps:
+#   - intent: explain
+#   - action: utter_explain
 
 - rule: submit form
   condition:

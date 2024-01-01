@@ -15,7 +15,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
 
 - story: pizza interjection 2
@@ -25,7 +25,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
 
 - story: interactive_story_09
@@ -36,7 +36,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -102,7 +102,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -129,7 +129,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -186,7 +186,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -1180,7 +1180,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -1220,7 +1220,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -1261,7 +1261,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -1329,7 +1329,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_size
   #- intent: explain
-  #- action: utter_explain_pizza_sizes
+  #- action: utter_explain_pizza_quantities_pizza_sizes
   #- action: pizza_order_form
   #- slot_was_set:
   #  - requested_slot: pizza_size
@@ -1380,7 +1380,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -1405,7 +1405,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_crust
   #- intent: explain
-  #- action: utter_explain_pizza_crust
+  #- action: utter_explain_pizza_quantities_pizza_crust
   #- action: pizza_order_form
   #- slot_was_set:
   #  - requested_slot: pizza_crust
@@ -1455,7 +1455,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -1491,7 +1491,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -1961,7 +1961,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -2164,7 +2164,7 @@ stories:
   - slot_was_set:
     - requested_slot: pizza_amount
   - intent: explain
-  - action: utter_explain
+  - action: utter_explain_pizza_quantities
   - action: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
@@ -2173,3 +2173,50 @@ stories:
     - pizza_amount: one
   - slot_was_set:
     - pizza_amount: one
+
+- story: interactive_story_1
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: request_all_pizzas
+  - action: action_get_all_pizzas
+  - slot_was_set:
+    - vege_pizzas: Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini
+  - slot_was_set:
+    - meat_pizzas: Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami
+
+- story: interactive_story_2
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_amount: one
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: request_all_pizzas
+  - action: action_get_all_pizzas
+  - slot_was_set:
+    - vege_pizzas: Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini
+  - slot_was_set:
+    - meat_pizzas: Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami
+  - action: utter_inform_all_pizzas
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: item_start_generic
+    entities:
+    - pizza_type: ham
+  - slot_was_set:
+    - pizza_type: ham
+  - intent: item_type
+    entities:
+    - pizza_type: ham

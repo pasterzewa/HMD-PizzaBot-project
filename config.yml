@@ -18,11 +18,11 @@ pipeline:
 #- name: CRFEntityExtractor
 - name: ResponseSelector
   epochs: 50
-  retrieval_intent: explain
+  #retrieval_intent: explain
 
 policies:
 - name: TEDPolicy
-  max_history: 10
+  max_history: 5
   epochs: 3
   constrain_similarities: True
 - name: AugmentedMemoizationPolicy
