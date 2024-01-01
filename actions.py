@@ -87,25 +87,25 @@ class ActionGetRestaurantLocation(Action):
 
 		return[SlotSet("restaurant_location", restaurant_address)]
 
-class ActionGetMeatPizzas(Action):
-	def name(self):
-		return 'action_get_meat_pizzas'
+# class ActionGetMeatPizzas(Action):
+# 	def name(self):
+# 		return 'action_get_meat_pizzas'
 	
-	def run(self, dispatcher, tracker, domain):
+# 	def run(self, dispatcher, tracker, domain):
 
-		meat_pizzas = "Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami"
+# 		meat_pizzas = "Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami"
 
-		return[SlotSet("meat_pizzas", meat_pizzas)]
+# 		return[SlotSet("meat_pizzas", meat_pizzas)]
 
-class ActionGetVegePizzas(Action):
-	def name(self):
-		return 'action_get_vege_pizzas'
+# class ActionGetVegePizzas(Action):
+# 	def name(self):
+# 		return 'action_get_vege_pizzas'
 	
-	def run(self, dispatcher, tracker, domain):
+# 	def run(self, dispatcher, tracker, domain):
 
-		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini"
+# 		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini"
 
-		return[SlotSet("vege_pizzas", vege_pizzas)]
+# 		return[SlotSet("vege_pizzas", vege_pizzas)]
 	
 class ActionGetAllPizzas(Action):
 	def name(self):
@@ -116,7 +116,11 @@ class ActionGetAllPizzas(Action):
 		meat_pizzas = "Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami"
 		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini"
 
-		return[SlotSet("vege_pizzas", vege_pizzas), SlotSet("meat_pizzas", meat_pizzas)]
+		answer = "Our restaurant has many pizzas. They are "+ meat_pizzas + ", " + vege_pizzas + "."
+		dispatcher.utter_message(text=answer)
+
+		return []
+		#return[SlotSet("vege_pizzas", vege_pizzas), SlotSet("meat_pizzas", meat_pizzas)]
 
 
 # for a generic slot validation please refer to https://rasa.com/docs/action-server/validation-action/

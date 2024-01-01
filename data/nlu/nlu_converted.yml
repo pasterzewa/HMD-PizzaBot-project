@@ -129,6 +129,7 @@ nlu:
     - hello, i wan to order [two](pizza_amount) [medium](pizza_size) [pepperoni](pizza_type) pizzas
     - hello, i want a [large](pizza_size) [margherita](pizza_type) pizza
     - hello, i want to order pizza
+    - hey, iwant to buy [one](pizza_amount) pizza
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -335,22 +336,6 @@ nlu:
     - where are you guys?
     - where's my pizza?
     - what's your address?
-- intent: request_meat_pizzas
-  examples: |
-    - what pizzas with meat do you have?
-    - do you offer non-vegetarian pizzas?
-    - what are the options with meat?
-    - what types with meat do you have?
-    - what meat pizzas do you have
-- intent: request_vege_pizzas
-  examples: |
-    - what pizzas without meat do you have?
-    - do you offer vegetarian pizzas?
-    - what are the options with no meat?
-    - what types without meat do you have?
-    - what vege pizzas do you have
-    - what vegetarian options do you have?
-    - what vegetarian pizzas do you have?
 - intent: request_all_pizzas
   examples: |
     - what pizzas do you have?
@@ -373,7 +358,6 @@ nlu:
     - just [1](pizza_amount)
     - [one](pizza_amount)
     - [5](pizza_amount)
-    - just [one](pizza_amount)
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?

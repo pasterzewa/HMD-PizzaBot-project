@@ -1,40 +1,16 @@
 version: "3.1"
 
 rules:
-- rule: start
-  steps:
-    - intent: welcome_greet
-    - action: utter_welcome_greet
-
-- rule: Activate form
+# - rule: start
+#   steps:
+#     - intent: welcome_greet
+#     - action: utter_welcome_greet
+- rule: start #Activate form
   steps:
   - intent: item_start_generic
   - action: pizza_order_form
   - active_loop: pizza_order_form
-
-- rule: Active form customer details 1
-  steps:
-  - intent: order_pickup
-  - action: customer_details_form
-  - active_loop: customer_details_form
-
-- rule: Active form customer details 2
-  steps:
-  - intent: order_delivery_address
-  - action: customer_details_form
-  - active_loop: customer_details_form
-
-- rule: what meat pizzas do you have?
-  steps:
-    - intent: request_meat_pizzas
-    - action: action_get_meat_pizzas
-    - action: utter_inform_meat_pizzas
-
-- rule: what vegetarian pizzas do you have?
-  steps:
-    - intent: request_vege_pizzas
-    - action: action_get_vege_pizzas
-    - action: utter_inform_vege_pizzas
+  wait_for_user_input: false
 
 - rule: what pizzas do you have?
   condition:
@@ -42,10 +18,49 @@ rules:
   steps:
     - intent: request_all_pizzas
     - action: action_get_all_pizzas
-    - action: utter_inform_all_pizzas
+    - action: utter_ask_pizza_type
     - slot_was_set:
       - requested_slot: pizza_type
     - action: pizza_order_form
+
+
+
+- rule: Activate form customer details 1
+  steps:
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+
+- rule: Activate form customer details 2
+  steps:
+  - intent: order_delivery_address
+  - action: customer_details_form
+  - active_loop: customer_details_form
+
+# - rule: what meat pizzas do you have?
+#   steps:
+#     - intent: request_meat_pizzas
+#     - action: action_get_meat_pizzas
+#     - action: utter_inform_meat_pizzas
+
+# - rule: what vegetarian pizzas do you have?
+#   steps:
+#     - intent: request_vege_pizzas
+#     - action: action_get_vege_pizzas
+#     - action: utter_inform_vege_pizzas
+
+#- rule: what pizzas do you have?
+  #condition:
+  #  - active_loop: pizza_order_form
+#  steps:
+#    - intent: request_all_pizzas
+#    - action: action_get_all_pizzas
+  #  - action: pizza_order_form
+  #  - active_loop: pizza_order_form
+    #- action: utter_inform_all_pizzas
+    #- slot_was_set:
+    #  - requested_slot: pizza_type
+    #- action: pizza_order_form
 
 # - rule: explain amount in pizza form
 #   condition:
