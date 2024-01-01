@@ -1,0 +1,17 @@
+{
+  "utter_explain/ask_amount": [
+    {
+      "text": "In this specific question, we are asking you how many pizzas of the same type you would like in your order."
+    }
+  ],
+  "utter_explain/ask_size": [
+    {
+      "text": "We offer four sizes. Small - 10\", medium - 12\", large - 14\", extra large - 18\"."
+    }
+  ],
+  "utter_explain/ask_crust": [
+    {
+      "text": "Our restaurant offers several types of pizza dough. You can choose from thin crust, stuffed crust, flat bread crust and cracker crust."
+    }
+  ]
+}

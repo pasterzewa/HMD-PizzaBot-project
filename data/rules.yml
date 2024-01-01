@@ -7,43 +7,17 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
-#- rule: Activate form again
-#  steps:
-#  - intent: extra_order_positive
-#  - action: pizza_order_form
-#  - active_loop: pizza_order_form
-
-- rule: submit form
-  condition:
-    - active_loop: pizza_order_form
+- rule: Active form customer details 1
   steps:
-      - action: pizza_order_form      # run the form
-      - active_loop: null
-      - action: utter_pizza_confirm
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
 
-#- rule: move on after pizza form
-#  steps:
-#      - intent: affirm_correct_order
-#      - action: action_pizza_order_add
-#      - action: action_reset_pizza_form
-#      - action: utter_extra_order
-
-- rule: out-of-scope
+- rule: Active form customer details 2
   steps:
-  - intent: out_of_scope
-  - action: utter_out_of_scope
-
-#- rule: start
-#  steps:
-#    - intent: init_request
-#    - action: utter_init_request
-
-- rule: where are you?
-  steps:
-    - intent: request_restaurant_location
-    - action: action_get_restaurant_location
-    - action: utter_inform_restaurant_location
-    - action: utter_anything_else
+  - intent: order_delivery_address
+  - action: customer_details_form
+  - active_loop: customer_details_form
 
 - rule: what meat pizzas do you have?
   steps:
@@ -63,26 +37,52 @@ rules:
     - action: action_get_all_pizzas
     - action: utter_inform_all_pizzas
 
-- rule: explain amount
-  condition:
-    - slot_was_set:
-      - requested_slot: pizza_amount
-  steps: 
-    - intent: explain
-    - action: utter_explain_pizza_quantities
+# - rule: explain amount in pizza form
+#   condition:
+#     - active_loop: pizza_order_form
+#     #- slot_was_set:
+#     #  - requested_slot: pizza_amount
+#   steps: 
+#     - intent: explain
+#     #- active_loop: null
+#     - action: utter_explain_pizza_quantities
+#     - action: pizza_order_form
+#     - active_loop: pizza_order_form
 
-- rule: explain sizes
-  condition:
-    - slot_was_set:
-      - requested_slot: pizza_size
-  steps: 
-    - intent: explain
-    - action: utter_explain_pizza_sizes
+- rule: explain pizza amount
+  steps:
+  - intent: explain
+  - action: utter_explain
 
-- rule: explain crust
+- rule: submit form
   condition:
-    - slot_was_set:
-      - requested_slot: pizza_crust
-  steps: 
-    - intent: explain
-    - action: utter_explain_pizza_crust
+    - active_loop: pizza_order_form
+  steps:
+      - action: pizza_order_form      # run the form
+      - active_loop: null
+      - action: utter_pizza_confirm
+
+- rule: submit form 2
+  condition:
+    - active_loop: customer_details_form
+  steps:
+    - action: customer_details_form
+    - active_loop: null
+    - action: utter_order_complete
+
+- rule: out-of-scope
+  steps:
+  - intent: out_of_scope
+  - action: utter_out_of_scope
+
+#- rule: start
+#  steps:
+#    - intent: init_request
+#    - action: utter_init_request
+
+- rule: where are you?
+  steps:
+    - intent: request_restaurant_location
+    - action: action_get_restaurant_location
+    - action: utter_inform_restaurant_location
+    - action: utter_anything_else

@@ -116,6 +116,18 @@ nlu:
     - [hawaiian](pizza_type) pizza
     - i want to order pizza
     - i want a [margherita](pizza_type) pizza
+    - hi, i want to order a pizza
+    - hello, i wan to order a pizza
+    - hello, i want to order a pizza
+    - hello i want a pizza
+    - i want to order a pizza
+    - just [one](pizza_amount) [small](pizza_size) [margherita](pizza_type)
+    - i want to order [one](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza on [thin crust](pizza_crust)
+    - i want to order a [large](pizza_size) [margherita](pizza_type) pizza on [thin crust](pizza_crust)
+    - hello, i want to order [one](pizza_amount) [large](pizza_size) [margherita](pizza_type)
+    - hello, i want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas
+    - hello, i wan to order [two](pizza_amount) [medium](pizza_size) [pepperoni](pizza_type) pizzas
+    - hello, i want a [large](pizza_size) [margherita](pizza_type) pizza
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -154,6 +166,7 @@ nlu:
     - no, that's all
     - no, thanks
     - no, thank you
+    - no, that will be all
 - intent: response_positive
   examples: |
     - all good
@@ -171,6 +184,7 @@ nlu:
     - es
     - yes, that's correct
     - yes, that's right
+    - yes please
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -185,6 +199,8 @@ nlu:
     - pick up please
     - pick up
     - pickup
+    - take away
+    - i'll pick it up
 - intent: order_delivery
   examples: |
     - delivery please
@@ -208,18 +224,34 @@ nlu:
     - my address is [del Posso street, number 23](delivery_address)
     - to [via del Giuseppe 23](delivery_address)
     - deliver it to my work, at [Prezzo street, number 42](delivery_address)
-- intent: order_customer_details
+    - to [no. 46, Strada street](delivery_address)
+    - please deliver to [via del Strada 567](delivery_address)
+    - deliver to [Prezzo street, number 42](delivery_address)
+- intent: item_client_name
   examples: |
-    - my name is [John Doe](client_name) and phone is [123456789](phone_number)
-    - I'm [John Doe](client_name), phone [12344565](phone_number)
-    - [John Doe](client_name), [1274327843](phone_number)
-    - sure, my phone is [12374323](phone_number) and name's [John Doe](client_name)
-    - right, name [Alice Cooper](client_name), phone [43532433](phone_number)
-    - i'm [Alice Cooper](client_name), my phone number is [678839211](phone_number)
-    - you can contact me at number [777888999](phone_number), my name is [Alice Cooper](client_name)
-    - I'm [John Doe](client_name) and my number is [123532343](phone_number)
-    - sure, name is [Julia Montecchi](client_name), phone is [768389193](phone_number)
-    - i'm [Anna Doen](client_name), my phone is [1284378933](phone_number)
+    - i'm [John Doe](client_name)
+    - i'm [Natalie Portman](client_name)
+    - i'm [Esteban Juan Ricardo Montoya](client_name)
+    - my name is [John Doe](client_name)
+    - [John Doe](client_name)
+    - name's [John Doe](client_name)
+    - my name is [Esteban Juan Ricardo Montoya](client_name)
+    - right, my name's [Adam Driver]
+    - sure, my name is [Natalie Portman](client_name)
+    - my name is [Julie Coortis](client_name)
+    - my name is [Eva Julietta Juandos](client_name)
+    - my name's [John Doe](client_name)
+    - [John Mayfly](client_name)
+- intent: item_phone_number
+  examples: |
+    - my phone number is [37824739](phone_number)
+    - my number is [83429748327](phone_number)
+    - sure, it's [48957834](phone_number)
+    - it's [4389484783](phone_number)
+    - ah right, my phone is [12243532](phone_number)
+    - [4738478329](phone_number)
+    - my phone is [4878738473](phone_number)
+    - [3843208493](phone_number)
 - intent: item_type
   examples: |
     - [hawaii](pizza_type)
@@ -245,6 +277,10 @@ nlu:
     - with [olives](pizza_type)
     - i want [funghi](pizza_type) pizza
     - [olives](pizza_type) pizza
+    - [bacon](pizza_type) pizza
+    - with [bacon](pizza_type)
+    - a pizza with [bacon](pizza_type)
+    - [funghi](pizza_type)
 - intent: item_size
   examples: |
     - [small](pizza_size)
@@ -258,7 +294,6 @@ nlu:
     - Probably avg
     - [medium](pizza_size)
     - [large](pizza_size) please
-    - [large](pizza_size)
 - intent: item_crust
   examples: |
     - [thin crust](pizza_crust)
@@ -270,11 +305,8 @@ nlu:
     - [stuffed crust](pizza_crust)
     - [flat bread crust](pizza_crust)
     - [thin crust](pizza_crust) would be nice
-    - [cracker crust](pizza_crust)
-- intent: explain
+- intent: explain/ask_amount
   examples: |
-    - can you explain more?
-    - can you tell me more about what you mean by that?
     - what do you mean?
     - elaborate more on that?
     - what does it mean?
@@ -282,12 +314,21 @@ nlu:
     - explain
     - tell me more about it
     - what do you mean
-    - what do you offer
-    - what do you carry
+    - how many of what
+    - what do you mean by how many pizzas do I want
+- intent: explain/ask_crust
+  examples: |
+    - what crusts do you have
+    - what choice do I have
+    - what crusts are there
+    - i need examples
+- intent: explain/ask_size
+  examples: |
     - what sizes do you have
-    - what crusts do you offer
-    - what do you mean by that
-    - what crusts do yu offer
+    - what options are there
+    - what sizes can I choose from
+    - what is the smalles pizza
+    - how big can a pizza be
 - intent: request_restaurant_location
   examples: |
     - Where is the restaurant?
@@ -319,6 +360,7 @@ nlu:
     - what are the pizza options?
     - what do you have?
     - what type of pizza do you have?
+    - what pizzas do you have
 - intent: item_amount
   examples: |
     - [3](pizza_amount)
@@ -332,7 +374,8 @@ nlu:
     - just [one](pizza_amount)
     - just [1](pizza_amount)
     - [one](pizza_amount)
-    - just [one](pizza_amount)
+    - [5](pizza_amount)
+    - [one](pizza_amount)
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?

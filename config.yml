@@ -4,15 +4,21 @@ language: en
 
 pipeline:
 - name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
   analyzer: "char_wb"
   min_ngram: 1
   max_ngram: 4
-- name: LogisticRegressionClassifier
-- name: CRFEntityExtractor
+- name: DIETClassifier
+  epochs: 50
+- name: EntitySynonymMapper
+#- name: LogisticRegressionClassifier
+#- name: CRFEntityExtractor
 - name: ResponseSelector
-  epochs: 2
+  epochs: 50
+  retrieval_intent: explain
 
 policies:
 - name: TEDPolicy

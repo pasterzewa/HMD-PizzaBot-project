@@ -7,11 +7,12 @@ intents:
 - item_amount
 - item_change
 - item_change_request_without_entity
+- item_client_name
 - item_crust
+- item_phone_number
 - item_size
 - item_start_generic
 - item_type
-- order_customer_details
 - order_delivery
 - order_delivery_address
 - order_pickup
@@ -24,16 +25,17 @@ intents:
 - response_positive
 - welcome_greet
 entities:
-- pizza_amount
-- pizza_crust
-- pizza_type
 - pizza_size
-- phone_number
-- client_name
+- pizza_amount
+- pizza_type
 - delivery_address
+- phone_number
+- pizza_crust
+- client_name
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
+- active_form_customer_details_form
 - toppings
 - order_number
 slots:
@@ -104,6 +106,8 @@ slots:
     - pizza_size
     - pizza_crust
     - pizza_sliced
+    - client_name
+    - phone_number
     mappings:
     - type: custom
     influence_conversation: true
@@ -147,18 +151,21 @@ responses:
   utter_total_and_delivery:
   - text: Your total order is {total_order}. Do you prefer take away or home delivery?
   utter_customer_details:
-  - text: To finish your order I need your name and phone number.
+  - text: To finish your order I need some more information.
   utter_order_complete:
   - text: Your order number is {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
   - text: To what address would you like your pizza to be delivered to?
   utter_default:
   - text: Sorry, I didn’t understand that. Can you please retype it?
-  utter_explain_pizza_quantities:
+  #utter_explain_pizza_quantities:
+  utter_explain/ask_amount:
   - text: In this specific question, we are asking you how many pizzas of the same type you would like in your order.
-  utter_explain_pizza_sizes:
-  - text: In this specific question, we are asking you what size would you like your pizza to be. We offer four sizes. Small - 10", medium - 12", large - 14", extra large - 18".
-  utter_explain_pizza_crust:
+  #utter_explain_pizza_sizes:
+  utter_explain/ask_size:
+  - text: We offer four sizes. Small - 10", medium - 12", large - 14", extra large - 18".
+  #utter_explain_pizza_crust:
+  utter_explain/ask_crust:
   - text: Our restaurant offers several types of pizza dough. You can choose from thin crust, stuffed crust, flat bread crust and cracker crust.
   utter_inform_meat_pizzas:
   - text: Our restaurant has several pizzas with meat. They are {meat_pizzas}.
@@ -182,39 +189,42 @@ responses:
   - text: I've noticed you qualify for the {possible_promotion} promotion - would you like to include it in your total order?
   utter_summarize_order:
   - text: placeholder for utter summarize order
-  utter_name_phone:
-  - text: To finish your order I need your name and phone number.
+  utter_ask_client_name:
+  - text: To finish your order, I need your name.
+  utter_ask_phone_number:
+  - text: And what is your phone number, in case we need to contact you?
 actions:
 - utter_explain_pizza_quantities
-- utter_extra_order
 - action_reset_pizza_form
 - action_pizza_order_add
-- utter_welcome_greet
+- action_get_vege_pizzas
+- utter_inform_vege_pizzas
+- utter_order_complete
 - utter_pizza_confirm
+- utter_delivery_address
+- utter_extra_order
+- utter_total_and_delivery
+- utter_phone
+- action_get_all_pizzas
+- utter_inform_all_pizzas
+- action_get_meat_pizzas
+- utter_inform_meat_pizzas
+- utter_welcome_greet
 - utter_explain_pizza_crust
 - utter_explain_pizza_sizes
-- utter_inform_vege_pizzas
-- action_get_vege_pizzas
-- utter_inform_all_pizzas
-- action_get_all_pizzas
-- utter_total_and_delivery
-- utter_customer_details
-- utter_delivery_address
-- utter_order_complete
 - validate_pizza_order_form
 - utter_item_change
 - utter_anything_else
 - utter_inform_restaurant_location
 - utter_ask_pizza_size
 - action_get_restaurant_location
-- action_get_meat_pizzas
-- utter_inform_meat_pizzas
 - utter_ask_pizza_type
 - utter_ask_pizza_amount
 - utter_ask_pizza_crust
 - utter_ask_pizza_sliced
 - utter_order_confirm_negative
-- utter_name_phone
+- utter_ask_client_name
+- utter_ask_phone_number
 - action_change_order
 - action_order_number
 - utter_default
@@ -227,3 +237,7 @@ forms:
     - pizza_size
     - pizza_crust
     - pizza_sliced
+  customer_details_form:
+    required_slots:
+    - client_name
+    - phone_number
