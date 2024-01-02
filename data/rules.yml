@@ -18,7 +18,7 @@ rules:
   steps:
     - intent: request_all_pizzas
     - action: action_get_all_pizzas
-    - action: utter_ask_pizza_type
+    #- action: utter_ask_pizza_type
     - slot_was_set:
       - requested_slot: pizza_type
     - action: pizza_order_form

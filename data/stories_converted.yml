@@ -11,10 +11,27 @@ stories:
   steps: 
   - intent: request_all_pizzas
   - action: action_get_all_pizzas
-  #- slot_was_set:
-  #  - vege_pizzas: Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini
-  #- slot_was_set:
-  #  - meat_pizzas: Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami
+
+- story: interactive_story_short
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_amount: one
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: request_all_pizzas
+  - action: action_get_all_pizzas
+  #- action: utter_ask_pizza_type
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_type
+
 
 - story: pizza request all interjection
   steps:
@@ -32,11 +49,7 @@ stories:
     - requested_slot: pizza_type
   - intent: request_all_pizzas
   - action: action_get_all_pizzas
-  - action: utter_ask_pizza_type
-  #- slot_was_set:
-  #  - vege_pizzas: Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini
-  #- slot_was_set:
-  #  - meat_pizzas: Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami
+  #- action: utter_ask_pizza_type
   - action: pizza_order_form
 
 - story: pizza interjection
@@ -2205,24 +2218,3 @@ stories:
     - pizza_amount: one
   - slot_was_set:
     - pizza_amount: one
-
-
-- story: interactive_story_1
-  steps:
-  - intent: item_start_generic
-    entities:
-    - pizza_amount: one
-  - slot_was_set:
-    - pizza_amount: one
-  - action: pizza_order_form
-  - active_loop: pizza_order_form
-  - slot_was_set:
-    - pizza_amount: one
-  - slot_was_set:
-    - requested_slot: pizza_type
-  - intent: request_all_pizzas
-  - action: action_get_all_pizzas
-  - action: utter_ask_pizza_type
-  - action: pizza_order_form
-  - slot_was_set:
-    - requested_slot: pizza_type
