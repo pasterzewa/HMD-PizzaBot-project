@@ -34,6 +34,10 @@ class ActionChangeOrder(Action):
 		SlotSet("pizza_amount", pizza_amount)
 		SlotSet("pizza_crust", pizza_crust)
 		SlotSet("pizza_sliced", pizza_sliced)
+
+		answer = "Your change has been noted."
+		dispatcher.utter_message(text=answer)
+
 		return[]
 
 class ActionPizzaOrderAdd(Action):
@@ -53,7 +57,7 @@ class ActionPizzaOrderAdd(Action):
 			sliced = "sliced"
 		else:
 			sliced = "not sliced"
-		order_details =  str(pizza_amount + " "+pizza_type + " of size "+pizza_size + " on " + pizza_crust + ", " + sliced)
+		order_details =  str(pizza_amount + " "+pizza_type + " of size "+pizza_size + " on " + pizza_crust + " crust, " + sliced)
 		old_order = tracker.get_slot("total_order")
 		return[SlotSet("total_order", [order_details]) if old_order is None else SlotSet("total_order", [old_order[0]+' and '+order_details])]
 
@@ -94,8 +98,11 @@ class ActionGetMeatPizzas(Action):
 	def run(self, dispatcher, tracker, domain):
 
 		meat_pizzas = "Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami"
+		answer = "Our restaurant has several meat options. They are "+ meat_pizzas + "."
+		dispatcher.utter_message(text=answer)
 
-		return[SlotSet("meat_pizzas", meat_pizzas)]
+		return []
+		#return[SlotSet("meat_pizzas", meat_pizzas)]
 
 class ActionGetVegePizzas(Action):
 	def name(self):
@@ -104,8 +111,11 @@ class ActionGetVegePizzas(Action):
 	def run(self, dispatcher, tracker, domain):
 
 		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini"
+		answer = "Our restaurant has several vegetarian options. They are "+ vege_pizzas + "."
+		dispatcher.utter_message(text=answer)
 
-		return[SlotSet("vege_pizzas", vege_pizzas)]
+		return []
+		#return[SlotSet("vege_pizzas", vege_pizzas)]
 	
 class ActionGetAllPizzas(Action):
 	def name(self):
@@ -116,7 +126,37 @@ class ActionGetAllPizzas(Action):
 		meat_pizzas = "Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami"
 		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini"
 
-		return[SlotSet("vege_pizzas", vege_pizzas), SlotSet("meat_pizzas", meat_pizzas)]
+		answer = "Our restaurant has many pizzas. They are "+ meat_pizzas + ", " + vege_pizzas + "."
+		dispatcher.utter_message(text=answer)
+
+		return []
+		#return[SlotSet("vege_pizzas", vege_pizzas), SlotSet("meat_pizzas", meat_pizzas)]
+	
+class ActionGetPizzaSizes(Action):
+	def name(self):
+		return 'action_get_sizes'
+	
+	def run(self, dispatcher, tracker, domain):
+
+		sizes = "small - 10\", medium - 12\", large - 14\", extra large - 18\""
+
+		answer = "We offer these sizes: " + sizes
+		dispatcher.utter_message(text=answer)
+
+		return []
+	
+class ActionGetPizzaCrust(Action):
+	def name(self):
+		return 'action_get_crust'
+	
+	def run(self, dispatcher, tracker, domain):
+
+		crusts = "stuffed, cracker, flat bread, thin"
+
+		answer = "We have these crust types: " + crusts
+		dispatcher.utter_message(text=answer)
+
+		return []
 
 
 # for a generic slot validation please refer to https://rasa.com/docs/action-server/validation-action/
@@ -131,6 +171,12 @@ class ValidatePizzaOrderForm(FormValidationAction):
 		"""Database of supported cuisines"""
 
 		return ["hawaii", "funghi", "french"]
+	
+	@staticmethod
+	def sizes_db() -> List[Text]:
+		"""Database of supported sizes"""
+
+		return ["small", "large", "medium", "extra large"]
 
 	def validate_pizza_type(
 		self,
@@ -155,3 +201,23 @@ class ValidatePizzaOrderForm(FormValidationAction):
 				# validation failed, set this slot to None so that the
 				# user will be asked for the slot again
 				return {"pizza_type": None}
+			
+	def validate_pizza_size(
+		self,
+		slot_value: Any,
+		dispatcher: CollectingDispatcher,
+		tracker: Tracker,
+		domain: DomainDict,
+	) -> Dict[Text, Any]:
+		"""Validate size value."""
+
+		if isinstance(slot_value, str):
+			if slot_value.lower() in self.sizes_db():
+				# validation succeeded, set the value of the pizza_size slot to value
+				return {"pizza_size": slot_value}
+			else:
+				if any(size_value in slot_value for size_value in ['10', '12', '14', '18']):
+					return {"pizza_size": slot_value}
+		else:
+			if any(size_value in slot_value for size_value in [10, 12, 14, 18]):
+					return {"pizza_size": slot_value}
