@@ -2,7 +2,7 @@ version: "3.1"
 nlu:
 - lookup: pizza_crust
   examples: |
-    - stuffed crust
-    - cracker crust
-    - flat bread crust
-    - thin crust
+    - stuffed
+    - cracker
+    - flat bread
+    - thin
