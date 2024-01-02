@@ -164,6 +164,8 @@ nlu:
     - actually, i want [pepperoni](pizza_type) pizza
     - no, wait, i want a [small](pizza_size) pizza
     - ah, wait, sorry, i want [stuffed](pizza_crust) crust
+    - wait, i actually want to order [two](pizza_amount) pizzas
+    - wait, i want instead [two](pizza_amount) pizzas
 - intent: item_change_sliced_to_yes
   examples: |
     - wait, I actually want it sliced
@@ -193,6 +195,7 @@ nlu:
     - Actually i want to modify pizza size.
     - i want to change pizza crust
     - i want different toppings
+    - i changed my mind, i actually want [bacon](pizza_type) pizza
 - intent: response_negative
   examples: |
     - actually no
@@ -320,7 +323,7 @@ nlu:
     - a pizza with [bacon](pizza_type)
     - [funghi](pizza_type)
     - [ham](pizza_type) pizza
-    - [margherita](pizza_type)
+    - [hawaiian](pizza_type)
 - intent: item_size
   examples: |
     - [small](pizza_size)
@@ -337,7 +340,6 @@ nlu:
     - a [14 inches](pizza_size) pizza please
     - just the [10 inch](pizza_size) one
     - [the largest](pizza_size) you have
-    - [large](pizza_size)
 - intent: item_crust
   examples: |
     - [thin](pizza_crust) crust
@@ -355,7 +357,6 @@ nlu:
     - [flat bread](pizza_crust)
     - [cracker](pizza_crust)
     - [flat bread](pizza_crust) crust
-    - [thin](pizza_crust) crust
 - intent: explain
   examples: |
     - what do you mean?

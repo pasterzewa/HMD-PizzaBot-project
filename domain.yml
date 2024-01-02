@@ -29,9 +29,9 @@ intents:
 - response_positive
 - welcome_greet
 entities:
+- pizza_amount
 - pizza_size
 - pizza_type
-- pizza_amount
 - pizza_crust
 - delivery_address
 - phone_number
@@ -151,7 +151,7 @@ responses:
   utter_order_change_specify:
   - text: Please specify what you would like to change it to.
   utter_item_change:
-  - text: Ok, your change has been noted. So you want {pizza_amount} {pizza_type} pizzas on {pizza_crust} crust in {pizza_size} size. Any 'None' values are information you have not given yet. Is that correct?
+  - text: Your change has been applied.
   utter_extra_order:
   - text: Would you like to order more pizzas?
   utter_total_and_delivery:
@@ -191,9 +191,9 @@ responses:
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
 actions:
+- utter_item_change
 - utter_pizza_confirm
 - action_change_order
-- utter_item_change
 - utter_extra_order
 - action_pizza_order_add
 - action_reset_pizza_form

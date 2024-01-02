@@ -1,16 +1,24 @@
 version: "3.1"
 
 rules:
-# - rule: start
-#   steps:
-#     - intent: welcome_greet
-#     - action: utter_welcome_greet
+- rule: start with greeting
+  steps:
+    - intent: welcome_greet
+    - action: utter_welcome_greet
+
+- rule: change order during form
+  condition:
+    - active_loop: pizza_order_form
+  steps:
+    - intent: item_change
+    - action: utter_item_change
+    - action: pizza_order_form
+
 - rule: start #Activate form
   steps:
   - intent: item_start_generic
   - action: pizza_order_form
   - active_loop: pizza_order_form
-  #wait_for_user_input: false
 
 - rule: what pizzas do you have?
   condition:
@@ -62,14 +70,13 @@ rules:
       - requested_slot: pizza_crust
     - action: pizza_order_form
 
-- rule: change order #during form
-  condition:
-    - active_loop: pizza_order_form
-  steps:
-    - intent: item_change
-    - action: action_change_order
-    - action: pizza_order_form
-    #- action: utter_item_change
+# - rule: change order during form
+#   condition:
+#     - active_loop: pizza_order_form
+#   steps:
+#     - intent: item_change
+#     - action: utter_item_change
+#     - action: pizza_order_form
 
 - rule: Activate form customer details 1
   steps:
