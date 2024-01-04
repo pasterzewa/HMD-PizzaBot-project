@@ -124,18 +124,41 @@ class ActionCheckPromotion(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		promotion = tracker.get_slot("possible_promotion")
+		order = tracker.get_slot("total_order")
+		order_split = order.split('and')
 		ok = False
-		if promotion == "2+1 Large Pizzas":
-			# check if in the total order we have either three times the word "16" or
-			# split the orders by word 'and', and in a loop calculate pizza amount (amount is the first word) of pizzas with "16"
-			# again using w2n
-			print("abba")
+		print("I'm checking promotions")
+		if promotion == "2 Large Pizzas and 1 Free":
+			count_of_16_inch = 0 # calculate the amount of ordered large pizzas
+			for ord in order_split:
+				amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
+				print(amount)
+				if "16\"" in ord:
+					count_of_16_inch += amount 
+				if count_of_16_inch >= 3:
+					ok = True 
+					break
 		elif promotion == "2 Margheritas For The Price of 1":
-			# check if the order contains either "two/2 Margherita" or at least twice the word "Margherita"
-			print("abba")
+			margherita_count = 0
+			for ord in order_split:
+				amount = w2n.word_to_num(ord.split()[0])
+				print(amount)
+				if "margherita" in ord.lower():
+					margherita_count += amount 
+				if margherita_count >= 2:
+					ok = True 
+					break
 		elif promotion == "XL Pizza + Small Pepperoni Pizza For Half-Price":
-			# split the order using ' and 'and check if at least one is 18" and one is a small pepperoni
-			print("abba")
+			xl_present = False
+			pepp_present = False
+			for ord in order_split:
+				if "18\"" in ord.lower():
+					xl_present = True 
+				elif "10\"" in ord.lower() and "pepperoni" in ord.lower():
+					pepp_present = True
+				if xl_present and pepp_present:
+					ok = True 
+					break
 		else:
 			print("wrong promotion")
 
@@ -150,13 +173,30 @@ class ActionSuggestPromotion(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		order = tracker.get_slot("total_order")
+		order_split = order.split('and')
 		promotion = None
 		ok = False
+		conditions_met = False
+		count_of_16_inch = 0
+		margherita_count = 0
+		xl_present = False
+		pepp_present = False
 
-		# "2+1 Large Pizzas"
+		for ord in order_split:
+			amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
+			if "16\"" in ord:
+				count_of_16_inch += amount 
+			if "margherita" in ord.lower():
+				margherita_count += amount 
+			if "18\"" in ord.lower():
+				xl_present = True 
+			elif "10\"" in ord.lower() and "pepperoni" in ord.lower():
+				pepp_present = True		
+
+		# "2 Large Pizzas and 1 Free"
 		# check if the user has at least two large pizzas
 		# if 3 already - set the possible_promotion_conditions_met to True
-
+				
 		# "2 Margheritas For The Price of 1"
 		# check if the user has at least one margherita
 		# if 2 already - set the possible_promotion_conditions_met to True
@@ -165,9 +205,32 @@ class ActionSuggestPromotion(Action):
 		# check if the client has either pizza in size 18" or a small pepperoni
 		# if both already - set the possible_promotion_conditions_met to True
 
+		if count_of_16_inch >= 3:
+			promotion = "2+1 Large Pizzas"
+			ok = True
+			conditions_met = True 
+		elif margherita_count >= 2:
+			promotion = "2 Margheritas For The Price of 1"
+			ok = True
+			conditions_met = True 
+		elif xl_present and pepp_present:
+			promotion = "XL Pizza + Small Pepperoni Pizza For Half-Price"
+			ok = True
+			conditions_met = True 
+
+		if ok == False:
+			if count_of_16_inch == 2:
+				promotion = "2+1 Large Pizzas"
+				ok = True
+			elif margherita_count == 1:
+				promotion = "2 Margheritas For The Price of 1"
+				ok = True
+			elif xl_present or pepp_present:
+				promotion = "XL Pizza + Small Pepperoni Pizza For Half-Price"
+				ok = True
 
 		if ok:
-			return[SlotSet("possible_promotion", promotion)]
+			return[SlotSet("possible_promotion", promotion), SlotSet("possible_promotion_conditions_met", conditions_met)]
 		else:
 			return[]
 

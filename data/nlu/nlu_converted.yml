@@ -550,7 +550,7 @@ nlu:
     - Veggie
     - veggie
     - vegetables
-- synonym: 2+1 Large Pizzas
+- synonym: 2 Large Pizzas and 1 Free
   examples: |
     - Buy 2 Large, Get 1 Free
     - buy 2 large get 1 free
