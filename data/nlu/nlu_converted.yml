@@ -137,6 +137,9 @@ nlu:
     - hello, i want [one](pizza_amount) [large](pizza_size) [margherita](pizza_type)
     - hello, i want to order [one](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizza
     - hello, i want to order [one](pizza_amount) [large](pizza_size) pizza with [bacon, olives and artichoke](pizza_type)
+    - i want to order [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
+    - hello, i want to order [two](pizza_amount) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
+    - hello, i want to buy [three](pizza_amount) pizzas with [olives and bacon](pizza_type)
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -166,6 +169,7 @@ nlu:
     - ah, wait, sorry, i want [stuffed](pizza_crust) crust
     - wait, i actually want to order [two](pizza_amount) pizzas
     - wait, i want instead [two](pizza_amount) pizzas
+    - wait, i want [medium]{"entity": "pizza_size", "value": "12\""} pizzas
 - intent: item_change_sliced_to_yes
   examples: |
     - wait, I actually want it sliced
@@ -283,6 +287,15 @@ nlu:
     - my name is [Eva Julietta Juandos](client_name)
     - my name's [John Doe](client_name)
     - [John Mayfly](client_name)
+    - I'm [Elsa Icepower](client_name)
+    - I'm [Raymond](client_name)
+    - my name is [John](client_name)
+    - it's [Anna](client_name)
+    - it's [Richards](client_name)
+    - my name is [raymond](client_name)
+    - it's [julie](client_name)
+    - sure, I'm [Julie](client_name)
+    - my name's [John Richards](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -293,6 +306,7 @@ nlu:
     - [4738478329](phone_number)
     - my phone is [4878738473](phone_number)
     - [3843208493](phone_number)
+    - my phon is [45734882](phone_number)
 - intent: item_type
   examples: |
     - [hawaii](pizza_type)
@@ -326,20 +340,23 @@ nlu:
     - [hawaiian](pizza_type)
 - intent: item_size
   examples: |
-    - [small](pizza_size)
-    - [large](pizza_size)
-    - I want to order [large](pizza_size) pizza
-    - I want a [large](pizza_size) pizza
-    - I think its [large](pizza_size)
-    - [medium](pizza_size) pizza
-    - [XL](pizza_size) pizza
-    - [Little](pizza_size) pizza
-    - Probably [avg](pizza_size)
-    - [medium](pizza_size)
-    - [large](pizza_size) please
-    - a [14 inches](pizza_size) pizza please
-    - just the [10 inch](pizza_size) one
-    - [the largest](pizza_size) you have
+    - [small]{"entity": "pizza_size", "value": "10\""}
+    - [large]{"entity": "pizza_size", "value": "14\""}
+    - I want to order [large]{"entity": "pizza_size", "value": "14\""} pizza
+    - I want a [large]{"entity": "pizza_size", "value": "14\""} pizza
+    - I think its [large]{"entity": "pizza_size", "value": "14\""}
+    - [medium]{"entity": "pizza_size", "value": "12\""} pizza
+    - [XL]{"entity": "pizza_size", "value": "18\""} pizza
+    - [Little]{"entity": "pizza_size", "value": "10\""} pizza
+    - Probably [avg]{"entity": "pizza_size", "value": "12\""}
+    - [medium]{"entity": "pizza_size", "value": "12\""}
+    - [large]{"entity": "pizza_size", "value": "14\""} please
+    - a [14 inches]{"entity": "pizza_size", "value": "14\""} pizza please
+    - just the [10 inch]{"entity": "pizza_size", "value": "10\""} one
+    - [the largest]{"entity": "pizza_size", "value": "18\""} you have
+    - [18 inches]{"entity": "pizza_size", "value": "18\""}
+    - [18 inch]{"entity": "pizza_size", "value": "18\""} pizza
+    - [18 inches]{"entity": "pizza_size", "value": "18\""}
 - intent: item_crust
   examples: |
     - [thin](pizza_crust) crust
@@ -357,6 +374,7 @@ nlu:
     - [flat bread](pizza_crust)
     - [cracker](pizza_crust)
     - [flat bread](pizza_crust) crust
+    - [stuffed](pizza_crust)
 - intent: explain
   examples: |
     - what do you mean?
@@ -426,7 +444,15 @@ nlu:
     - just [1](pizza_amount)
     - [one](pizza_amount)
     - [5](pizza_amount)
-    - [one](pizza_amount)
+- intent: init_promotion
+  examples: |
+    - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2+1 Large Pizzas"} promotion
+    - Can I use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2+1 Large Pizzas"} promotion
+    - I saw you have promotion for [2 Margheritas For The Price of 1]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - i want the [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - i want to add [xl pizza and small pepperoni pizza for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"} promotion
+    - hey, i saw you had a promotion for [buy XL pizza, get pepperoni for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"}
+    - I think I qualify for [XL Pizza + Small Pepperoni Pizza For Half-Price]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"} deal
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -438,6 +464,56 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
+- synonym: Margherita
+  examples: |
+    - margherita
+    - Margherita
+    - cheese
+- synonym: Pepperoni
+  examples: |
+    - pepperoni
+    - Pepp
+    - Peperoni
+- synonym: 12"
+  examples: |
+    - medium
+    - avg
+    - 12
+    - 12 inch
+    - Medium
+    - normal
+    - average
+    - Average
+    - twelve inch
+    - size M
+- synonym: 10"
+  examples: |
+    - small
+    - Little
+    - 10 inch
+    - 10
+    - Small
+    - size S
+    - little
+- synonym: 14"
+  examples: |
+    - large
+    - 14 inches
+    - 14
+    - 14 inch
+    - size L
+    - bug
+- synonym: 18"
+  examples: |
+    - XL
+    - the largest
+    - 18 inches
+    - 18 inch
+    - 18
+    - jumbo
+    - huge
+    - the biggest
+    - size XL
 - synonym: Americana
   examples: |
     - Americana
@@ -456,43 +532,6 @@ nlu:
 - synonym: Rustica
   examples: |
     - Rustica
-- synonym: 10"
-  examples: |
-    - 10
-    - 10 inch
-    - small
-    - Small
-    - size S
-    - little
-    - Little
-- synonym: 12"
-  examples: |
-    - 12
-    - 12 inch
-    - Medium
-    - medium
-    - normal
-    - average
-    - avg
-    - Average
-    - twelve inch
-    - size M
-- synonym: 14"
-  examples: |
-    - 14
-    - 14 inch
-    - large
-    - size L
-    - bug
-- synonym: 18"
-  examples: |
-    - 18
-    - jumbo
-    - huge
-    - the biggest
-    - the largest
-    - XL
-    - size XL
 - synonym: Funghi
   examples: |
     - Funghi
@@ -501,15 +540,8 @@ nlu:
   examples: |
     - Hawaii
     - ham and pineapple
-- synonym: Margherita
-  examples: |
-    - Margherita
-    - margherita
-    - cheese
-- synonym: Pepperoni
-  examples: |
-    - Pepp
-    - Peperoni
+    - Hawaiian
+    - hawaiian
 - synonym: Vegetarian
   examples: |
     - Vegetarian
@@ -518,3 +550,39 @@ nlu:
     - Veggie
     - veggie
     - vegetables
+- synonym: 2+1 Large Pizzas
+  examples: |
+    - Buy 2 Large, Get 1 Free
+    - buy 2 large get 1 free
+    - buy two large pizzas, get 1 free
+    - buy two large, get 1 free
+    - 2+1 Large Pizzas
+    - 2+1 large pizzas
+    - 2 large pizzas + 1 free
+    - 2 large pizzas and 1 free
+    - two large pizzas + one free
+    - 3 Large Pizzas For the Price of 2
+    - 3 large pizzas for the price of 2
+    - three large pizzas for the price of two
+- synonym: 2 Margheritas For The Price of 1
+  examples: |
+    - 2 Margheritas For The Price of 1
+    - 2 margheritas for the price of 1
+    - 2 Margherita Pizzas For The Price of 1
+    - two margheritas for the price of one
+    - two margherita pizzas for price of one
+    - two margherita pizzas for the price of one
+    - 1+1 margheritas
+    - 1+1 margherita pizzas
+    - one free margherita
+- synonym: XL Pizza + Small Pepperoni Pizza For Half-Price
+  examples: |
+    - Buy XL Pizza, Get Small Pepperoni Pizza For 50% Price
+    - buy xl pizza, get small pepperoni pizza for 50% price
+    - XL Pizza + Small Pepperoni Pizza For Half-Price
+    - xl pizza + small pepperoni pizza for half price
+    - xl pizza and small pepperoni pizza for 50%
+    - buy the largest pizza and get small pepperoni pizza for half price
+    - get small pepperoni pizza for half price
+    - small pepperoni pizza for half price
+    - pepperoni pizza for 50%
