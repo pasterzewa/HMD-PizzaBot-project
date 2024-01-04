@@ -172,8 +172,6 @@ responses:
   - text: Would you like to order more pizzas?
   utter_total_and_delivery:
   - text: Your total order is {total_order}, it will cost you {order_cost}. Do you prefer take away or home delivery?
-  utter_customer_details:
-  - text: To finish your order I need some more information.
   utter_order_complete:
   - text: Your order number is {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
@@ -207,6 +205,7 @@ responses:
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
 actions:
+- utter_out_of_scope
 - utter_total_and_delivery
 - utter_extra_order
 - utter_order_complete

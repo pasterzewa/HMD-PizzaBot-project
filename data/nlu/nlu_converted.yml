@@ -530,6 +530,9 @@ nlu:
     - huge
     - the biggest
     - size XL
+    - xl
+    - extra large
+    - Extra Large
 - synonym: 2 Large Pizzas and 1 Free
   examples: |
     - 2+1 Large Pizzas
