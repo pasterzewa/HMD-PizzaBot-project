@@ -19,6 +19,65 @@ from rasa_sdk.types import DomainDict
 from word2number import w2n
 import re
 
+def CalculatePrice(full_order, promotion): # full_order - list, promotion - string
+	cost = 0
+	margherita_count = 0
+	large_count = 0
+	print(full_order)
+	for order in full_order:
+		# pizza_amount - multiplies the cost for that pizza
+		print(order.split())
+		amount_multipier = w2n.word_to_num(order.split()[0])
+		# pizza_size - multiplies 0.8, 1, 1.2, 1.5 based on size
+		size_multiplier = 1
+		if '10\"' in order:
+			size_multiplier = 0.8
+		elif '12\"' in order:
+			size_multiplier = 1
+		elif '14\"' in order:
+			size_multiplier = 1.2
+		elif '18\"' in order:
+			size_multiplier = 1.5
+		# pizza_crust - stuffed adds 2 euros, flat bread and cracker add 1, thin is the default so it doesn't add anything
+		crust_bonus = 0
+		if 'stuffed' in order.lower():
+			crust_bonus = 2
+		elif 'flat bread' in order.lower() or 'cracker' in order.lower():
+			crust_bonus = 1
+		# pizza_type - Margherita is only 7 euros and that's the base for all pizzas
+		# if it's some pizza with one word (Hawaiian, Pepperoni, etc.) then we treat it as a 'normal' pizza with ingredients and it's 10 euros
+		# a special pizza adds 2 euros per ingredient
+		type_cost = 7
+		if "special" in order.lower():
+			count_and = order.lower().count(' and ')
+			count_comma = order.lower().count(',')
+			count_space = order.lower().count(' ')
+			count = count_and + count_comma
+			if count == 0:
+				count = count_space # special case when client was too lazy for punctuation and proper grammar
+			type_cost += 2*count
+		elif 'margherita' not in order.lower():
+			type_cost = 10
+
+		if promotion == "2 Margheritas For The Price of 1" and 'margherita' in order.lower():
+			margherita_count += 1
+			if margherita_count != 2:
+				cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
+			else:
+				margherita_count = 0 # this pizza is free and we 'reset' the counter
+		elif promotion == "XL Pizza + Small Pepperoni Pizza For Half-Price" and "10\"" in order.lower() and "pepperoni" in order.lower():
+			cost += 0.5 * (type_cost + crust_bonus)*size_multiplier*amount_multipier # we add the small pepp for half price
+		elif promotion == "2 Large Pizzas and 1 Free":
+			large_count += 1
+			if large_count != 3:
+				cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
+			else:
+				large_count = 0 # like with margheritas
+		else:
+			cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
+
+	return round(cost, 2)
+
 class ActionChangeOrder(Action):
 	def name(self):
 		return 'action_change_order'
@@ -45,11 +104,15 @@ class ActionPizzaOrderAdd(Action):
 		return 'action_pizza_order_add'
 
 	def run(self, dispatcher, tracker, domain):
+
 		pizza_size = tracker.get_slot("pizza_size")
 		pizza_type = tracker.get_slot("pizza_type")
 		pizza_amount = tracker.get_slot("pizza_amount")
 		pizza_crust = tracker.get_slot("pizza_crust")
 		pizza_sliced = tracker.get_slot("pizza_sliced")
+		promotion = tracker.get_slot("applied_promotion")
+		margherita_count = 0
+		large_count = 0
 		if pizza_size is None:
 			pizza_size = "standard"
 		sliced = ""
@@ -59,44 +122,14 @@ class ActionPizzaOrderAdd(Action):
 			sliced = "not sliced"
 		order_details =  str(pizza_amount + " "+pizza_type + " of size "+pizza_size + " on " + pizza_crust + " crust, " + sliced)
 		old_order = tracker.get_slot("total_order")
+		if not isinstance (old_order, str):
+			full_order = [order_details]
+		else:
+			full_order = old_order[0].split('&') + [order_details]
 
-		cost = 0 if tracker.get_slot("order_cost") is None else int(tracker.get_slot("order_cost"))
-		# pizza_amount - multiplies the cost for that pizza
-		amount_multipier = w2n.word_to_num(pizza_amount)
-		# pizza_size - multiplies 0.8, 1, 1.2, 1.5 based on size; using synonyms I should have this value with number of inches
-		size_multiplier = 1
-		if '10' in pizza_size:
-			size_multiplier = 0.8
-		elif '12' in pizza_size:
-			size_multiplier = 1
-		elif '14' in pizza_size:
-			size_multiplier = 1.2
-		elif '18' in pizza_size:
-			size_multiplier = 1.5
-		# pizza_crust - stuffed adds 2 euros, flat bread and cracker add 1, thin is the default so it doesn't add anything
-		crust_bonus = 0
-		if pizza_crust.lower() == 'stuffed':
-			crust_bonus = 2
-		elif pizza_crust.lower() == 'flat bread' or pizza_crust.lower() == 'cracker':
-			crust_bonus = 1
-		# pizza_type - Margherita is only 7 euros and that's the base for all pizzas
-		# if it's some pizza with one word (Hawaiian, Pepperoni, etc.) then we treat it as a 'normal' pizza with ingredients and it's 10 euros
-		# a special pizza adds 2 euros per ingredient
-		type_cost = 7
-		if "special" in pizza_type.lower():
-			count_and = pizza_type.lower().count(' and ')
-			count_comma = pizza_type.lower().count(',')
-			count_space = pizza_type.lower().count(' ')
-			count = count_and + count_comma
-			if count == 0:
-				count = count_space # special case when client was too lazy for punctuation and proper grammar
-			type_cost += 2*count
-		elif pizza_type.lower() != 'margherita':
-			type_cost = 10
+		cost = CalculatePrice (full_order, promotion)
 
-		cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
-
-		return[SlotSet("total_order", [order_details]) if old_order is None else SlotSet("total_order", [old_order[0]+' and '+order_details]),
+		return[SlotSet("total_order", [order_details]) if old_order is None else SlotSet("total_order", [old_order[0]+' & '+order_details]),
 		 		SlotSet("order_cost", cost)]
 
 class ActionResetPizzaForm(Action):
@@ -124,18 +157,22 @@ class ActionCheckPromotion(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		promotion = tracker.get_slot("possible_promotion")
-		order = tracker.get_slot("total_order")
-		order_split = order.split('and')
+		print(promotion)
+		order = tracker.get_slot("total_order")[0]
+		print(order)
+		order_split = order.split('&')
+		print(order_split)
+		print(order_split[0])
 		ok = False
 		print("I'm checking promotions")
 		if promotion == "2 Large Pizzas and 1 Free":
-			count_of_16_inch = 0 # calculate the amount of ordered large pizzas
+			count_of_14_inch = 0 # calculate the amount of ordered large pizzas
 			for ord in order_split:
 				amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
 				print(amount)
-				if "16\"" in ord:
-					count_of_16_inch += amount 
-				if count_of_16_inch >= 3:
+				if "14\"" in ord:
+					count_of_14_inch += amount 
+				if count_of_14_inch >= 3:
 					ok = True 
 					break
 		elif promotion == "2 Margheritas For The Price of 1":
@@ -163,29 +200,35 @@ class ActionCheckPromotion(Action):
 			print("wrong promotion")
 
 		if ok:
-			return[SlotSet("promotion", promotion)]
+			order = tracker.get_slot("total_order")
+			full_order = order[0].split('&')
+			cost = CalculatePrice(full_order, promotion)
+			return[SlotSet("applied_promotion", promotion), SlotSet("order_cost", cost)]
 		else:
-			return[]
+			return[SlotSet("possible_promotion", None)]
 	
 class ActionSuggestPromotion(Action):
 	def name(self):
 		return 'action_suggest_promotion'
 
 	def run(self, dispatcher, tracker, domain):
-		order = tracker.get_slot("total_order")
-		order_split = order.split('and')
+		print("start action")
+		order = tracker.get_slot("total_order")[0]
+		order_split = order.split('&')
 		promotion = None
 		ok = False
 		conditions_met = False
-		count_of_16_inch = 0
+		count_of_14_inch = 0
 		margherita_count = 0
 		xl_present = False
 		pepp_present = False
+		print("checking for promotions")
 
 		for ord in order_split:
 			amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
-			if "16\"" in ord:
-				count_of_16_inch += amount 
+			if "14\"" in ord:
+				count_of_14_inch += amount
+				print("large found") 
 			if "margherita" in ord.lower():
 				margherita_count += amount 
 			if "18\"" in ord.lower():
@@ -205,7 +248,7 @@ class ActionSuggestPromotion(Action):
 		# check if the client has either pizza in size 18" or a small pepperoni
 		# if both already - set the possible_promotion_conditions_met to True
 
-		if count_of_16_inch >= 3:
+		if count_of_14_inch >= 3:
 			promotion = "2+1 Large Pizzas"
 			ok = True
 			conditions_met = True 
@@ -219,7 +262,7 @@ class ActionSuggestPromotion(Action):
 			conditions_met = True 
 
 		if ok == False:
-			if count_of_16_inch == 2:
+			if count_of_14_inch == 2:
 				promotion = "2+1 Large Pizzas"
 				ok = True
 			elif margherita_count == 1:
@@ -233,6 +276,17 @@ class ActionSuggestPromotion(Action):
 			return[SlotSet("possible_promotion", promotion), SlotSet("possible_promotion_conditions_met", conditions_met)]
 		else:
 			return[]
+
+class ActionApplyPromotion(Action):
+	def name(self):
+		return 'action_apply_promotion'
+	
+	def run(self, dispatcher, tracker, domain):
+		promotion = tracker.get_slot("applied_promotion")
+		order = tracker.get_slot("total_order")
+		full_order = order[0].split('&')
+		cost = CalculatePrice (full_order, promotion)
+		return[SlotSet("applied_promotion", tracker.get_slot("possible_promotion")), SlotSet("order_cost", cost)]
 
 class ActionGetRestaurantLocation(Action):
 	def name(self):

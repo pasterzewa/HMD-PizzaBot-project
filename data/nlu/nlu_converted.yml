@@ -140,6 +140,12 @@ nlu:
     - i want to order [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
     - hello, i want to order [two](pizza_amount) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
     - hello, i want to buy [three](pizza_amount) pizzas with [olives and bacon](pizza_type)
+    - hello, i want to order [two](pizza_amount) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
+    - hello, i want to order [two](pizza_amount) arge margheritas
+    - hello, i want to order [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
+    - hello, i want to order [3](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
+    - hello, i want to order [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas on [thin](pizza_crust) crust
+    - hello, i want to order [3](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas on [thin](pizza_crust) crust
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -212,6 +218,7 @@ nlu:
     - no, thanks
     - no, thank you
     - no, that will be all
+    - no, i don;t
 - intent: response_positive
   examples: |
     - all good
@@ -230,6 +237,7 @@ nlu:
     - yes, that's correct
     - yes, that's right
     - yes please
+    - oh, of course, yes
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -272,6 +280,8 @@ nlu:
     - to [no. 46, Strada street](delivery_address)
     - please deliver to [via del Strada 567](delivery_address)
     - deliver to [Prezzo street, number 42](delivery_address)
+    - to [via del travai 57](delivery_address)
+    - to [via del travai 66](delivery_address)
 - intent: item_client_name
   examples: |
     - i'm [John Doe](client_name)
@@ -296,6 +306,8 @@ nlu:
     - it's [julie](client_name)
     - sure, I'm [Julie](client_name)
     - my name's [John Richards](client_name)
+    - of course, I'm [John Kravinsky](client_name)
+    - my name is [Eva Shepherd](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -307,6 +319,7 @@ nlu:
     - my phone is [4878738473](phone_number)
     - [3843208493](phone_number)
     - my phon is [45734882](phone_number)
+    - my phone is [89832243432](phone_number)
 - intent: item_type
   examples: |
     - [hawaii](pizza_type)
@@ -338,6 +351,7 @@ nlu:
     - [funghi](pizza_type)
     - [ham](pizza_type) pizza
     - [hawaiian](pizza_type)
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"}
 - intent: item_size
   examples: |
     - [small]{"entity": "pizza_size", "value": "10\""}
@@ -356,7 +370,6 @@ nlu:
     - [the largest]{"entity": "pizza_size", "value": "18\""} you have
     - [18 inches]{"entity": "pizza_size", "value": "18\""}
     - [18 inch]{"entity": "pizza_size", "value": "18\""} pizza
-    - [18 inches]{"entity": "pizza_size", "value": "18\""}
 - intent: item_crust
   examples: |
     - [thin](pizza_crust) crust
@@ -374,7 +387,6 @@ nlu:
     - [flat bread](pizza_crust)
     - [cracker](pizza_crust)
     - [flat bread](pizza_crust) crust
-    - [stuffed](pizza_crust)
 - intent: explain
   examples: |
     - what do you mean?
@@ -446,13 +458,17 @@ nlu:
     - [5](pizza_amount)
 - intent: init_promotion
   examples: |
-    - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2+1 Large Pizzas"} promotion
-    - Can I use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2+1 Large Pizzas"} promotion
-    - I saw you have promotion for [2 Margheritas For The Price of 1]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
+    - I'd like to use the [two large pizzas and one free]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
+    - Can I use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
+    - I saw you have promotion for [2 Margheritas For The Price of 1](possible_promotion)
     - i want the [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
     - i want to add [xl pizza and small pepperoni pizza for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"} promotion
     - hey, i saw you had a promotion for [buy XL pizza, get pepperoni for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"}
-    - I think I qualify for [XL Pizza + Small Pepperoni Pizza For Half-Price]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"} deal
+    - I think I qualify for [XL Pizza + Small Pepperoni Pizza For Half-Price](possible_promotion) deal
+    - i want to use a [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
+    - i want to use the [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
+    - no, but i want to use the [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -474,6 +490,14 @@ nlu:
     - pepperoni
     - Pepp
     - Peperoni
+- synonym: 14"
+  examples: |
+    - large
+    - 14 inches
+    - 14
+    - 14 inch
+    - size L
+    - bug
 - synonym: 12"
   examples: |
     - medium
@@ -495,14 +519,6 @@ nlu:
     - Small
     - size S
     - little
-- synonym: 14"
-  examples: |
-    - large
-    - 14 inches
-    - 14
-    - 14 inch
-    - size L
-    - bug
 - synonym: 18"
   examples: |
     - XL
@@ -514,6 +530,45 @@ nlu:
     - huge
     - the biggest
     - size XL
+- synonym: 2 Large Pizzas and 1 Free
+  examples: |
+    - 2+1 Large Pizzas
+    - two large pizzas and one free
+    - Buy 2 Large, Get 1 Free
+    - buy 2 large get 1 free
+    - buy two large pizzas, get 1 free
+    - buy two large, get 1 free
+    - 2+1 large pizzas
+    - 2 large pizzas + 1 free
+    - 2 large pizzas and 1 free
+    - two large pizzas + one free
+    - 3 Large Pizzas For the Price of 2
+    - 3 large pizzas for the price of 2
+    - three large pizzas for the price of two
+- synonym: 2 Margheritas For The Price of 1
+  examples: |
+    - two margherita pizzas for price of one
+    - two margheritas for price of one
+    - 2 Margheritas For The Price of 1
+    - 2 margheritas for the price of 1
+    - 2 Margherita Pizzas For The Price of 1
+    - two margheritas for the price of one
+    - two margherita pizzas for the price of one
+    - 1+1 margheritas
+    - 1+1 margherita pizzas
+    - one free margherita
+- synonym: XL Pizza + Small Pepperoni Pizza For Half-Price
+  examples: |
+    - xl pizza and small pepperoni pizza for 50%
+    - buy XL pizza, get pepperoni for 50%
+    - Buy XL Pizza, Get Small Pepperoni Pizza For 50% Price
+    - buy xl pizza, get small pepperoni pizza for 50% price
+    - XL Pizza + Small Pepperoni Pizza For Half-Price
+    - xl pizza + small pepperoni pizza for half price
+    - buy the largest pizza and get small pepperoni pizza for half price
+    - get small pepperoni pizza for half price
+    - small pepperoni pizza for half price
+    - pepperoni pizza for 50%
 - synonym: Americana
   examples: |
     - Americana
@@ -550,39 +605,3 @@ nlu:
     - Veggie
     - veggie
     - vegetables
-- synonym: 2 Large Pizzas and 1 Free
-  examples: |
-    - Buy 2 Large, Get 1 Free
-    - buy 2 large get 1 free
-    - buy two large pizzas, get 1 free
-    - buy two large, get 1 free
-    - 2+1 Large Pizzas
-    - 2+1 large pizzas
-    - 2 large pizzas + 1 free
-    - 2 large pizzas and 1 free
-    - two large pizzas + one free
-    - 3 Large Pizzas For the Price of 2
-    - 3 large pizzas for the price of 2
-    - three large pizzas for the price of two
-- synonym: 2 Margheritas For The Price of 1
-  examples: |
-    - 2 Margheritas For The Price of 1
-    - 2 margheritas for the price of 1
-    - 2 Margherita Pizzas For The Price of 1
-    - two margheritas for the price of one
-    - two margherita pizzas for price of one
-    - two margherita pizzas for the price of one
-    - 1+1 margheritas
-    - 1+1 margherita pizzas
-    - one free margherita
-- synonym: XL Pizza + Small Pepperoni Pizza For Half-Price
-  examples: |
-    - Buy XL Pizza, Get Small Pepperoni Pizza For 50% Price
-    - buy xl pizza, get small pepperoni pizza for 50% price
-    - XL Pizza + Small Pepperoni Pizza For Half-Price
-    - xl pizza + small pepperoni pizza for half price
-    - xl pizza and small pepperoni pizza for 50%
-    - buy the largest pizza and get small pepperoni pizza for half price
-    - get small pepperoni pizza for half price
-    - small pepperoni pizza for half price
-    - pepperoni pizza for 50%

@@ -1,7 +1,0 @@
-version: "3.1"
-nlu:
-- lookup: promotion
-  examples: |
-    - 2 Large Pizzas and 1 Free
-    - 2 Margheritas For The Price of 1
-    - XL Pizza + Small Pepperoni Pizza For Half-Price
