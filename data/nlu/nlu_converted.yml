@@ -153,6 +153,8 @@ nlu:
     - [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
     - hi, i want to buy some pizzas
     - yes, i want to add small [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - hello, i want to order [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza on [thin](pizza_crust) crust
+    - [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} on [stuffed](pizza_crust) crust
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -251,6 +253,8 @@ nlu:
     - well, yeah, obviously
     - yep,
     - YES
+    - ok
+    - yes, of course
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -341,24 +345,29 @@ nlu:
     - it's [58934583](phone_number)
 - intent: item_type
   examples: |
-    - [hawaii](pizza_type)
-    - [margherita](pizza_type)
+    - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - with [mortadella](pizza_type)
+    - with [salami](pizza_type)
+    - [arancini](pizza_type) pizza
     - I want to order pizza with [olives](pizza_type)
-    - My favourite topping is [cheese](pizza_type)
+    - My favourite topping is [cheese]{"entity": "pizza_type", "value": "Margherita"}
     - I like [olive](pizza_type)
-    - Pepperoni is my favorite topping
+    - [Pepperoni](pizza_type) is my favorite topping
     - Definitely [onion](pizza_type)
     - I love [tomatoes](pizza_type)
-    - favorite topping is [Corns](pizza_type)
-    - I love [cheese](pizza_type)
-    - [cheese](pizza_type)
+    - favorite topping is [Corn](pizza_type)
+    - I love [cheese]{"entity": "pizza_type", "value": "Margherita"}
+    - [cheese]{"entity": "pizza_type", "value": "Margherita"}
     - [Olive](pizza_type)
     - [pepperoni](pizza_type)
     - [tomatoes](pizza_type)
     - [Onions](pizza_type)
     - [Corn](pizza_type)
+    - with [corn](pizza_type)
+    - pizza with [ham and mortadella](pizza_type)
     - [mushrooms, artichokes and olives](pizza_type)
-    - [ham, mushrooms, bacon and brie](pizza_type)
+    - [ham, mushrooms, bacon and cheese](pizza_type)
     - [onions and tuna](pizza_type)
     - with [onion](pizza_type)
     - with [olives](pizza_type)
@@ -369,10 +378,7 @@ nlu:
     - a pizza with [bacon](pizza_type)
     - [funghi](pizza_type)
     - [ham](pizza_type) pizza
-    - [hawaiian](pizza_type)
-    - [margherita]{"entity": "pizza_type", "value": "Margherita"}
-    - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
-    - with [olives](pizza_type)
+    - [hawaiian]{"entity": "pizza_type", "value": "Hawaii"}
 - intent: item_size
   examples: |
     - [small]{"entity": "pizza_size", "value": "10\""}
@@ -396,7 +402,6 @@ nlu:
     - [the largest]{"entity": "pizza_size", "value": "18\""}
     - like i said, [small]{"entity": "pizza_size", "value": "10\""}
     - [small]{"entity": "pizza_size", "value": "10\""} pizza
-    - [medium]{"entity": "pizza_size", "value": "12\""}
 - intent: item_crust
   examples: |
     - [thin](pizza_crust) crust
@@ -414,7 +419,6 @@ nlu:
     - [flat bread](pizza_crust)
     - [cracker](pizza_crust)
     - [flat bread](pizza_crust) crust
-    - [cracker](pizza_crust) crust
 - intent: explain
   examples: |
     - what do you mean?
@@ -485,7 +489,6 @@ nlu:
     - just [1](pizza_amount)
     - [one](pizza_amount)
     - [5](pizza_amount)
-    - just [one](pizza_amount)
 - intent: init_promotion
   examples: |
     - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
@@ -538,8 +541,8 @@ nlu:
 - synonym: Margherita
   examples: |
     - margherita
-    - Margherita
     - cheese
+    - Margherita
 - synonym: Pepperoni
   examples: |
     - pepperoni
@@ -556,10 +559,10 @@ nlu:
 - synonym: Hawaii
   examples: |
     - hawaii
+    - hawaiian
     - Hawaii
     - ham and pineapple
     - Hawaiian
-    - hawaiian
 - synonym: 10"
   examples: |
     - small
@@ -587,11 +590,12 @@ nlu:
   examples: |
     - medium
     - avg
+    - average
+    - 12 inches
     - 12
     - 12 inch
     - Medium
     - normal
-    - average
     - Average
     - twelve inch
     - size M
@@ -657,6 +661,10 @@ nlu:
   examples: |
     - Funghi
     - mushrooms
+    - mushroom
+    - funghi
+    - Mushroom
+    - Mushrooms
 - synonym: Vegetarian
   examples: |
     - Vegetarian

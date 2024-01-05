@@ -13,12 +13,12 @@ pipeline:
 - name: CRFEntityExtractor
 - name: EntitySynonymMapper
 - name: ResponseSelector
-  epochs: 100
+  epochs: 200
 
 policies:
 - name: TEDPolicy
   max_history: 10
-  epochs: 100
+  epochs: 200
   constrain_similarities: True
 - name: AugmentedMemoizationPolicy
   max_history: 5

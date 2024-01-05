@@ -23,10 +23,9 @@ def CalculatePrice(full_order, promotion): # full_order - list, promotion - stri
 	cost = 0
 	margherita_count = 0
 	large_count = 0
-	print(full_order)
+	print("calculating price")
 	for order in full_order:
 		# pizza_amount - multiplies the cost for that pizza
-		print(order.split())
 		amount_multipier = w2n.word_to_num(order.split()[0])
 		# pizza_size - multiplies 0.8, 1, 1.2, 1.5 based on size
 		size_multiplier = 1
@@ -104,7 +103,7 @@ class ActionPizzaOrderAdd(Action):
 		return 'action_pizza_order_add'
 
 	def run(self, dispatcher, tracker, domain):
-
+		print("adding pizza")
 		pizza_size = tracker.get_slot("pizza_size")
 		pizza_type = tracker.get_slot("pizza_type")
 		pizza_amount = tracker.get_slot("pizza_amount")
@@ -137,7 +136,7 @@ class ActionResetPizzaForm(Action):
 		return 'action_reset_pizza_form'
 
 	def run(self, dispatcher, tracker, domain):
-
+		print("resetting form")
 		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("pizza_crust", None),SlotSet("pizza_sliced", None)]
 	
 class ActionResetEverything(Action):
@@ -145,7 +144,7 @@ class ActionResetEverything(Action):
 		return 'action_reset_everything'
 
 	def run(self, dispatcher, tracker, domain):
-
+		print("resetting everything")
 		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("pizza_crust", None),SlotSet("pizza_sliced", None),
 		 SlotSet("total_order", None),SlotSet("order_cost", None),SlotSet("client_name", None),SlotSet("phone_number", None),SlotSet("delivery_address", None),
 		 SlotSet("applied_promotion", None),SlotSet("possible_promotion", None),SlotSet("possible_promotion_conditions_met", None)]
@@ -167,19 +166,14 @@ class ActionCheckPromotion(Action):
 
 	def run(self, dispatcher, tracker, domain):
 		promotion = tracker.get_slot("possible_promotion")
-		print(promotion)
+		print("checking promotion")
 		order = tracker.get_slot("total_order")[0]
-		print(order)
 		order_split = order.split('&')
-		print(order_split)
-		print(order_split[0])
 		ok = False
-		print("I'm checking promotions")
 		if promotion == "2 Large Pizzas and 1 Free":
 			count_of_14_inch = 0 # calculate the amount of ordered large pizzas
 			for ord in order_split:
 				amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
-				print(amount)
 				if "14\"" in ord:
 					count_of_14_inch += amount 
 				if count_of_14_inch >= 3:
@@ -189,7 +183,6 @@ class ActionCheckPromotion(Action):
 			margherita_count = 0
 			for ord in order_split:
 				amount = w2n.word_to_num(ord.split()[0])
-				print(amount)
 				if "margherita" in ord.lower():
 					margherita_count += amount 
 				if margherita_count >= 2:
@@ -222,7 +215,7 @@ class ActionSuggestPromotion(Action):
 		return 'action_suggest_promotion'
 
 	def run(self, dispatcher, tracker, domain):
-		print("start action")
+		print("looking for promotions")
 		order = tracker.get_slot("total_order")[0]
 		order_split = order.split('&')
 		promotion = None
@@ -232,13 +225,11 @@ class ActionSuggestPromotion(Action):
 		margherita_count = 0
 		xl_present = False
 		pepp_present = False
-		print("checking for promotions")
 
 		for ord in order_split:
 			amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
 			if "14\"" in ord:
 				count_of_14_inch += amount
-				print("large found") 
 			if "margherita" in ord.lower():
 				margherita_count += amount 
 			if "18\"" in ord.lower():
@@ -292,6 +283,7 @@ class ActionApplyPromotion(Action):
 		return 'action_apply_promotion'
 	
 	def run(self, dispatcher, tracker, domain):
+		print("applying promotion")
 		promotion = tracker.get_slot("applied_promotion")
 		order = tracker.get_slot("total_order")
 		full_order = order[0].split('&')
@@ -303,8 +295,10 @@ class ActionGetRestaurantLocation(Action):
 		return 'action_get_restaurant_location'
 
 	def run(self, dispatcher, tracker, domain):
-
+		print("setting restaurant location")
 		restaurant_address = "Via Giuseppe Verdi, 15, 38122 Trento TN"
+		answer = "Our restaurant is located at " + restaurant_address
+		dispatcher.utter_message(text=answer)
 
 		return[SlotSet("restaurant_location", restaurant_address)]
 
@@ -313,7 +307,7 @@ class ActionGetMeatPizzas(Action):
 		return 'action_get_meat_pizzas'
 	
 	def run(self, dispatcher, tracker, domain):
-
+		print("meat pizzas")
 		meat_pizzas = "Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami"
 		answer = "Our restaurant has several meat options. They are "+ meat_pizzas + "."
 		dispatcher.utter_message(text=answer)
@@ -326,7 +320,7 @@ class ActionGetVegePizzas(Action):
 		return 'action_get_vege_pizzas'
 	
 	def run(self, dispatcher, tracker, domain):
-
+		print("vege pizzas")
 		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini"
 		answer = "Our restaurant has several vegetarian options. They are "+ vege_pizzas + "."
 		dispatcher.utter_message(text=answer)
@@ -339,9 +333,9 @@ class ActionGetAllPizzas(Action):
 		return 'action_get_all_pizzas'
 	
 	def run(self, dispatcher, tracker, domain):
-
+		print("all pizzas")
 		meat_pizzas = "Hawaii, Pepperoni, Ham, Bacon, Mortadella, Salami"
-		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini"
+		vege_pizzas = "Funghi, Margherita, Artichoke, Vegetarian, Olives, Onions, Potatoes, Arancini, Tomatoes"
 
 		answer = "Our restaurant has many pizzas. They are "+ meat_pizzas + ", " + vege_pizzas + "."
 		dispatcher.utter_message(text=answer)
@@ -354,7 +348,7 @@ class ActionGetPizzaSizes(Action):
 		return 'action_get_sizes'
 	
 	def run(self, dispatcher, tracker, domain):
-
+		print("sizes")
 		sizes = "small - 10\", medium - 12\", large - 14\", extra large - 18\""
 
 		answer = "We offer these sizes: " + sizes
@@ -367,7 +361,7 @@ class ActionGetPizzaCrust(Action):
 		return 'action_get_crust'
 	
 	def run(self, dispatcher, tracker, domain):
-
+		print("crust")
 		crusts = "stuffed, cracker, flat bread, thin"
 
 		answer = "We have these crust types: " + crusts

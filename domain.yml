@@ -3,6 +3,7 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- add_more_pizzas
 - explain
 - init_promotion
 - item_amount
@@ -28,15 +29,14 @@ intents:
 - request_vege_pizzas
 - response_negative
 - response_positive
-- welcome_greet
-- add_more_pizzas
 - restart_ordering
+- welcome_greet
 entities:
-- delivery_address
+- pizza_size
 - pizza_crust
 - pizza_type
-- pizza_size
 - pizza_amount
+- delivery_address
 - phone_number
 - client_name
 - possible_promotion
@@ -194,8 +194,6 @@ responses:
   - text: Our restaurant offers several types of pizza dough. You can choose from thin crust, stuffed crust, flat bread crust and cracker crust.
   utter_pizza_confirm:
   - text: Great! Your order is {pizza_amount} {pizza_type} pizzas on {pizza_crust} crust in {pizza_size} size. Can you confirm, please?
-  utter_inform_restaurant_location:
-  - text: Our restaurant is located at {restaurant_location}. We're waiting for you.
   utter_anything_else:
   - text: Is there anything else I can do for you?
   utter_promotion_not_valid:
@@ -215,24 +213,24 @@ responses:
   utter_repeat_order:
   - text: I'm sorry, could you repeat your order?
 actions:
+- utter_pizza_confirm
+- action_apply_promotion
+- utter_promotion
+- utter_promotion_almost
+- action_suggest_promotion
+- utter_total_and_delivery
+- action_reset_pizza_form
+- utter_extra_order
+- action_pizza_order_add
 - action_get_crust
 - utter_order_complete
-- utter_extra_order
 - utter_repeat_order
-- action_pizza_order_add
 - action_order_number
-- utter_total_and_delivery
-- utter_pizza_confirm
-- action_suggest_promotion
-- action_reset_pizza_form
 - action_get_sizes
 - utter_promotion_not_valid
-- action_apply_promotion
 - action_check_promotion
-- utter_promotion
 - utter_welcome_greet
 - utter_explain_pizza_quantities
-- utter_promotion_almost
 - action_change_order
 - utter_out_of_scope
 - utter_delivery_address
@@ -247,7 +245,6 @@ actions:
 - validate_pizza_order_form
 - validate_customer_details_form
 - utter_anything_else
-- utter_inform_restaurant_location
 - utter_ask_pizza_size
 - action_get_restaurant_location
 - utter_ask_pizza_amount

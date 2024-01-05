@@ -20,6 +20,12 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
+- rule: pls let me die
+  steps:
+    - action: action_pizza_order_add
+    - action: action_reset_pizza_form
+    - action: utter_extra_order
+
 - rule: what pizzas do you have?
   condition:
     - active_loop: pizza_order_form
@@ -116,7 +122,7 @@ rules:
   steps:
     - intent: request_restaurant_location
     - action: action_get_restaurant_location
-    - action: utter_inform_restaurant_location
+    #- action: utter_inform_restaurant_location
     - action: utter_anything_else
 
 - rule: restart
