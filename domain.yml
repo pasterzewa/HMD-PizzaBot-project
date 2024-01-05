@@ -31,13 +31,13 @@ intents:
 - welcome_greet
 entities:
 - pizza_amount
-- pizza_size
 - pizza_crust
+- pizza_type
+- possible_promotion
+- pizza_size
+- client_name
 - phone_number
 - delivery_address
-- pizza_type
-- client_name
-- possible_promotion
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
@@ -109,6 +109,12 @@ slots:
       conditions:
       - active_loop: pizza_order_form
         requested_slot: pizza_sliced
+    - type: from_intent
+      intent: item_change_sliced_to_yes
+      value: true
+    - type: from_intent
+      intent: item_change_sliced_to_no
+      value: false
   requested_slot:
     type: categorical
     values:
@@ -191,7 +197,7 @@ responses:
   utter_anything_else:
   - text: Is there anything else I can do for you?
   utter_promotion_not_valid:
-  - text: Sorry, your order doesn't meet the requirements for the promotion. Would you like to extend your order?
+  - text: Sorry, either your order doesn't meet the requirements for the promotion or we're not running this promotion currently. Would you like to extend your order?
   utter_promotion_valid:
   - text: The promotion has been included in your total order.
   utter_promotion_almost:
@@ -205,31 +211,32 @@ responses:
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
 actions:
-- utter_out_of_scope
-- utter_total_and_delivery
-- utter_extra_order
-- utter_order_complete
-- action_reset_pizza_form
-- action_apply_promotion
+- utter_promotion_not_valid
 - action_suggest_promotion
+- action_pizza_order_add
+- action_apply_promotion
+- action_check_promotion
+- utter_extra_order
 - utter_pizza_confirm
+- utter_total_and_delivery
+- utter_promotion
+- action_reset_pizza_form
+- utter_welcome_greet
+- utter_explain_pizza_quantities
+- utter_promotion_almost
+- action_get_sizes
+- action_change_order
+- utter_out_of_scope
+- utter_order_complete
 - utter_delivery_address
 - action_order_number
-- action_pizza_order_add
-- utter_promotion
 - utter_promotion_valid
-- action_check_promotion
-- utter_promotion_not_valid
 - action_get_crust
-- utter_welcome_greet
 - utter_item_change
-- action_change_order
 - action_get_all_pizzas
 - action_get_vege_pizzas
 - action_get_meat_pizzas
-- action_get_sizes
 - utter_ask_pizza_type
-- utter_explain_pizza_quantities
 - utter_explain_pizza_crust
 - utter_explain_pizza_sizes
 - validate_pizza_order_form
@@ -247,7 +254,6 @@ actions:
 - utter_ask_phone_number
 - utter_default
 - utter_summarize_order
-- utter_promotion_almost
 forms:
   pizza_order_form:
     required_slots:

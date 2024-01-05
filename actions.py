@@ -122,7 +122,7 @@ class ActionPizzaOrderAdd(Action):
 			sliced = "not sliced"
 		order_details =  str(pizza_amount + " "+pizza_type + " of size "+pizza_size + " on " + pizza_crust + " crust, " + sliced)
 		old_order = tracker.get_slot("total_order")
-		if not isinstance (old_order, str):
+		if not isinstance (old_order, list):
 			full_order = [order_details]
 		else:
 			full_order = old_order[0].split('&') + [order_details]
