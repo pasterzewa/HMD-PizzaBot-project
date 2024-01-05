@@ -8,6 +8,7 @@ nlu:
     - Pepperoni
     - Vegetarian
     - artichoke
+    - artichokes
     - ham
     - olives
     - onions
@@ -17,3 +18,5 @@ nlu:
     - mortadella
     - salami
     - arancini
+    - tomatoes
+    - corn

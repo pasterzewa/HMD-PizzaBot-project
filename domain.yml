@@ -3,7 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- add_more_pizzas
 - explain
+- init_promotion
 - item_amount
 - item_change
 - item_change_request_without_entity
@@ -27,21 +29,21 @@ intents:
 - request_vege_pizzas
 - response_negative
 - response_positive
+- restart_ordering
 - welcome_greet
 entities:
-- pizza_amount
 - pizza_size
-- pizza_type
 - pizza_crust
+- pizza_type
+- pizza_amount
 - delivery_address
 - phone_number
 - client_name
+- possible_promotion
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
 - active_form_customer_details_form
-- toppings
-- order_number
 slots:
   anti_pizza_type:
     type: any
@@ -53,6 +55,7 @@ slots:
     mappings:
     - type: from_entity
       entity: client_name
+      intent: item_client_name
   order_number:
     type: any
     mappings:
@@ -62,16 +65,22 @@ slots:
     mappings:
     - type: from_entity
       entity: phone_number
+      intent: item_phone_number
+      not_intent: item_amount
   delivery_address:
     type: any
     mappings:
     - type: from_entity
       entity: delivery_address
+      intent: order_delivery_address
   pizza_amount:
     type: any
     mappings:
     - type: from_entity
       entity: pizza_amount
+      not_intent:
+      - item_phone_number
+      - item_size
   pizza_size:
     type: any
     mappings:
@@ -92,16 +101,22 @@ slots:
     mappings:
     - type: from_intent
       intent: response_positive
-      value: yes
+      value: true
       conditions:
       - active_loop: pizza_order_form
         requested_slot: pizza_sliced
     - type: from_intent
       intent: response_negative
-      value: no
+      value: false
       conditions:
       - active_loop: pizza_order_form
         requested_slot: pizza_sliced
+    - type: from_intent
+      intent: item_change_sliced_to_yes
+      value: true
+    - type: from_intent
+      intent: item_change_sliced_to_no
+      value: false
   requested_slot:
     type: categorical
     values:
@@ -115,20 +130,29 @@ slots:
     mappings:
     - type: custom
     influence_conversation: true
-  meat_pizzas:
-    type: any
-    mappings:
-    - type: custom
-  vege_pizzas:
-    type: any
-    mappings:
-    - type: custom
   total_order:
     type: any
     mappings:
     - type: custom
+  order_cost:
+    type: float
+    mappings:
+    - type: custom
   restaurant_location:
     type: any
+    mappings:
+    - type: custom
+  applied_promotion:
+    type: any
+    mappings:
+    - type: custom
+  possible_promotion:
+    type: any
+    mappings:
+    - type: from_entity
+      entity: possible_promotion
+  possible_promotion_conditions_met:
+    type: bool
     mappings:
     - type: custom
 responses:
@@ -155,9 +179,7 @@ responses:
   utter_extra_order:
   - text: Would you like to order more pizzas?
   utter_total_and_delivery:
-  - text: Your total order is {total_order}. Do you prefer take away or home delivery?
-  utter_customer_details:
-  - text: To finish your order I need some more information.
+  - text: Your total order is {total_order}, it will cost you {order_cost}. Do you prefer take away or home delivery?
   utter_order_complete:
   - text: Your order number is {order_number}. Your order will be ready in 15 minutes. Thanks for the opportunity to serve you
   utter_delivery_address:
@@ -172,12 +194,10 @@ responses:
   - text: Our restaurant offers several types of pizza dough. You can choose from thin crust, stuffed crust, flat bread crust and cracker crust.
   utter_pizza_confirm:
   - text: Great! Your order is {pizza_amount} {pizza_type} pizzas on {pizza_crust} crust in {pizza_size} size. Can you confirm, please?
-  utter_inform_restaurant_location:
-  - text: Our restaurant is located at {restaurant_location}. We're waiting for you.
   utter_anything_else:
   - text: Is there anything else I can do for you?
   utter_promotion_not_valid:
-  - text: Sorry, your order doesn't meet the requirements for the promotion. Would you like to extend your order?
+  - text: Sorry, either your order doesn't meet the requirements for the promotion or we're not running this promotion currently. Would you like to extend your order?
   utter_promotion_valid:
   - text: The promotion has been included in your total order.
   utter_promotion_almost:
@@ -190,29 +210,41 @@ responses:
   - text: To finish your order, I need your name.
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
+  utter_repeat_order:
+  - text: I'm sorry, could you repeat your order?
 actions:
-- utter_item_change
 - utter_pizza_confirm
-- action_change_order
+- action_apply_promotion
+- utter_promotion
+- utter_promotion_almost
+- action_suggest_promotion
+- utter_total_and_delivery
+- action_reset_pizza_form
 - utter_extra_order
 - action_pizza_order_add
-- action_reset_pizza_form
+- action_get_crust
+- utter_order_complete
+- utter_repeat_order
+- action_order_number
+- action_get_sizes
+- utter_promotion_not_valid
+- action_check_promotion
+- utter_welcome_greet
+- utter_explain_pizza_quantities
+- action_change_order
+- utter_out_of_scope
+- utter_delivery_address
+- utter_promotion_valid
+- utter_item_change
 - action_get_all_pizzas
 - action_get_vege_pizzas
 - action_get_meat_pizzas
-- action_get_sizes
-- action_get_crust
 - utter_ask_pizza_type
-- utter_welcome_greet
-- utter_explain_pizza_quantities
-- utter_order_complete
-- utter_delivery_address
-- utter_total_and_delivery
 - utter_explain_pizza_crust
 - utter_explain_pizza_sizes
 - validate_pizza_order_form
+- validate_customer_details_form
 - utter_anything_else
-- utter_inform_restaurant_location
 - utter_ask_pizza_size
 - action_get_restaurant_location
 - utter_ask_pizza_amount
@@ -222,9 +254,9 @@ actions:
 - utter_order_change_specify
 - utter_ask_client_name
 - utter_ask_phone_number
-- action_order_number
 - utter_default
 - utter_summarize_order
+- action_reset_everything
 forms:
   pizza_order_form:
     required_slots:
