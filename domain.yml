@@ -29,15 +29,17 @@ intents:
 - response_negative
 - response_positive
 - welcome_greet
+- add_more_pizzas
+- restart_ordering
 entities:
-- pizza_amount
+- delivery_address
 - pizza_crust
 - pizza_type
-- possible_promotion
 - pizza_size
-- client_name
+- pizza_amount
 - phone_number
-- delivery_address
+- client_name
+- possible_promotion
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
@@ -210,28 +212,31 @@ responses:
   - text: To finish your order, I need your name.
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
+  utter_repeat_order:
+  - text: I'm sorry, could you repeat your order?
 actions:
-- utter_promotion_not_valid
-- action_suggest_promotion
+- action_get_crust
+- utter_order_complete
+- utter_extra_order
+- utter_repeat_order
 - action_pizza_order_add
+- action_order_number
+- utter_total_and_delivery
+- utter_pizza_confirm
+- action_suggest_promotion
+- action_reset_pizza_form
+- action_get_sizes
+- utter_promotion_not_valid
 - action_apply_promotion
 - action_check_promotion
-- utter_extra_order
-- utter_pizza_confirm
-- utter_total_and_delivery
 - utter_promotion
-- action_reset_pizza_form
 - utter_welcome_greet
 - utter_explain_pizza_quantities
 - utter_promotion_almost
-- action_get_sizes
 - action_change_order
 - utter_out_of_scope
-- utter_order_complete
 - utter_delivery_address
-- action_order_number
 - utter_promotion_valid
-- action_get_crust
 - utter_item_change
 - action_get_all_pizzas
 - action_get_vege_pizzas
@@ -254,6 +259,7 @@ actions:
 - utter_ask_phone_number
 - utter_default
 - utter_summarize_order
+- action_reset_everything
 forms:
   pizza_order_form:
     required_slots:

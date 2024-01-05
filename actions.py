@@ -139,6 +139,16 @@ class ActionResetPizzaForm(Action):
 	def run(self, dispatcher, tracker, domain):
 
 		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("pizza_crust", None),SlotSet("pizza_sliced", None)]
+	
+class ActionResetEverything(Action):
+	def name(self):
+		return 'action_reset_everything'
+
+	def run(self, dispatcher, tracker, domain):
+
+		return[SlotSet("pizza_type", None),SlotSet("pizza_size", None),SlotSet("pizza_amount", None),SlotSet("pizza_crust", None),SlotSet("pizza_sliced", None),
+		 SlotSet("total_order", None),SlotSet("order_cost", None),SlotSet("client_name", None),SlotSet("phone_number", None),SlotSet("delivery_address", None),
+		 SlotSet("applied_promotion", None),SlotSet("possible_promotion", None),SlotSet("possible_promotion_conditions_met", None)]
 
 class ActionOrderNumber(Action):
 	def name(self):

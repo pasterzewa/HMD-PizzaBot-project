@@ -118,3 +118,9 @@ rules:
     - action: action_get_restaurant_location
     - action: utter_inform_restaurant_location
     - action: utter_anything_else
+
+- rule: restart
+  steps:
+    - intent: restart_ordering
+    - action: action_reset_everything
+    - action: utter_welcome_greet

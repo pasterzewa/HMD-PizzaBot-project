@@ -618,6 +618,57 @@ stories:
     - order_number: Anna_Doen_1284378933
   - action: utter_order_complete
 
+- story: client immediately moves to extend order
+  steps: 
+  - action: utter_pizza_confirm
+  - intent: add_more_pizzas
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Pepperoni of size large on thin crust, sliced
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+
+- story: client immediately adds more pizzas
+  steps: 
+  - action: utter_pizza_confirm
+  - intent: item_start_generic
+    entities:
+      - item_type: Margherita
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Pepperoni of size large on thin crust, sliced
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_repeat_order
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+
 - story: move between form and delivery
   steps:
   - action: utter_pizza_confirm
@@ -2682,14 +2733,6 @@ stories:
     - pizza_amount: '1'
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: item_change
-    entities:
-    - pizza_size: 10"
-  - slot_was_set:
-    - pizza_size: 10"
-  - intent: item_size
-    entities:
-    - pizza_size: 10"
   - intent: item_size
     entities:
     - pizza_size: 10"
@@ -2753,3 +2796,130 @@ stories:
     - order_cost: 24.6
   - action: utter_promotion_valid
   - intent: response_negative
+
+- story: interactive_story_1
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_amount: one
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: item_crust
+  - intent: item_type
+    entities:
+    - pizza_type: olives
+  - slot_was_set:
+    - pizza_type: olives
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Special Olives
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: request_sizes
+  - action: action_get_sizes
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 12"
+  - slot_was_set:
+    - pizza_size: 12"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 12"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: request_crust
+  - action: action_get_crust
+  - action: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: cracker
+  - slot_was_set:
+    - pizza_crust: cracker
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: cracker
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Special Olives of size 12" on cracker crust, sliced
+  - slot_was_set:
+    - order_cost: 10
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - action: utter_total_and_delivery
+  - intent: order_delivery_address
+    entities:
+    - delivery_address: via del Strada 98
+  - slot_was_set:
+    - delivery_address: via del Strada 98
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - delivery_address: via del Strada 98
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: Angelica Ricci
+  - slot_was_set:
+    - client_name: Angelica Ricci
+  - action: customer_details_form
+  - slot_was_set:
+    - client_name: Angelica Ricci
+  - slot_was_set:
+    - requested_slot: phone_number
+  - intent: item_phone_number
+    entities:
+    - phone_number: '58934583'
+  - slot_was_set:
+    - phone_number: '58934583'
+  - action: customer_details_form
+  - slot_was_set:
+    - phone_number: '58934583'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_order_number
+  - slot_was_set:
+    - order_number: Angelica_Ricci_58934583
+  - action: utter_order_complete
