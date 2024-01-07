@@ -2898,3 +2898,272 @@ stories:
   - slot_was_set:
     - order_cost: 19.2
   - action: utter_total_and_delivery
+
+- story: interactive_story_questions_promo_restaurant
+  steps:
+  - intent: welcome_greet
+  - action: utter_welcome_greet
+  - intent: request_promotions
+  - action: action_get_promotions
+  - action: utter_anything_else
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Margherita
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 18"
+  - slot_was_set:
+    - pizza_size: 18"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_negative
+  - slot_was_set:
+    - pizza_sliced: false
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Margherita of size 18" on stuffed crust, not sliced
+  - slot_was_set:
+    - order_cost: 27.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - order_cost: 27.0
+  - action: utter_total_and_delivery
+  - intent: request_restaurant_location
+  - action: action_get_restaurant_location
+  - slot_was_set:
+    - restaurant_location: Via Giuseppe Verdi, 15, 38122 Trento TN
+  - action: utter_anything_else
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: Ellen
+  - slot_was_set:
+    - client_name: Ellen
+  - action: customer_details_form
+  - slot_was_set:
+    - client_name: Ellen
+  - slot_was_set:
+    - requested_slot: phone_number
+  - intent: item_phone_number
+    entities:
+    - phone_number: '8943243243'
+  - slot_was_set:
+    - phone_number: '8943243243'
+  - action: customer_details_form
+  - slot_was_set:
+    - phone_number: '8943243243'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_order_number
+  - slot_was_set:
+    - order_number: Ellen_8943243243
+  - action: utter_order_complete
+
+- story: interactive_story_pepp_promo
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_size: 18"
+    - pizza_type: Pepperoni
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - pizza_amount: '1'
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - 1 Pepperoni of size 18" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 15.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - pizza_amount: '1'
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: '1'
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: item_type
+    entities:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_size: 10"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_negative
+  - slot_was_set:
+    - pizza_sliced: false
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - 1 Pepperoni of size 18" on thin crust, sliced & 1 Pepperoni of size 10" on stuffed crust, not sliced
+  - slot_was_set:
+    - order_cost: 24.6
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: init_promotion
+    entities:
+    - possible_promotion: XL Pizza + Small Pepperoni Pizza for Half-Price
+  - slot_was_set:
+    - possible_promotion: XL Pizza + Small Pepperoni Pizza for Half-Price
+  - action: action_check_promotion
+  - slot_was_set:
+    - applied_promotion: XL Pizza + Small Pepperoni Pizza for Half-Price
+  - slot_was_set:
+    - order_cost: 19.8
