@@ -430,6 +430,16 @@ nlu:
     - what do you mean
     - how many of what
     - what do you mean by how many pizzas do I want
+- intent: request_promotions
+  examples: |
+    - are you running any promotions currently?
+    - I'm wondering, do you have any promotions?
+    - Are there any promotions I can use?
+    - what are your deals
+    - do you have any cool deals currently
+    - do you have any promos
+    - Are you running promos right now
+    - r u running promos rn
 - intent: request_crust
   examples: |
     - what crusts do you have

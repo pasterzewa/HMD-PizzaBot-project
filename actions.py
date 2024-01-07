@@ -368,6 +368,19 @@ class ActionGetPizzaCrust(Action):
 		dispatcher.utter_message(text=answer)
 
 		return []
+	
+class ActionGetPromotions(Action):
+	def name(self):
+		return 'action_get_promotions'
+	
+	def run(self, dispatcher, tracker, domain):
+		print("get promo")
+		promo = "2 Large Pizzas and 1 Free, 2 Margheritas For The Price of 1, XL Pizza + Small Pepperoni Pizza For Half-Price"
+
+		answer = "We are currently running following promotions: " + promo
+		dispatcher.utter_message(text=answer)
+
+		return []
 
 
 # for a generic slot validation please refer to https://rasa.com/docs/action-server/validation-action/

@@ -27,6 +27,7 @@ intents:
 - request_restaurant_location
 - request_sizes
 - request_vege_pizzas
+- request_promotions
 - response_negative
 - response_positive
 - restart_ordering
@@ -227,6 +228,7 @@ actions:
 - utter_repeat_order
 - action_order_number
 - action_get_sizes
+- action_get_promotions
 - utter_promotion_not_valid
 - action_check_promotion
 - utter_welcome_greet
