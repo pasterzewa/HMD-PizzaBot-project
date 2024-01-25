@@ -20,11 +20,33 @@ rules:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
-- rule: pls let me die
+- rule: add pizza to order
   steps:
     - action: action_pizza_order_add
     - action: action_reset_pizza_form
     - action: utter_extra_order
+
+# - rule: force check promo
+#   steps:
+#     - action: utter_extra_order
+#     - intent: response_negative
+#     - action: action_suggest_promotion
+
+# - rule: promotion check 1
+#   condition:
+#     - slot_was_set:
+#       - possible_promotion: True
+#       - possible_promotion_conditions_met: False
+#   steps:
+#     - action: utter_promotion_almost
+  
+# - rule: promotion check 2
+#   condition:
+#     - slot_was_set:
+#       - possible_promotion: True
+#       - possible_promotion_conditions_met: True
+#   steps:
+#     - action: utter_promotion
 
 - rule: what pizzas do you have?
   condition:

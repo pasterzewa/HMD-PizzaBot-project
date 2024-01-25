@@ -186,6 +186,27 @@ stories:
   - action: utter_explain_pizza_quantities
   - action: pizza_order_form
 
+- story: end pizza order
+  steps:
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Margherita of size large on stuffed crust, sliced
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+
 - story: extend_order_short
   steps:
   - action: utter_extra_order
@@ -193,73 +214,65 @@ stories:
   - action: pizza_order_form
   - active_loop: pizza_order_form
 
-- story: do not extend order short
+- story: do not extend order short and promo check
   steps:
   - action: utter_extra_order
   - intent: response_negative
   - action: action_suggest_promotion
+  - checkpoint: suggesting_promotions
 
-- story: promotion check
+- story: promotion found
   steps:
-  - action: utter_extra_order
-  - intent: response_negative
-  - action: action_suggest_promotion
-
-- story: promotion found and accepted
-  steps:
-  - action: utter_extra_order
-  - intent: response_negative
-  - action: action_suggest_promotion
+  - checkpoint: suggesting_promotions
   - slot_was_set:
     - possible_promotion: 2 Margheritas For The Price of 1
   - slot_was_set:
     - possible_promotion_conditions_met: True 
   - action: utter_promotion
+  - checkpoint: uttering_promotion
+
+- story: promotion not found
+  steps:
+  - checkpoint: suggesting_promotions # no slot was set
+  - action: utter_total_and_delivery
+
+- story: found promo not accepted
+  steps:
+  - checkpoint: uttering_promotion
+  - intent: response_negative
+  - action: utter_total_and_delivery
+
+- story: found promo accepted
+  steps:
+  - checkpoint: uttering_promotion
   - intent: response_positive
   - action: action_apply_promotion
   - slot_was_set:
     - applied_promotion: 2 Margheritas For The Price of 1
   - action: utter_total_and_delivery
 
-- story: promotion found and not accepted
-  steps:
-  - action: utter_extra_order
-  - intent: response_negative
-  - action: action_suggest_promotion
-  - slot_was_set:
-    - possible_promotion: 2 Large Pizzas and 1 Free
-  - slot_was_set:
-    - possible_promotion_conditions_met: True 
-  - action: utter_promotion
-  - intent: response_negative
-  - action: utter_total_and_delivery
-
 - story: almost promotion found 
   steps:
-  - action: utter_extra_order
-  - intent: response_negative
-  - action: action_suggest_promotion
+  - checkpoint: suggesting_promotions
   - slot_was_set:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
+    - possible_promotion: 2 Margheritas For The Price of 1
   - slot_was_set:
     - possible_promotion_conditions_met: False
   - action: utter_promotion_almost
+  - checkpoint: uttering_promo_almost
+
+- story: almost promo accepted
+  steps:
+  - checkpoint: uttering_promo_almost
   - intent: response_positive
   - action: pizza_order_form
   - active_loop: pizza_order_form
   - slot_was_set:
     - requested_slot: pizza_amount
 
-- story: almost promotion found and not wanted
+- story: almost promo not accepted
   steps:
-  - action: utter_extra_order
-  - intent: response_negative
-  - action: action_suggest_promotion
-  - slot_was_set:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
-  - slot_was_set:
-    - possible_promotion_conditions_met: False
-  - action: utter_promotion_almost
+  - checkpoint: uttering_promo_almost
   - intent: response_negative
   - action: utter_total_and_delivery
 
@@ -271,15 +284,11 @@ stories:
   - slot_was_set:
     - possible_promotion: 2 Margheritas For The Price of 1
   - action: action_check_promotion
+  - checkpoint: checking_promo
 
 - story: user suggested valid promotion
   steps: 
-  - intent: init_promotion
-    entities:
-    - possible_promotion: 2 Margheritas For The Price of 1
-  - slot_was_set:
-    - possible_promotion: 2 Margheritas For The Price of 1
-  - action: action_check_promotion
+  - checkpoint: checking_promo
   - slot_was_set:
     - applied_promotion: 2 Margheritas For The Price of 1
   - action: utter_promotion_valid
@@ -287,12 +296,7 @@ stories:
 
 - story: user suggested invalid promotion
   steps: 
-  - intent: init_promotion
-    entities:
-    - possible_promotion: 2 Large Pizzas and 1 Free
-  - slot_was_set:
-    - possible_promotion: 2 Large Pizzas and 1 Free
-  - action: action_check_promotion
+  - checkpoint: checking_promo
   - slot_was_set:
     - possible_promotion: null 
   - action: utter_promotion_not_valid
@@ -301,12 +305,7 @@ stories:
 
 - story: user suggested invalid promotion and extend order
   steps: 
-  - intent: init_promotion
-    entities:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
-  - slot_was_set:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
-  - action: action_check_promotion
+  - checkpoint: checking_promo
   - slot_was_set:
     - possible_promotion: null 
   - action: utter_promotion_not_valid
@@ -388,6 +387,11 @@ stories:
     - pizza_size: small
   - slot_was_set:
     - pizza_size: small
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: small
+  - slot_was_set:
+    - requested_slot: pizza_crust
 
 - story: interactive_story_10
   steps:
@@ -1821,6 +1825,11 @@ stories:
     - pizza_size: 18"
   - slot_was_set:
     - pizza_size: 18"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - requested_slot: pizza_crust
 
 - story: interactive_story_full_order_with_number
   steps:
@@ -2462,9 +2471,9 @@ stories:
   - action: utter_extra_order
   - intent: init_promotion
     entities:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
+    - possible_promotion: 2 Margheritas For The Price of 1
   - slot_was_set:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
+    - possible_promotion: 2 Margheritas For The Price of 1
 
 - story: interactive_story_promo_with_+
   steps:
@@ -2493,13 +2502,6 @@ stories:
     - pizza_type: Hawaii
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: item_size
-    entities:
-    - pizza_size: 14"
-  - slot_was_set:
-    - pizza_size: 14"
-  - intent: item_size
-  - intent: item_size
   - intent: item_size
     entities:
     - pizza_size: 18"
@@ -2619,20 +2621,6 @@ stories:
   - slot_was_set:
     - pizza_sliced: null
   - action: utter_extra_order
-  - intent: init_promotion
-    entities:
-    - possible_promotion: buy XL pizza, get pepperoni for 50%
-  - slot_was_set:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
-  - action: action_check_promotion
-  - slot_was_set:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
-  - slot_was_set:
-    - applied_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
-  - slot_was_set:
-    - order_cost: 24.6
-  - action: utter_promotion_valid
-  - intent: response_negative
 
 - story: interactive_story_full
   steps:
@@ -3157,13 +3145,442 @@ stories:
   - slot_was_set:
     - pizza_sliced: null
   - action: utter_extra_order
-  - intent: init_promotion
+
+- story: interactive_story_move_to_suggest_promo
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
     entities:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza for Half-Price
+    - pizza_amount: one
   - slot_was_set:
-    - possible_promotion: XL Pizza + Small Pepperoni Pizza for Half-Price
-  - action: action_check_promotion
+    - pizza_amount: one
+  - action: pizza_order_form
   - slot_was_set:
-    - applied_promotion: XL Pizza + Small Pepperoni Pizza for Half-Price
+    - pizza_amount: one
   - slot_was_set:
-    - order_cost: 19.8
+    - requested_slot: pizza_type
+  - intent: item_type
+    entities:
+    - pizza_type: Hawaii
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_size: 14"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: cracker
+  - slot_was_set:
+    - pizza_crust: cracker
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: cracker
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Hawaii of size 18" on cracker crust, sliced
+  - slot_was_set:
+    - order_cost: 16.5
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: false
+  - action: utter_promotion_almost
+  - intent: response_negative
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: Ewa
+  - slot_was_set:
+    - client_name: Ewa
+  - action: customer_details_form
+  - slot_was_set:
+    - client_name: Ewa
+  - slot_was_set:
+    - requested_slot: phone_number
+  - intent: item_phone_number
+    entities:
+    - phone_number: '89324343'
+  - slot_was_set:
+    - phone_number: '89324343'
+  - action: customer_details_form
+  - slot_was_set:
+    - phone_number: '89324343'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_order_number
+  - slot_was_set:
+    - order_number: Ewa_89324343
+  - action: utter_order_complete
+
+- story: interactive_story_1234
+  steps:
+  - intent: item_start_generic
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_amount: one
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: item_type
+    entities:
+    - pizza_type: Hawaii
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 18"
+  - slot_was_set:
+    - pizza_size: 18"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Hawaii of size 18" on stuffed crust, sliced
+  - slot_was_set:
+    - order_cost: 18.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+  - intent: item_client_name
+    entities:
+    - client_name: peter
+
+- story: interactive_story_2009
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 10"
+    - pizza_type: Hawaii
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_type: Hawaii
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Hawaii of size 10" on stuffed crust, sliced
+  - slot_was_set:
+    - order_cost: 9.6
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: John
+    - client_name: Lennon
+  - slot_was_set:
+    - client_name: Lennon
+  - action: customer_details_form
+  - slot_was_set:
+    - client_name: Lennon
+  - slot_was_set:
+    - requested_slot: phone_number
+  - intent: item_phone_number
+    entities:
+    - phone_number: '58493234'
+  - slot_was_set:
+    - phone_number: '58493234'
+  - action: customer_details_form
+  - slot_was_set:
+    - phone_number: '58493234'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_order_number
+  - slot_was_set:
+    - order_number: Lennon_58493234
+  - action: utter_order_complete
+
+- story: interactive_story_1
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 10"
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Pepperoni of size 10" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 8.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 10"
+    - pizza_type: Vegetarian
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_type: Vegetarian
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_type: Vegetarian
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Pepperoni of size 10" on thin crust, sliced & one Vegetarian of size 10" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 16.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: XL Pizza + Small Pepperoni Pizza For Half-Price
+  - slot_was_set:
+    - possible_promotion_conditions_met: false
+  - action: utter_promotion_almost
+  - intent: response_negative
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name

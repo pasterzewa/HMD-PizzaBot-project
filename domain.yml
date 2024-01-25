@@ -34,12 +34,12 @@ intents:
 - welcome_greet
 entities:
 - pizza_size
-- pizza_crust
 - pizza_type
-- possible_promotion
 - pizza_amount
+- pizza_crust
 - client_name
 - phone_number
+- possible_promotion
 - delivery_address
 - pizza_sliced
 - anti_pizza_type
@@ -214,22 +214,22 @@ responses:
   utter_repeat_order:
   - text: I'm sorry, could you repeat your order?
 actions:
-- action_pizza_order_add
-- action_check_promotion
-- action_reset_pizza_form
-- utter_pizza_confirm
-- utter_extra_order
-- action_suggest_promotion
-- action_get_promotions
-- action_get_restaurant_location
-- utter_order_complete
-- action_apply_promotion
-- utter_promotion
-- utter_welcome_greet
-- action_order_number
-- utter_anything_else
 - utter_total_and_delivery
 - utter_promotion_almost
+- action_reset_pizza_form
+- action_suggest_promotion
+- utter_extra_order
+- utter_pizza_confirm
+- action_pizza_order_add
+- utter_order_complete
+- action_order_number
+- action_check_promotion
+- utter_promotion
+- action_get_promotions
+- action_get_restaurant_location
+- action_apply_promotion
+- utter_welcome_greet
+- utter_anything_else
 - action_get_crust
 - utter_repeat_order
 - action_get_sizes

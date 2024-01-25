@@ -1,0 +1,82 @@
+[
+  {
+    "text": "deliver it to my work, at Prezzo street, number 42",
+    "entities": [
+      {
+        "start": 26,
+        "end": 50,
+        "value": "Prezzo street, number 42",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 21,
+        "end": 22,
+        "confidence_entity": 0.642754852771759,
+        "value": ",",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 26,
+        "end": 50,
+        "confidence_entity": 0.8159160017967224,
+        "value": "Prezzo street, number 42",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want the two margherita pizzas for price of one",
+    "entities": [
+      {
+        "start": 11,
+        "end": 49,
+        "value": "2 Margheritas For The Price of 1",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 11,
+        "end": 49,
+        "confidence_entity": 0.7266950607299805,
+        "value": "2 Margheritas For The Price of 1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want to use a two margherita pizzas for price of one promotion",
+    "entities": [
+      {
+        "start": 16,
+        "end": 54,
+        "value": "2 Margheritas For The Price of 1",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 16,
+        "end": 54,
+        "confidence_entity": 0.7330732345581055,
+        "value": "2 Margheritas For The Price of 1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

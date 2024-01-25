@@ -1,0 +1,30 @@
+[
+  {
+    "name": "anti_pizza_type",
+    "pattern": "(\\bAmericana\\b|\\bCalzone\\b|\\bCaprese\\b|\\bCrudo\\b|\\bChicken\\ BBC\\b)"
+  },
+  {
+    "name": "applied_promotion",
+    "pattern": "(\\b2\\ Large\\ Pizzas\\ and\\ 1\\ Free\\b|\\b2\\ Margheritas\\ For\\ The\\ Price\\ of\\ 1\\b|\\bXL\\ Pizza\\ \\+\\ Small\\ Pepperoni\\ Pizza\\ For\\ Half\\-Price\\b)"
+  },
+  {
+    "name": "pizza_amount",
+    "pattern": "(\\b1\\b|\\b2\\b|\\b3\\b|\\b4\\b|\\b5\\b|\\b6\\b|\\b7\\b|\\b8\\b|\\b9\\b|\\b10\\b|\\b11\\b|\\b12\\b|\\b13\\b|\\b14\\b|\\b15\\b|\\b16\\b|\\b17\\b|\\b18\\b|\\b19\\b|\\b20\\b)"
+  },
+  {
+    "name": "pizza_crust",
+    "pattern": "(\\bstuffed\\b|\\bcracker\\b|\\bflat\\ bread\\b|\\bthin\\b)"
+  },
+  {
+    "name": "pizza_size",
+    "pattern": "(\\b10\"\\b|\\b12\"\\b|\\b14\"\\b|\\b18\"\\b)"
+  },
+  {
+    "name": "pizza_type",
+    "pattern": "(\\bFunghi\\b|\\bHawaii\\b|\\bMargherita\\b|\\bPepperoni\\b|\\bVegetarian\\b|\\bartichoke\\b|\\bartichokes\\b|\\bham\\b|\\bolives\\b|\\bonions\\b|\\bonion\\b|\\bpotatoes\\b|\\bbacon\\b|\\bmortadella\\b|\\bsalami\\b|\\barancini\\b|\\btomatoes\\b|\\bcorn\\b)"
+  },
+  {
+    "name": "possible_promotion",
+    "pattern": "(\\b2\\ Large\\ Pizzas\\ and\\ 1\\ Free\\b|\\b2\\ Margheritas\\ For\\ The\\ Price\\ of\\ 1\\b|\\bXL\\ Pizza\\ \\+\\ Small\\ Pepperoni\\ Pizza\\ For\\ Half\\-Price\\b)"
+  }
+]

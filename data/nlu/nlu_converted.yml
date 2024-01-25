@@ -157,6 +157,11 @@ nlu:
     - [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} on [stuffed](pizza_crust) crust
     - i want to order [two](pizza_amount) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas then
     - i want to order an [18 inch]{"entity": "pizza_size", "value": "18\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza on [thin](pizza_crust) crust
+    - hello, i want to buy a pizza
+    - hi, i want to buy a pizza
+    - hello, i want to buy [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [hawaiian]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - hello, i want to order [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - yes, i also want [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [vegetarian]{"entity": "pizza_type", "value": "Vegetarian"} pizza
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -336,6 +341,9 @@ nlu:
     - my name's [marco](client_name)
     - of course, my name is [Angelica Ricci](client_name)
     - sure, it's [Ellen](client_name)
+    - my name's [Ewa](client_name)
+    - my name's [peter](client_name)
+    - of course, it's [John](client_name) [Lennon](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -350,6 +358,8 @@ nlu:
     - my phone is [89832243432](phone_number)
     - it's [58934583](phone_number)
     - right, it's [8943243243](phone_number)
+    - it's [89324343](phone_number)
+    - it's [58493234](phone_number)
 - intent: item_type
   examples: |
     - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
@@ -410,7 +420,6 @@ nlu:
     - [the largest]{"entity": "pizza_size", "value": "18\""}
     - like i said, [small]{"entity": "pizza_size", "value": "10\""}
     - [small]{"entity": "pizza_size", "value": "10\""} pizza
-    - [small]{"entity": "pizza_size", "value": "10\""}
 - intent: item_crust
   examples: |
     - [thin](pizza_crust) crust
@@ -429,7 +438,8 @@ nlu:
     - [cracker](pizza_crust)
     - [flat bread](pizza_crust) crust
     - hm, maybe [stuffed](pizza_crust) crust
-    - [stuffed](pizza_crust)
+    - [thin](pizza_crust)
+    - also [thin](pizza_crust)
 - intent: explain
   examples: |
     - what do you mean?
@@ -512,7 +522,6 @@ nlu:
     - just [1](pizza_amount)
     - [one](pizza_amount)
     - [5](pizza_amount)
-    - [1](pizza_amount)
 - intent: init_promotion
   examples: |
     - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
@@ -520,17 +529,9 @@ nlu:
     - Can I use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
     - I saw you have promotion for [2 Margheritas For The Price of 1](possible_promotion)
     - i want the [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
-    - i want to add [xl pizza and small pepperoni pizza for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"} promotion
-    - i want to add the promotion: [xl pizza and small pepperoni for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"}
-    - hey, i saw you had a promotion for [buy XL pizza, get pepperoni for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"}
-    - I think I qualify for [XL Pizza + Small Pepperoni Pizza For Half-Price](possible_promotion) deal
     - i want to use a [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
     - i want to use the [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
     - no, but i want to use the [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
-    - no, i want to use promotion [XL Pizza + Small Pepperoni Pizza For Half-Price](possible_promotion)
-    - i want to have the [pepperoni pizza for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"}
-    - i want the promotion [buy XL pizza, get pepperoni for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza For Half-Price"}
-    - i want to use a promotion, it's called buy [xl pizza, get pepperoni for 50%]{"entity": "possible_promotion", "value": "XL Pizza + Small Pepperoni Pizza for Half-Price"}
 - intent: add_more_pizzas
   examples: |
     - i want to extend my order
@@ -651,19 +652,6 @@ nlu:
     - 1+1 margheritas
     - 1+1 margherita pizzas
     - one free margherita
-- synonym: XL Pizza + Small Pepperoni Pizza For Half-Price
-  examples: |
-    - xl pizza and small pepperoni pizza for 50%
-    - xl pizza and small pepperoni for 50%
-    - buy XL pizza, get pepperoni for 50%
-    - pepperoni pizza for 50%
-    - Buy XL Pizza, Get Small Pepperoni Pizza For 50% Price
-    - buy xl pizza, get small pepperoni pizza for 50% price
-    - XL Pizza + Small Pepperoni Pizza For Half-Price
-    - xl pizza + small pepperoni pizza for half price
-    - buy the largest pizza and get small pepperoni pizza for half price
-    - get small pepperoni pizza for half price
-    - small pepperoni pizza for half price
 - synonym: Americana
   examples: |
     - Americana
