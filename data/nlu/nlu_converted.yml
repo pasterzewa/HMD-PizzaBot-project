@@ -180,6 +180,9 @@ nlu:
     - yes, i want to add [two](pizza_amount) [18 inch]{"entity": "pizza_size", "value": "18\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
     - hi, i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizzas with [onions](pizza_type) on [thin](pizza_crust) crust
     - i want [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas on [thin](pizza_crust) crust
+    - hello, i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas with [stuffed](pizza_crust) crust
+    - hi, i want to buy [two](pizza_amount) [18 inch]{"entity": "pizza_size", "value": "18\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas with [stuffed](pizza_crust) crust
+    - hi, i want to buy [two](pizza_amount) [18 inch]{"entity": "pizza_size", "value": "18\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas on [flat bread](pizza_crust)
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -292,6 +295,7 @@ nlu:
     - well, yeah, of course
     - of cours
     - exactly
+    - yes, that's exactly it
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -310,12 +314,14 @@ nlu:
     - i'll pick it up
     - pickup please
     - then i'll pick up my order
+    - i'll pick up my order
 - intent: order_delivery
   examples: |
     - delivery please
     - delivery
     - i prefer delivery
     - delivery i think
+    - i'd like it delivered
 - intent: order_delivery_address
   examples: |
     - my address is [#46, 655 avenue du techno pole](delivery_address)
@@ -345,6 +351,7 @@ nlu:
     - please deliver the order to [via del Dante 54](delivery_address)
     - to [piazza dante 32](delivery_address)
     - please deliver to [via del grotoo 124](delivery_address)
+    - please deliver to [via del posso 98](delivery_address)
 - intent: item_client_name
   examples: |
     - i'm [John Doe](client_name)
@@ -385,6 +392,8 @@ nlu:
     - my name's [alan johnson](client_name)
     - my name's [johnson](client_name)
     - my name's [Lawrence](client_name)
+    - my name's [johnny travolta](client_name)
+    - my name's [Julia Monetecchi](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -403,6 +412,7 @@ nlu:
     - it's [58493234](phone_number)
     - it's [324834839](phone_number)
     - my phone number is [8594231432](phone_number)
+    - sure, it's [84249843435](phone_number)
 - intent: item_type
   examples: |
     - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
@@ -509,6 +519,7 @@ nlu:
     - Are you running promos right now
     - r u running promos rn
     - do you have promotions
+    - no, but i was wondering what promotions do you have?
 - intent: request_crust
   examples: |
     - what crusts do you have
@@ -579,6 +590,10 @@ nlu:
     - i want to use a [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
     - i want to use the [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
     - no, but i want to use the [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
+    - no, but i've hear you have the deal for [3 large pizzas for the price of 2]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
+    - no, but i want to use the [two large pizzas and one free]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
+    - i just want my pizzas with the promotion for [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - then i want to use the [2 margheritas for price of one](possible_promotion) promotion
 - intent: add_more_pizzas
   examples: |
     - i want to extend my order
@@ -685,6 +700,7 @@ nlu:
   examples: |
     - 2+1 Large Pizzas
     - two large pizzas and one free
+    - 3 large pizzas for the price of 2
     - Buy 2 Large, Get 1 Free
     - buy 2 large get 1 free
     - buy two large pizzas, get 1 free
@@ -694,12 +710,12 @@ nlu:
     - 2 large pizzas and 1 free
     - two large pizzas + one free
     - 3 Large Pizzas For the Price of 2
-    - 3 large pizzas for the price of 2
     - three large pizzas for the price of two
 - synonym: 2 Margheritas For The Price of 1
   examples: |
     - two margherita pizzas for price of one
     - two margheritas for price of one
+    - 2 margheritas for price of one
     - 2 Margheritas For The Price of 1
     - 2 margheritas for the price of 1
     - 2 Margherita Pizzas For The Price of 1

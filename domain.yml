@@ -33,14 +33,14 @@ intents:
 - restart_ordering
 - welcome_greet
 entities:
-- pizza_crust
 - pizza_type
-- pizza_amount
-- delivery_address
-- client_name
 - pizza_size
-- phone_number
+- pizza_amount
+- pizza_crust
 - possible_promotion
+- phone_number
+- client_name
+- delivery_address
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
@@ -214,23 +214,24 @@ responses:
   utter_repeat_order:
   - text: I'm sorry, could you repeat your order?
 actions:
-- action_suggest_promotion
-- utter_delivery_address
-- utter_total_and_delivery
-- utter_promotion
-- utter_order_complete
-- action_reset_pizza_form
 - utter_extra_order
-- action_order_number
 - utter_pizza_confirm
-- action_apply_promotion
-- action_pizza_order_add
-- utter_promotion_almost
 - action_check_promotion
 - action_get_promotions
+- utter_anything_else
+- action_reset_pizza_form
+- action_pizza_order_add
+- utter_delivery_address
+- utter_total_and_delivery
+- utter_order_complete
+- utter_promotion_valid
+- action_order_number
+- action_suggest_promotion
+- utter_promotion
+- action_apply_promotion
+- utter_promotion_almost
 - action_get_restaurant_location
 - utter_welcome_greet
-- utter_anything_else
 - action_get_crust
 - utter_repeat_order
 - action_get_sizes
@@ -238,7 +239,6 @@ actions:
 - utter_explain_pizza_quantities
 - action_change_order
 - utter_out_of_scope
-- utter_promotion_valid
 - utter_item_change
 - action_get_all_pizzas
 - action_get_vege_pizzas
