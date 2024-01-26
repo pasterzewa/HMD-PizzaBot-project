@@ -3,49 +3,18 @@ recipe: default.v1
 language: en
 
 pipeline:
-- name: SpacyNLP
-  model: en_core_web_md
-- name: SpacyTokenizer
-- name: SpacyFeaturizer
-- name: RegexFeaturizer
-- name: LexicalSyntacticFeaturizer
+- name: WhitespaceTokenizer
+  case_sensitive: False
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
   analyzer: "char_wb"
   min_ngram: 1
   max_ngram: 4
-- name: DIETClassifier
-  epochs: 100
-  constrain_similarities: yes
+- name: LogisticRegressionClassifier
+- name: CRFEntityExtractor
 - name: EntitySynonymMapper
 - name: ResponseSelector
   epochs: 100
-  # - name: SpacyNLP
-  #   model: en_core_web_md
-  # - name: SpacyTokenizer
-  # - name: SpacyFeaturizer
-  # - name: RegexFeaturizer
-  # - name: LexicalSyntacticFeaturizer
-  # - name: CountVectorsFeaturizer
-  #   analyzer: "char_wb"
-  #   min_ngram: 1
-  #   max_ngram: 4
-  # - name: DIETClassifier
-  #   epochs: 300
-  # - name: EntitySynonymMapper
-  # - name: ResponseSelector
-  #   epochs: 300
-# - name: WhitespaceTokenizer
-# - name: CountVectorsFeaturizer
-# - name: CountVectorsFeaturizer
-#   analyzer: "char_wb"
-#   min_ngram: 1
-#   max_ngram: 4
-# - name: LogisticRegressionClassifier
-# - name: CRFEntityExtractor
-# - name: EntitySynonymMapper
-# - name: ResponseSelector
-#   epochs: 200
 
 policies:
 - name: TEDPolicy
@@ -53,21 +22,8 @@ policies:
   epochs: 100
   constrain_similarities: yes
 - name: AugmentedMemoizationPolicy
-  max_history: 5
-# - name: RulePolicy
-# - name: UnexpecTEDIntentPolicy
-#   epochs: 10
-#   nlu_threshold: 0.3
-#   ambiguity_threshold: 0.1
-#   core_threshold: 0.3
-#   fallback_action_name: 'action_default_fallback'
-# - name: MemoizationPolicy
-#   max_history: 10
-#   epochs: 300
+  max_history: 10
 - name: RulePolicy
-  # Confidence threshold for the `core_fallback_action_name` to apply.
-  # The action will apply if no other action was predicted with
-  # a confidence >= core_fallback_threshold
   epochs: 100
   core_fallback_threshold: 0.3
   core_fallback_action_name: "action_default_fallback"

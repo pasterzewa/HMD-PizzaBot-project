@@ -25,6 +25,7 @@ def CalculatePrice(full_order, promotion): # full_order - list, promotion - stri
 	large_count = 0
 	print("calculating price")
 	for order in full_order:
+		print(order)
 		# pizza_amount - multiplies the cost for that pizza
 		amount_multipier = w2n.word_to_num(order.split()[0])
 		# pizza_size - multiplies 0.8, 1, 1.2, 1.5 based on size
@@ -58,18 +59,19 @@ def CalculatePrice(full_order, promotion): # full_order - list, promotion - stri
 		elif 'margherita' not in order.lower():
 			type_cost = 10
 
-		if promotion == "2 Margheritas For The Price of 1" and 'margherita' in order.lower():
-			margherita_count += 1
-			if margherita_count != 2:
-				cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
-			else:
-				margherita_count = 0 # this pizza is free and we 'reset' the counter
-		elif promotion == "XL Pizza + Small Pepperoni Pizza For Half-Price" and "10\"" in order.lower() and "pepperoni" in order.lower():
-			cost += 0.5 * (type_cost + crust_bonus)*size_multiplier*amount_multipier # we add the small pepp for half price
-		elif promotion == "2 Large Pizzas and 1 Free":
-			large_count += 1
-			if large_count != 3:
-				cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
+		print(promotion)
+		if promotion and "2 Margheritas For The Price of 1" in promotion and 'margherita' in order.lower():
+			print("promotion applied")
+			margherita_count += amount_multipier
+			if margherita_count == 1 or amount_multipier >= 2:
+				cost += (type_cost + crust_bonus)*size_multiplier*(amount_multipier//2)
+			if margherita_count >= 2:
+				margherita_count = 0 # we 'reset' the counter
+		elif promotion and "2 Large Pizzas and 1 Free" in promotion:
+			print("promotion applied")
+			large_count += amount_multipier
+			if large_count == 2 or amount_multipier >= 3:
+				cost += (type_cost + crust_bonus)*size_multiplier*(amount_multipier - amount_multipier//3)
 			else:
 				large_count = 0 # like with margheritas
 		else:
@@ -188,17 +190,6 @@ class ActionCheckPromotion(Action):
 				if margherita_count >= 2:
 					ok = True 
 					break
-		elif promotion == "XL Pizza + Small Pepperoni Pizza For Half-Price":
-			xl_present = False
-			pepp_present = False
-			for ord in order_split:
-				if "18\"" in ord.lower():
-					xl_present = True 
-				elif "10\"" in ord.lower() and "pepperoni" in ord.lower():
-					pepp_present = True
-				if xl_present and pepp_present:
-					ok = True 
-					break
 		else:
 			print("wrong promotion")
 
@@ -223,19 +214,13 @@ class ActionSuggestPromotion(Action):
 		conditions_met = False
 		count_of_14_inch = 0
 		margherita_count = 0
-		xl_present = False
-		pepp_present = False
 
 		for ord in order_split:
 			amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
 			if "14\"" in ord:
 				count_of_14_inch += amount
 			if "margherita" in ord.lower():
-				margherita_count += amount 
-			if "18\"" in ord.lower():
-				xl_present = True 
-			elif "10\"" in ord.lower() and "pepperoni" in ord.lower():
-				pepp_present = True		
+				margherita_count += amount 	
 
 		# "2 Large Pizzas and 1 Free"
 		# check if the user has at least two large pizzas
@@ -245,32 +230,21 @@ class ActionSuggestPromotion(Action):
 		# check if the user has at least one margherita
 		# if 2 already - set the possible_promotion_conditions_met to True
 
-		# "XL Pizza + Small Pepperoni Pizza For Half-Price":
-		# check if the client has either pizza in size 18" or a small pepperoni
-		# if both already - set the possible_promotion_conditions_met to True
-
 		if count_of_14_inch >= 3:
-			promotion = "2+1 Large Pizzas"
+			promotion = "2 Large Pizzas and 1 Free"
 			ok = True
 			conditions_met = True 
 		elif margherita_count >= 2:
 			promotion = "2 Margheritas For The Price of 1"
 			ok = True
 			conditions_met = True 
-		elif xl_present and pepp_present:
-			promotion = "XL Pizza + Small Pepperoni Pizza For Half-Price"
-			ok = True
-			conditions_met = True 
 
 		if ok == False:
 			if count_of_14_inch == 2:
-				promotion = "2+1 Large Pizzas"
+				promotion = "2 Large Pizzas and 1 Free"
 				ok = True
 			elif margherita_count == 1:
 				promotion = "2 Margheritas For The Price of 1"
-				ok = True
-			elif xl_present or pepp_present:
-				promotion = "XL Pizza + Small Pepperoni Pizza For Half-Price"
 				ok = True
 
 		if ok:
@@ -284,10 +258,12 @@ class ActionApplyPromotion(Action):
 	
 	def run(self, dispatcher, tracker, domain):
 		print("applying promotion")
-		promotion = tracker.get_slot("applied_promotion")
+		promotion = tracker.get_slot("possible_promotion")
 		order = tracker.get_slot("total_order")
 		full_order = order[0].split('&')
+		print("old cost: " + str(tracker.get_slot("order_cost")))
 		cost = CalculatePrice (full_order, promotion)
+		print("new cost: " + str(cost))
 		return[SlotSet("applied_promotion", tracker.get_slot("possible_promotion")), SlotSet("order_cost", cost)]
 
 class ActionGetRestaurantLocation(Action):
@@ -375,7 +351,7 @@ class ActionGetPromotions(Action):
 	
 	def run(self, dispatcher, tracker, domain):
 		print("get promo")
-		promo = "2 Large Pizzas and 1 Free, 2 Margheritas For The Price of 1, XL Pizza + Small Pepperoni Pizza For Half-Price"
+		promo = "2 Large Pizzas and 1 Free, 2 Margheritas For The Price of 1"
 
 		answer = "We are currently running following promotions: " + promo
 		dispatcher.utter_message(text=answer)

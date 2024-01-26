@@ -2179,14 +2179,14 @@ stories:
   - intent: response_negative
   - action: action_suggest_promotion
   - slot_was_set:
-    - possible_promotion: 2+1 Large Pizzas
+    - possible_promotion: 2 Large Pizzas and 1 Free
   - slot_was_set:
     - possible_promotion_conditions_met: true
   - action: utter_promotion
   - intent: response_positive
   - action: action_apply_promotion
   - slot_was_set:
-    - applied_promotion: 2+1 Large Pizzas
+    - applied_promotion: 2 Large Pizzas and 1 Free
   - slot_was_set:
     - order_cost: 24.0
   - action: utter_total_and_delivery
@@ -2294,7 +2294,7 @@ stories:
   - intent: response_negative
   - action: action_suggest_promotion
   - slot_was_set:
-    - possible_promotion: 2+1 Large Pizzas
+    - possible_promotion: 2 Large Pizzas and 1 Free
   - slot_was_set:
     - possible_promotion_conditions_met: false
   - action: utter_promotion_almost
@@ -3448,7 +3448,7 @@ stories:
     - order_number: Lennon_58493234
   - action: utter_order_complete
 
-- story: interactive_story_1
+- story: interactive_story_2501
   steps:
   - intent: item_start_generic
     entities:
@@ -3584,3 +3584,1528 @@ stories:
   - active_loop: customer_details_form
   - slot_was_set:
     - requested_slot: client_name
+
+- story: interactive_story_1122
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - requested_slot: pizza_type
+  - intent: item_type
+    entities:
+    - pizza_type: olives and bacon
+  - slot_was_set:
+    - pizza_type: olives and bacon
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Special Olives And Bacon
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 12"
+  - slot_was_set:
+    - pizza_size: 12"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 12"
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_negative
+  - slot_was_set:
+    - pizza_sliced: false
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Special Olives And Bacon of size 12" on stuffed crust, not sliced
+  - slot_was_set:
+    - order_cost: 26
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - action: utter_total_and_delivery
+  - intent: order_delivery
+  - action: utter_delivery_address
+  - intent: order_delivery_address
+    entities:
+    - delivery_address: via del Travai 123
+  - slot_was_set:
+    - delivery_address: via del Travai 123
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - delivery_address: via del Travai 123
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: John Meyers
+  - slot_was_set:
+    - client_name: John Meyers
+  - action: customer_details_form
+  - slot_was_set:
+    - client_name: John Meyers
+  - slot_was_set:
+    - requested_slot: phone_number
+  - intent: item_phone_number
+    entities:
+    - phone_number: '324834839'
+  - slot_was_set:
+    - phone_number: '324834839'
+  - action: customer_details_form
+  - slot_was_set:
+    - phone_number: '324834839'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_order_number
+  - slot_was_set:
+    - order_number: John_Meyers_324834839
+  - action: utter_order_complete
+
+- story: interactive_story_1151
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: three
+    - pizza_size: 14"
+    - pizza_type: Pepperoni
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_negative
+  - slot_was_set:
+    - pizza_sliced: false
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - three Pepperoni of size 14" on thin crust, not sliced
+  - slot_was_set:
+    - order_cost: 36.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - order_cost: 36.0
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: johnny
+
+- story: interactive_story_1
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_size: 14"
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Pepperoni of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 24.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: false
+  - action: utter_promotion_almost
+  - intent: response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 14"
+    - pizza_type: Pepperoni
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Pepperoni of size 14" on thin crust, sliced & one Pepperoni of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 36.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - order_cost: 36.0
+  - action: utter_total_and_delivery
+
+- story: interactive_story_1248
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Margherita
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 18"
+  - slot_was_set:
+    - pizza_size: 18"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: cracker
+  - slot_was_set:
+    - pizza_crust: cracker
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: cracker
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Margherita of size 18" on cracker crust, sliced
+  - slot_was_set:
+    - order_cost: 24.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - order_cost: 24.0
+  - action: utter_total_and_delivery
+
+- story: interactive_story_1333
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_type: Margherita
+    - pizza_crust: flat bread
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_crust: flat bread
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_crust: flat bread
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_amount
+    entities:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_amount: one
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_size: 14"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Margherita of size 14" on flat bread crust, sliced
+  - slot_was_set:
+    - order_cost: 9.6
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - possible_promotion_conditions_met: false
+  - action: utter_promotion_almost
+  - intent: response_positive
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - requested_slot: pizza_amount
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 14"
+    - pizza_type: Margherita
+    - pizza_crust: flat bread
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_crust: flat bread
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_crust: flat bread
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: item_change_sliced_to_yes
+  - slot_was_set:
+    - pizza_sliced: true
+  - intent: response_positive
+  - action: action_default_fallback
+  - intent: item_change_sliced_to_yes
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Margherita of size 14" on flat bread crust, sliced & one Margherita of size 14" on flat bread crust, sliced
+  - slot_was_set:
+    - order_cost: 19.2
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - order_cost: 19.2
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+
+- story: interactive_story_1334
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: '2'
+    - pizza_type: Margherita
+    - pizza_crust: flat bread
+  - slot_was_set:
+    - pizza_amount: '2'
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_crust: flat bread
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: '2'
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_crust: flat bread
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_size: 10"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - 2 Margherita of size 10" on flat bread crust, sliced
+  - slot_was_set:
+    - order_cost: 12.8
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - order_cost: 12.8
+  - action: utter_total_and_delivery
+
+- story: interactive_story_1416
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_size: 14"
+    - pizza_type: bacon and tomatoes
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: bacon and tomatoes
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Special Bacon And Tomatoes
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Special Bacon And Tomatoes of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 26.4
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 14"
+    - pizza_type: pineapple and bacon
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: pineapple and bacon
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_type: Special Pineapple And Bacon
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Special Bacon And Tomatoes of size 14" on thin crust, sliced & one Special Pineapple And Bacon of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 39.6
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - order_cost: 39.6
+  - action: utter_total_and_delivery
+
+- story: interactive_story_1417
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_size: 14"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Pepperoni of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 24.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 14"
+    - pizza_type: bacon and onions
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: bacon and onions
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_type: Special Bacon And Onions
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Pepperoni of size 14" on thin crust, sliced & one Special Bacon And Onions of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 37.2
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - order_cost: 37.2
+  - action: utter_total_and_delivery
+  - intent: order_delivery_address
+    entities:
+    - delivery_address: via dante 57
+  - slot_was_set:
+    - delivery_address: via dante 57
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - delivery_address: via dante 57
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: alejandro gomez
+
+- story: interactive_story_1542
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: three
+    - pizza_size: 14"
+    - pizza_type: bacon
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: bacon
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_type: Special Bacon
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - three Special Bacon of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 32.4
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 14"
+    - pizza_type: zucchini
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: zucchini
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_type: Special Zucchini
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: response_positive
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - three Special Bacon of size 14" on thin crust, sliced & one Special Zucchini of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 43.2
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - order_cost: 43.2
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+  - intent: item_client_name
+    entities:
+    - client_name: johnny travis
+
+- story: interactive_story_1605
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Margherita
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - requested_slot: pizza_size
+  - intent: item_size
+    entities:
+    - pizza_size: 18"
+  - slot_was_set:
+    - pizza_size: 18"
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_negative
+  - slot_was_set:
+    - pizza_sliced: false
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: false
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - two Margherita of size 18" on thin crust, not sliced
+  - slot_was_set:
+    - order_cost: 21.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - order_cost: 21.0
+  - action: utter_total_and_delivery
+  - intent: order_delivery
+  - action: utter_delivery_address
+  - intent: order_delivery_address
+    entities:
+    - delivery_address: via del Dante 54
+  - slot_was_set:
+    - delivery_address: via del Dante 54
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - delivery_address: via del Dante 54
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: alan johnson
+
+- story: interactive_story_1643
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: one
+    - pizza_size: 10"
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: one
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_size: 10"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: stuffed
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Pepperoni of size 10" on stuffed crust, sliced
+  - slot_was_set:
+    - order_cost: 9.6
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: two
+    - pizza_size: 18"
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - pizza_type: Margherita
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: two
+  - slot_was_set:
+    - pizza_type: Margherita
+  - slot_was_set:
+    - pizza_size: 18"
+  - slot_was_set:
+    - requested_slot: pizza_crust
+  - intent: item_crust
+    entities:
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - one Pepperoni of size 10" on stuffed crust, sliced & two Margherita of size 18" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 30.6
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Margheritas For The Price of 1
+  - slot_was_set:
+    - order_cost: 30.6
+  - action: utter_total_and_delivery
+  - intent: order_pickup
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: johnson
+
+- story: interactive_story_1710
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: three
+    - pizza_size: 14"
+    - pizza_type: onions
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: onions
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_type: Special Onions
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - three Special Onions of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 32.4
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - order_cost: 32.4
+  - action: utter_total_and_delivery
+  - intent: order_delivery
+  - action: utter_delivery_address
+  - intent: order_delivery_address
+    entities:
+    - delivery_address: piazza dante 32
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - delivery_address: piazza dante 32
+  - slot_was_set:
+    - requested_slot: client_name
+
+- story: interactive_story_1
+  steps:
+  - intent: item_start_generic
+    entities:
+    - pizza_amount: three
+    - pizza_size: 14"
+    - pizza_type: Pepperoni
+    - pizza_crust: thin
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_crust: thin
+  - action: pizza_order_form
+  - active_loop: pizza_order_form
+  - slot_was_set:
+    - pizza_amount: three
+  - slot_was_set:
+    - pizza_type: Pepperoni
+  - slot_was_set:
+    - pizza_size: 14"
+  - slot_was_set:
+    - pizza_crust: thin
+  - slot_was_set:
+    - requested_slot: pizza_sliced
+  - intent: response_positive
+  - slot_was_set:
+    - pizza_sliced: true
+  - action: pizza_order_form
+  - slot_was_set:
+    - pizza_sliced: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: utter_pizza_confirm
+  - intent: response_positive
+  - action: action_pizza_order_add
+  - slot_was_set:
+    - total_order:
+      - three Pepperoni of size 14" on thin crust, sliced
+  - slot_was_set:
+    - order_cost: 36.0
+  - action: action_reset_pizza_form
+  - slot_was_set:
+    - pizza_type: null
+  - slot_was_set:
+    - pizza_size: null
+  - slot_was_set:
+    - pizza_amount: null
+  - slot_was_set:
+    - pizza_crust: null
+  - slot_was_set:
+    - pizza_sliced: null
+  - action: utter_extra_order
+  - intent: response_negative
+  - action: action_suggest_promotion
+  - slot_was_set:
+    - possible_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - possible_promotion_conditions_met: true
+  - action: utter_promotion
+  - intent: response_positive
+  - action: action_apply_promotion
+  - slot_was_set:
+    - applied_promotion: 2 Large Pizzas and 1 Free
+  - slot_was_set:
+    - order_cost: 12.0
+  - action: utter_total_and_delivery
+  - intent: order_delivery
+  - action: utter_delivery_address
+  - intent: order_delivery_address
+    entities:
+    - delivery_address: via del grotoo 124
+  - slot_was_set:
+    - delivery_address: via del grotoo 124
+  - action: customer_details_form
+  - active_loop: customer_details_form
+  - slot_was_set:
+    - delivery_address: via del grotoo 124
+  - slot_was_set:
+    - requested_slot: client_name
+  - intent: item_client_name
+    entities:
+    - client_name: Lawrence
+  - slot_was_set:
+    - client_name: Lawrence
+  - action: customer_details_form
+  - slot_was_set:
+    - client_name: Lawrence
+  - slot_was_set:
+    - requested_slot: phone_number
+  - intent: item_phone_number
+    entities:
+    - phone_number: '8594231432'
+  - slot_was_set:
+    - phone_number: '8594231432'
+  - action: customer_details_form
+  - slot_was_set:
+    - phone_number: '8594231432'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_order_number
+  - slot_was_set:
+    - order_number: Lawrence_8594231432
+  - action: utter_order_complete

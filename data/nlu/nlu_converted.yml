@@ -162,6 +162,24 @@ nlu:
     - hello, i want to buy [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [hawaiian]{"entity": "pizza_type", "value": "Hawaii"} pizza
     - hello, i want to order [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
     - yes, i also want [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [vegetarian]{"entity": "pizza_type", "value": "Vegetarian"} pizza
+    - hello, i want to buy [two](pizza_amount) pizzas with [stuffed](pizza_crust) crust
+    - hello, i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas on [thin](pizza_crust) crust
+    - hi, i want to order [two](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
+    - [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, also on [thin](pizza_crust) crust
+    - hi, i want to buy [two](pizza_amount) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
+    - hi, i want to buy [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza on [flat bread](pizza_crust) crust
+    - add [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [margherita]{"entity": "pizza_type", "value": "Margherita"}, also on [flat bread](pizza_crust) crust
+    - hello, i want to buy [2](pizza_amount) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas on [flat bread](pizza_crust)
+    - hi, i want to order [two](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizzas with [bacon and tomatoes](pizza_type)
+    - yes, i want to also add [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizza with [pineapple and bacon](pizza_type)
+    - hello, i want to buy [two](pizza_amount) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
+    - yes, i also want [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizza with [bacon and onions](pizza_type)
+    - hi, i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizzas with [bacon](pizza_type)
+    - yes, i also want [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizza with [zucchini](pizza_type)
+    - hello, i want to order [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} pizza with [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - yes, i want to add [two](pizza_amount) [18 inch]{"entity": "pizza_size", "value": "18\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
+    - hi, i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizzas with [onions](pizza_type) on [thin](pizza_crust) crust
+    - i want [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas on [thin](pizza_crust) crust
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -201,6 +219,7 @@ nlu:
     - slice it
     - no, you got it wrong, I want it sliced
     - i made a mistake earlier, i want my pizza sliced
+    - yes, slice it
 - intent: item_change_sliced_to_no
   examples: |
     - actually, I don't want it sliced
@@ -238,6 +257,8 @@ nlu:
     - no, i don;t
     - ugh, no
     - no, don't bother
+    - no, that's all i need
+    - no, that's all, thanks
 - intent: response_positive
   examples: |
     - all good
@@ -264,6 +285,13 @@ nlu:
     - ok
     - yes, of course
     - of course
+    - of course!
+    - yesx
+    - oh, yes, of course
+    - sure
+    - well, yeah, of course
+    - of cours
+    - exactly
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -287,6 +315,7 @@ nlu:
     - delivery please
     - delivery
     - i prefer delivery
+    - delivery i think
 - intent: order_delivery_address
   examples: |
     - my address is [#46, 655 avenue du techno pole](delivery_address)
@@ -311,6 +340,11 @@ nlu:
     - to [via del travai 57](delivery_address)
     - to [via del travai 66](delivery_address)
     - please deliver to [via del Strada 98](delivery_address)
+    - to [via del Travai 123](delivery_address)
+    - i'd like it delivered to [via dante 57](delivery_address)
+    - please deliver the order to [via del Dante 54](delivery_address)
+    - to [piazza dante 32](delivery_address)
+    - please deliver to [via del grotoo 124](delivery_address)
 - intent: item_client_name
   examples: |
     - i'm [John Doe](client_name)
@@ -344,6 +378,13 @@ nlu:
     - my name's [Ewa](client_name)
     - my name's [peter](client_name)
     - of course, it's [John](client_name) [Lennon](client_name)
+    - [John Meyers](client_name)
+    - my name's [johnny](client_name)
+    - my name's [alejandro gomez](client_name)
+    - my name's [johnny travis](client_name)
+    - my name's [alan johnson](client_name)
+    - my name's [johnson](client_name)
+    - my name's [Lawrence](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -360,6 +401,8 @@ nlu:
     - right, it's [8943243243](phone_number)
     - it's [89324343](phone_number)
     - it's [58493234](phone_number)
+    - it's [324834839](phone_number)
+    - my phone number is [8594231432](phone_number)
 - intent: item_type
   examples: |
     - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
@@ -397,6 +440,7 @@ nlu:
     - [ham](pizza_type) pizza
     - [hawaiian]{"entity": "pizza_type", "value": "Hawaii"}
     - [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - pizza with [olives and bacon](pizza_type)
 - intent: item_size
   examples: |
     - [small]{"entity": "pizza_size", "value": "10\""}
@@ -420,6 +464,9 @@ nlu:
     - [the largest]{"entity": "pizza_size", "value": "18\""}
     - like i said, [small]{"entity": "pizza_size", "value": "10\""}
     - [small]{"entity": "pizza_size", "value": "10\""} pizza
+    - [18 inch]{"entity": "pizza_size", "value": "18\""}
+    - [14 inches]{"entity": "pizza_size", "value": "14\""}
+    - [10 inch]{"entity": "pizza_size", "value": "10\""}
 - intent: item_crust
   examples: |
     - [thin](pizza_crust) crust
@@ -438,8 +485,8 @@ nlu:
     - [cracker](pizza_crust)
     - [flat bread](pizza_crust) crust
     - hm, maybe [stuffed](pizza_crust) crust
-    - [thin](pizza_crust)
     - also [thin](pizza_crust)
+    - [thin](pizza_crust) crust please
 - intent: explain
   examples: |
     - what do you mean?
@@ -612,6 +659,15 @@ nlu:
     - xl
     - extra large
     - Extra Large
+- synonym: Vegetarian
+  examples: |
+    - vegetarian
+    - Vegetarian
+    - Vegetable
+    - Vege
+    - Veggie
+    - veggie
+    - vegetables
 - synonym: 12"
   examples: |
     - medium
@@ -678,11 +734,3 @@ nlu:
     - funghi
     - Mushroom
     - Mushrooms
-- synonym: Vegetarian
-  examples: |
-    - Vegetarian
-    - Vegetable
-    - Vege
-    - Veggie
-    - veggie
-    - vegetables
