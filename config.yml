@@ -4,7 +4,7 @@ language: en
 
 pipeline:
 - name: WhitespaceTokenizer
-  case_sensitive: False
+  case_sensitive: no
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
   analyzer: "char_wb"
