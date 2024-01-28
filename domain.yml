@@ -33,13 +33,13 @@ intents:
 - restart_ordering
 - welcome_greet
 entities:
-- pizza_crust
-- phone_number
 - pizza_size
 - pizza_amount
-- client_name
 - pizza_type
+- pizza_crust
 - possible_promotion
+- client_name
+- phone_number
 - delivery_address
 - pizza_sliced
 - anti_pizza_type
@@ -214,26 +214,26 @@ responses:
   utter_repeat_order:
   - text: I'm sorry, could you repeat your order?
 actions:
-- utter_extra_order
-- action_pizza_order_add
 - utter_total_and_delivery
+- action_pizza_order_add
 - action_reset_pizza_form
-- action_suggest_promotion
-- action_order_number
-- utter_order_complete
+- utter_promotion_valid
+- action_check_promotion
 - utter_pizza_confirm
+- utter_extra_order
+- utter_delivery_address
 - utter_welcome_greet
+- utter_order_complete
+- action_order_number
+- utter_promotion_not_valid
+- action_suggest_promotion
 - utter_explain_pizza_quantities
 - utter_promotion_almost
 - action_apply_promotion
 - utter_promotion
-- action_check_promotion
 - action_change_order
-- utter_promotion_valid
 - action_get_restaurant_location
 - utter_anything_else
-- utter_delivery_address
-- utter_promotion_not_valid
 - action_get_promotions
 - action_get_crust
 - utter_repeat_order

@@ -47,6 +47,11 @@ rules:
     - action: action_apply_promotion
     - action: utter_total_and_delivery
 
+- rule: apply promotion end 2
+  steps:
+    - action: utter_promotion_valid
+    - action: utter_total_and_delivery
+
 - rule: what pizzas do you have?
   condition:
     - active_loop: pizza_order_form
