@@ -202,7 +202,7 @@ class ActionCheckPromotion(Action):
 			dispatcher.utter_message(text=answer)
 			return[SlotSet("applied_promotion", promotion), SlotSet("order_cost", cost)]
 		else:
-			answer = "Sorry, either your order doesn't meet the requirements for the promotion or we're not running this promotion currently. Would you like to extend your order?"
+			answer = "Sorry, either your order doesn't meet the requirements for the promotion or we're not running this promotion currently."
 			dispatcher.utter_message(text=answer)
 			return[SlotSet("possible_promotion", None)]
 	

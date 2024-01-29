@@ -3,16 +3,20 @@ recipe: default.v1
 language: en
 
 pipeline:
-- name: WhitespaceTokenizer
-  case_sensitive: no
+- name: SpacyNLP
+  model: en_core_web_md
+- name: SpacyTokenizer
+- name: SpacyFeaturizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
   analyzer: "char_wb"
   min_ngram: 1
   max_ngram: 4
-- name: RegexEntityExtractor
-- name: LogisticRegressionClassifier
-- name: CRFEntityExtractor
+- name: DIETClassifier
+  epochs: 100
+  constrain_similarities: yes
 - name: EntitySynonymMapper
 - name: ResponseSelector
   epochs: 100
@@ -23,7 +27,7 @@ policies:
   epochs: 100
   constrain_similarities: yes
 - name: AugmentedMemoizationPolicy
-  max_history: 10
+  max_history: 5
 - name: RulePolicy
   epochs: 100
   core_fallback_threshold: 0.3

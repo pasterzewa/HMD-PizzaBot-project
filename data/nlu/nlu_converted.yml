@@ -220,6 +220,11 @@ nlu:
     - hi i want to order [two](pizza_amount) identical pizzas
     - hi i want to order [two](pizza_amount) [medium]{"entity": "pizza_size", "value": "12\""} [margherita][{"entity": "pizza_type", "value": "Margherita"}, {"entity": "pizza_type", "value": "Margherita"}] pizzas with [thin][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] crust
     - hi i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni][{"entity": "pizza_type", "value": "Pepperoni"}, {"entity": "pizza_type", "value": "Pepperoni"}] pizzas on [stuffed][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] crust
+    - hi i want to order [one](pizza_amount) [medium]{"entity": "pizza_size", "value": "12\""} [margherita][{"entity": "pizza_type", "value": "Margherita"}, {"entity": "pizza_type", "value": "Margherita"}] pizza with [stuffed][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] crust
+    - wait i want to still order another [margherita][{"entity": "pizza_type", "value": "Margherita"}, {"entity": "pizza_type", "value": "Margherita"}] pizza
+    - i want to buy some [large]{"entity": "pizza_size", "value": "14\""} [pepperoni][{"entity": "pizza_type", "value": "Pepperoni"}, {"entity": "pizza_type", "value": "Pepperoni"}] pizzas
+    - hi i want to order [three](pizza_amount) [medium]{"entity": "pizza_size", "value": "12\""} pizzas
+    - hi i want to order [three](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} pizzas
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -349,6 +354,8 @@ nlu:
     - yes, precisely
     - yes perfect
     - yes, great
+    - sure, why not
+    - yeah awesome
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -373,6 +380,7 @@ nlu:
     - i'll come pivk it up
     - i can come pick it up
     - i'll come to pick it up
+    - umm ok i'll come pick it up
 - intent: order_delivery
   examples: |
     - delivery please
@@ -473,6 +481,7 @@ nlu:
     - my name's [Veronica](client_name)
     - my name's [Alan](client_name)
     - sure my name is [Eloise](client_name)
+    - my nae's [justin](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -542,6 +551,8 @@ nlu:
     - pizza with [olives and bacon](pizza_type)
     - [Griselda Montoya](client_name)
     - like i said, [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - how about pizzas with [bacon and ham](pizza_type)
+    - [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
 - intent: item_size
   examples: |
     - [small]{"entity": "pizza_size", "value": "10\""}
@@ -596,6 +607,9 @@ nlu:
     - [thin](pizza_crust) crust will suffic
     - [thin](pizza_crust) will suffice
     - [margherita]{"entity": "pizza_type", "value": "Margherita"} with [stuffed](pizza_crust) crust
+    - [thin][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}]
+    - eeeh [thin][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] maybe
+    - [stuffed](pizza_crust)
 - intent: explain
   examples: |
     - what do you mean?
@@ -684,6 +698,7 @@ nlu:
     - just [one](pizza_amount) of this type
     - ohhhh [one](pizza_amount) then
     - [one](pizza_amount) of this type
+    - ummmm [two](pizza_amount) maybe
 - intent: init_promotion
   examples: |
     - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
@@ -728,8 +743,12 @@ nlu:
     - i just want to use the promo for [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
     - i just want to add the promo for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
     - i just want to use the promotion for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
-    - i just want to use the promo for [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}[margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas for price of one
     - i just want to apply the promotion for [three large pizzas for price of two]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
+    - i would like to use the promotion for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - do i now qualify for the [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} promotion
+    - um no but um i heard about some promotion for [cheaper large pizzas](possible_promotion) and id like to use it
+    - nah man i just want the promo for [three pizzas for price of two]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
+    - i just want to use the promo for [three pizzas for price of two]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
 - intent: add_more_pizzas
   examples: |
     - i want to extend my order

@@ -26,22 +26,6 @@ rules:
     - action: action_reset_pizza_form
     - action: utter_extra_order
 
-# - rule: promotion check 1
-#   condition:
-#     - slot_was_set:
-#       - possible_promotion: True
-#       - possible_promotion_conditions_met: False
-#   steps:
-#     - action: utter_promotion_almost
-  
-# - rule: promotion check 2
-#   condition:
-#     - slot_was_set:
-#       - possible_promotion: True
-#       - possible_promotion_conditions_met: True
-#   steps:
-#     - action: utter_promotion
-
 - rule: apply promotion end
   steps:
     - action: action_apply_promotion
@@ -49,7 +33,6 @@ rules:
 
 - rule: apply promotion end 2
   steps:
-    #- intent: init_promotion
     - action: action_check_promotion
     - action: utter_total_and_delivery
 
@@ -102,14 +85,6 @@ rules:
     - slot_was_set:
       - requested_slot: pizza_crust
     - action: pizza_order_form
-
-# - rule: change order during form
-#   condition:
-#     - active_loop: pizza_order_form
-#   steps:
-#     - intent: item_change
-#     - action: utter_item_change
-#     - action: pizza_order_form
 
 - rule: Activate form customer details 1
   steps:
