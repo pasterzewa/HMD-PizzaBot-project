@@ -217,6 +217,9 @@ nlu:
     - hi can i order [two](pizza_amount) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas with [stuffed](pizza_crust) crust
     - hello can i buy [four](pizza_amount) [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas with [stuffed](pizza_crust) crust
     - hi please let me buy [3](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizzas with [ham](pizza_type)
+    - hi i want to order [two](pizza_amount) identical pizzas
+    - hi i want to order [two](pizza_amount) [medium]{"entity": "pizza_size", "value": "12\""} [margherita][{"entity": "pizza_type", "value": "Margherita"}, {"entity": "pizza_type", "value": "Margherita"}] pizzas with [thin][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] crust
+    - hi i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni][{"entity": "pizza_type", "value": "Pepperoni"}, {"entity": "pizza_type", "value": "Pepperoni"}] pizzas on [stuffed][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] crust
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -469,6 +472,7 @@ nlu:
     - my name's [John](client_name)
     - my name's [Veronica](client_name)
     - my name's [Alan](client_name)
+    - sure my name is [Eloise](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -497,6 +501,7 @@ nlu:
     - it's [58943278](phone_number)
     - [327843854](phone_number)
     - it's [483924825](phone_number)
+    - it's [347284638](phone_number)
 - intent: item_type
   examples: |
     - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
@@ -590,7 +595,7 @@ nlu:
     - [thin](pizza_crust) this time
     - [thin](pizza_crust) crust will suffic
     - [thin](pizza_crust) will suffice
-    - [thin](pizza_crust)
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"} with [stuffed](pizza_crust) crust
 - intent: explain
   examples: |
     - what do you mean?
@@ -722,7 +727,9 @@ nlu:
     - i just want the promo for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
     - i just want to use the promo for [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
     - i just want to add the promo for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
-    - please add the promotion for [three large pizzas for price of two]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
+    - i just want to use the promotion for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - i just want to use the promo for [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}[margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas for price of one
+    - i just want to apply the promotion for [three large pizzas for price of two]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
 - intent: add_more_pizzas
   examples: |
     - i want to extend my order

@@ -198,8 +198,12 @@ class ActionCheckPromotion(Action):
 			order = tracker.get_slot("total_order")
 			full_order = order[0].split('&')
 			cost = CalculatePrice(full_order, promotion)
+			answer = "The promotion has been included in your total order."
+			dispatcher.utter_message(text=answer)
 			return[SlotSet("applied_promotion", promotion), SlotSet("order_cost", cost)]
 		else:
+			answer = "Sorry, either your order doesn't meet the requirements for the promotion or we're not running this promotion currently. Would you like to extend your order?"
+			dispatcher.utter_message(text=answer)
 			return[SlotSet("possible_promotion", None)]
 	
 class ActionSuggestPromotion(Action):

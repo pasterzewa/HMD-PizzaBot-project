@@ -10,6 +10,7 @@ pipeline:
   analyzer: "char_wb"
   min_ngram: 1
   max_ngram: 4
+- name: RegexEntityExtractor
 - name: LogisticRegressionClassifier
 - name: CRFEntityExtractor
 - name: EntitySynonymMapper

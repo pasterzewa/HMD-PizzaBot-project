@@ -49,7 +49,8 @@ rules:
 
 - rule: apply promotion end 2
   steps:
-    - action: utter_promotion_valid
+    #- intent: init_promotion
+    - action: action_check_promotion
     - action: utter_total_and_delivery
 
 - rule: what pizzas do you have?
