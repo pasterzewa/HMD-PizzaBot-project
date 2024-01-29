@@ -3,30 +3,34 @@ recipe: default.v1
 language: en
 
 pipeline:
-- name: WhitespaceTokenizer
+- name: SpacyNLP
+  model: en_core_web_md
+- name: SpacyTokenizer
+- name: SpacyFeaturizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer
   analyzer: "char_wb"
   min_ngram: 1
   max_ngram: 4
-- name: LogisticRegressionClassifier
-- name: CRFEntityExtractor
+- name: DIETClassifier
+  epochs: 100
+  constrain_similarities: yes
+- name: EntitySynonymMapper
 - name: ResponseSelector
-  epochs: 2
+  epochs: 100
 
 policies:
 - name: TEDPolicy
   max_history: 10
-  epochs: 3
-  constrain_similarities: True
+  epochs: 100
+  constrain_similarities: yes
 - name: AugmentedMemoizationPolicy
-  max_history: 4
-- name: MemoizationPolicy
+  max_history: 5
 - name: RulePolicy
-  # Confidence threshold for the `core_fallback_action_name` to apply.
-  # The action will apply if no other action was predicted with
-  # a confidence >= core_fallback_threshold
-  core_fallback_threshold: 0.4
+  epochs: 100
+  core_fallback_threshold: 0.3
   core_fallback_action_name: "action_default_fallback"
   enable_fallback_prediction: True
 assistant_id: 20231202-221250-mode-flour
