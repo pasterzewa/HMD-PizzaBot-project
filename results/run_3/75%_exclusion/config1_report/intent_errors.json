@@ -1,0 +1,346 @@
+[
+  {
+    "text": "delivery",
+    "intent": "order_delivery",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.18676787614822388
+    }
+  },
+  {
+    "text": "what sizes can I choose from",
+    "intent": "request_sizes",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.10557480901479721
+    }
+  },
+  {
+    "text": "what type of pizza do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.3727829158306122
+    }
+  },
+  {
+    "text": "wait, I actually want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.648516058921814
+    }
+  },
+  {
+    "text": "no, you got it wrong, I want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.3905729651451111
+    }
+  },
+  {
+    "text": "where's my pizza?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.4404325485229492
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.17345194518566132
+    }
+  },
+  {
+    "text": "what does it mean?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "order_pickup",
+      "confidence": 0.12560784816741943
+    }
+  },
+  {
+    "text": "i want to change pizza crust",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.5570334196090698
+    }
+  },
+  {
+    "text": "i want different toppings",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.23554161190986633
+    }
+  },
+  {
+    "text": "restart please",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.22605383396148682
+    }
+  },
+  {
+    "text": "Who's the US President?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.32331743836402893
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.20174290239810944
+    }
+  },
+  {
+    "text": "what are your deals",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2487061619758606
+    }
+  },
+  {
+    "text": "Are there any promotions I can use?",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.9408463835716248
+    }
+  },
+  {
+    "text": "I'm wondering, do you have any promotions?",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.13017116487026215
+    }
+  },
+  {
+    "text": "yes, great, can i also add another pizza",
+    "intent": "add_more_pizzas",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.7621932029724121
+    }
+  },
+  {
+    "text": "one of this type",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.27467668056488037
+    }
+  },
+  {
+    "text": "take away",
+    "intent": "order_pickup",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.1757884919643402
+    }
+  },
+  {
+    "text": "nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.23505781590938568
+    }
+  },
+  {
+    "text": "Nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.23505781590938568
+    }
+  },
+  {
+    "text": "7843248543",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.6156553030014038
+    }
+  },
+  {
+    "text": "sure its 839432943",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.2461768537759781
+    }
+  },
+  {
+    "text": "I want a large pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.5172215700149536
+    }
+  },
+  {
+    "text": "14 inches",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.4190845191478729
+    }
+  },
+  {
+    "text": "Little pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.3622029423713684
+    }
+  },
+  {
+    "text": "XL pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.5090780258178711
+    }
+  },
+  {
+    "text": "18 inch pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.6615016460418701
+    }
+  },
+  {
+    "text": "actually , can I get margherita?",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.8240000605583191
+    }
+  },
+  {
+    "text": "like i said, margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9015679955482483
+    }
+  },
+  {
+    "text": "Griselda Montoya",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.8841279745101929
+    }
+  },
+  {
+    "text": "i want funghi pizza",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.8158658146858215
+    }
+  },
+  {
+    "text": "margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9995192289352417
+    }
+  },
+  {
+    "text": "of course, who wouldn't want that",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.27313679456710815
+    }
+  },
+  {
+    "text": "ugh yea",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.11394113302230835
+    }
+  },
+  {
+    "text": "es",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.27702683210372925
+    }
+  },
+  {
+    "text": "John Doe",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.26918825507164
+    }
+  },
+  {
+    "text": "medium with onion",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.6152515411376953
+    }
+  },
+  {
+    "text": "large corns",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.630297064781189
+    }
+  },
+  {
+    "text": "3 Vegetarian small pizza",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.25031620264053345
+    }
+  },
+  {
+    "text": "heyyy",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.7427852153778076
+    }
+  },
+  {
+    "text": "cheese and SMALL",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.5244037508964539
+    }
+  },
+  {
+    "text": "peperoni, large",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.8484212160110474
+    }
+  }
+]

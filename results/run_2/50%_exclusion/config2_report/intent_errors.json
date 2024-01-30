@@ -1,0 +1,234 @@
+[
+  {
+    "text": "what type of pizza do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.4510047435760498
+    }
+  },
+  {
+    "text": "what pizzas do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.5475555062294006
+    }
+  },
+  {
+    "text": "slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.4851605296134949
+    }
+  },
+  {
+    "text": "yes, slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.5897741913795471
+    }
+  },
+  {
+    "text": "how far are you?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.32285070419311523
+    }
+  },
+  {
+    "text": "what do you mean by how many pizzas do I want",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.3929192125797272
+    }
+  },
+  {
+    "text": "go back, I need to change something",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.25000908970832825
+    }
+  },
+  {
+    "text": "wait, I want to make some changes.",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.7405190467834473
+    }
+  },
+  {
+    "text": "There were some mistakes, can you restart my order?",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "add_more_pizzas",
+      "confidence": 0.2018134742975235
+    }
+  },
+  {
+    "text": "wait actually no let's restart this order",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.4495023190975189
+    }
+  },
+  {
+    "text": "do you have a sister",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.21217653155326843
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.3433719277381897
+    }
+  },
+  {
+    "text": "r u running promos rn",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.2945170998573303
+    }
+  },
+  {
+    "text": "hi what promotions do you currently have",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.5084299445152283
+    }
+  },
+  {
+    "text": "heyyy",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9998610019683838
+    }
+  },
+  {
+    "text": "dozen",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.3215590715408325
+    }
+  },
+  {
+    "text": "just one",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.16407036781311035
+    }
+  },
+  {
+    "text": "Nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.29772135615348816
+    }
+  },
+  {
+    "text": "one large, and another small",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.8500692248344421
+    }
+  },
+  {
+    "text": "Probably avg",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.16789083182811737
+    }
+  },
+  {
+    "text": "actually, i changed my mind. I want simple margherita pizza",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_change_request_without_entity",
+      "confidence": 0.4912867844104767
+    }
+  },
+  {
+    "text": "favorite topping is Corn",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.32475966215133667
+    }
+  },
+  {
+    "text": "I want to order pizza with olives",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9998629093170166
+    }
+  },
+  {
+    "text": "Pepperoni is my favorite topping",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.8538601398468018
+    }
+  },
+  {
+    "text": "exactly",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "explain",
+      "confidence": 0.22292481362819672
+    }
+  },
+  {
+    "text": "es",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.2528258264064789
+    }
+  },
+  {
+    "text": "correct",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "add_more_pizzas",
+      "confidence": 0.15046393871307373
+    }
+  },
+  {
+    "text": "right, it's matthew",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "item_phone_number",
+      "confidence": 0.4774720370769501
+    }
+  },
+  {
+    "text": "Pepperoni",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.9721346497535706
+    }
+  }
+]

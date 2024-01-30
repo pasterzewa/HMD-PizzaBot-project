@@ -1,0 +1,218 @@
+[
+  {
+    "text": "slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.2974128392669378
+    }
+  },
+  {
+    "text": "yes, slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.7956611691023583
+    }
+  },
+  {
+    "text": "how far are you?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.2942490932158285
+    }
+  },
+  {
+    "text": "what do you mean by how many pizzas do I want",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "request_all_pizzas",
+      "confidence": 0.39575175822586367
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.2106286831281909
+    }
+  },
+  {
+    "text": "go back, I need to change something",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.39887409347991243
+    }
+  },
+  {
+    "text": "wait, I want to make some changes.",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.9498962697683706
+    }
+  },
+  {
+    "text": "There were some mistakes, can you restart my order?",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.5059309439654504
+    }
+  },
+  {
+    "text": "do you have a sister",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.23310719267472285
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.19128477258088616
+    }
+  },
+  {
+    "text": "r u running promos rn",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.251600463015703
+    }
+  },
+  {
+    "text": "dozen",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.16569976128730288
+    }
+  },
+  {
+    "text": "just one",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.2837547783367592
+    }
+  },
+  {
+    "text": "3494835934",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.6769398183140378
+    }
+  },
+  {
+    "text": "327843854",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.6769398183140378
+    }
+  },
+  {
+    "text": "a 14 inches pizza please",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.5937126140241408
+    }
+  },
+  {
+    "text": "Probably avg",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.2958331861791608
+    }
+  },
+  {
+    "text": "actually , i 'd like small pizza.",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.34584561641321776
+    }
+  },
+  {
+    "text": "actually, i changed my mind. I want simple margherita pizza",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_change_request_without_entity",
+      "confidence": 0.9867038570543777
+    }
+  },
+  {
+    "text": "I love tomatoes",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.17967946308322627
+    }
+  },
+  {
+    "text": "I want to order pizza with olives",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.8322100270275581
+    }
+  },
+  {
+    "text": "ok",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.2005332117288113
+    }
+  },
+  {
+    "text": "right, it's matthew",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "item_phone_number",
+      "confidence": 0.1963825449508998
+    }
+  },
+  {
+    "text": "Can I use 2+1 Large Pizzas promotion",
+    "intent": "init_promotion",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.4095557612667252
+    }
+  },
+  {
+    "text": "no, but i've hear you have the deal for 3 large pizzas for the price of 2",
+    "intent": "init_promotion",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.893306032183319
+    }
+  },
+  {
+    "text": "yes, i also want two large funghi pizzas on thin crust",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.7071589066760948
+    }
+  },
+  {
+    "text": "Pepperoni",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.8715475716063587
+    }
+  }
+]

@@ -1,0 +1,282 @@
+[
+  {
+    "text": "dozen",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "dozen",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Probably avg",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "12\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "to piazza danto 65",
+    "entities": [
+      {
+        "start": 3,
+        "end": 18,
+        "value": "piazza danto 65",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "phone_number",
+        "start": 16,
+        "end": 18,
+        "confidence_entity": 0.3958100613184624,
+        "value": "65",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "to no. 46, Strada street",
+    "entities": [
+      {
+        "start": 3,
+        "end": 24,
+        "value": "no. 46, Strada street",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.5430436711520815,
+        "value": "46",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 11,
+        "end": 24,
+        "confidence_entity": 0.673044875944332,
+        "value": "Strada street",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Olive",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Olive",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "pizza with olives and bacon",
+    "entities": [
+      {
+        "start": 11,
+        "end": 27,
+        "value": "olives and bacon",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 11,
+        "end": 17,
+        "confidence_entity": 0.9759816062899672,
+        "value": "olives",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 22,
+        "end": 27,
+        "confidence_entity": 0.6383740411665879,
+        "value": "bacon",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "my name's johnny",
+    "entities": [
+      {
+        "start": 10,
+        "end": 16,
+        "value": "johnny",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "right, it's matthew",
+    "entities": [
+      {
+        "start": 12,
+        "end": 19,
+        "value": "matthew",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alejandro gomez",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "value": "alejandro gomez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's marco",
+    "entities": [
+      {
+        "start": 10,
+        "end": 15,
+        "value": "marco",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "right, i'm johnson",
+    "entities": [
+      {
+        "start": 11,
+        "end": 18,
+        "value": "johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "no but i want to include a promotion for two small pizzas for half price",
+    "entities": [
+      {
+        "start": 41,
+        "end": 72,
+        "value": "two small pizzas for half price",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 41,
+        "end": 44,
+        "confidence_entity": 0.5141172264125766,
+        "value": "two",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 45,
+        "end": 72,
+        "confidence_entity": 0.4989198942410772,
+        "value": "small pizzas for half price",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "i want to use the promo for twenty five percent off hawaiian pizzas",
+    "entities": [
+      {
+        "start": 28,
+        "end": 67,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 28,
+        "end": 51,
+        "confidence_entity": 0.8477785286295428,
+        "value": "twenty five percent off",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 52,
+        "end": 60,
+        "confidence_entity": 0.48298050396209086,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "hawaii pizza small",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9921779671937387,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 13,
+        "end": 18,
+        "confidence_entity": 0.7501974507088747,
+        "value": "10\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

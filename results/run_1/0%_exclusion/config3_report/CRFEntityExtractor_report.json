@@ -1,0 +1,77 @@
+{
+  "phone_number": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 6,
+    "confused_with": {}
+  },
+  "pizza_crust": {
+    "precision": 1.0,
+    "recall": 0.9444444444444444,
+    "f1-score": 0.9714285714285714,
+    "support": 18,
+    "confused_with": {}
+  },
+  "pizza_type": {
+    "precision": 1.0,
+    "recall": 0.9333333333333333,
+    "f1-score": 0.9655172413793104,
+    "support": 60,
+    "confused_with": {}
+  },
+  "pizza_size": {
+    "precision": 0.9743589743589743,
+    "recall": 0.95,
+    "f1-score": 0.9620253164556962,
+    "support": 40,
+    "confused_with": {}
+  },
+  "possible_promotion": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 74,
+    "confused_with": {}
+  },
+  "client_name": {
+    "precision": 1.0,
+    "recall": 0.47058823529411764,
+    "f1-score": 0.6399999999999999,
+    "support": 17,
+    "confused_with": {}
+  },
+  "delivery_address": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 43,
+    "confused_with": {}
+  },
+  "pizza_amount": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 29,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.9963235294117647,
+    "recall": 0.9442508710801394,
+    "f1-score": 0.9695885509838998,
+    "support": 287
+  },
+  "macro avg": {
+    "precision": 0.9967948717948718,
+    "recall": 0.9122957516339869,
+    "f1-score": 0.9423713911579472,
+    "support": 287
+  },
+  "weighted avg": {
+    "precision": 0.9964263378897527,
+    "recall": 0.9442508710801394,
+    "f1-score": 0.964382443995473,
+    "support": 287
+  },
+  "accuracy": 0.9814814814814815
+}

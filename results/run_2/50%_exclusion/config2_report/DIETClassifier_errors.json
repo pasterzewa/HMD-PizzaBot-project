@@ -1,0 +1,440 @@
+[
+  {
+    "text": "Probably avg",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "12\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "to no. 46, Strada street",
+    "entities": [
+      {
+        "start": 3,
+        "end": 24,
+        "value": "no. 46, Strada street",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 7,
+        "end": 24,
+        "confidence_entity": 0.5100163221359253,
+        "value": "46, Strada street",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my address is No. 46  655 avenue du techno pole street",
+    "entities": [
+      {
+        "start": 14,
+        "end": 54,
+        "value": "No. 46  655 avenue du techno pole street",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 18,
+        "end": 20,
+        "confidence_entity": 0.826061487197876,
+        "value": "46",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 22,
+        "end": 54,
+        "confidence_entity": 0.4974140226840973,
+        "value": "655 avenue du techno pole street",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "favorite topping is Corn",
+    "entities": [
+      {
+        "start": 20,
+        "end": 24,
+        "value": "Corn",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "sure, my name is Natalie Portman",
+    "entities": [
+      {
+        "start": 17,
+        "end": 32,
+        "value": "Natalie Portman",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 17,
+        "end": 24,
+        "confidence_entity": 0.3921213746070862,
+        "value": "Natalie",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name's alejandro gomez",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "value": "alejandro gomez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's marco",
+    "entities": [
+      {
+        "start": 10,
+        "end": 15,
+        "value": "marco",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's Ella",
+    "entities": [
+      {
+        "start": 10,
+        "end": 14,
+        "value": "Ella",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's Ewa",
+    "entities": [
+      {
+        "start": 10,
+        "end": 13,
+        "value": "Ewa",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Can I use 2+1 Large Pizzas promotion",
+    "entities": [
+      {
+        "start": 10,
+        "end": 26,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 10,
+        "end": 11,
+        "confidence_entity": 0.7603172659873962,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 12,
+        "end": 26,
+        "confidence_entity": 0.5217165946960449,
+        "value": "1 Large Pizzas",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "no, but i've hear you have the deal for 3 large pizzas for the price of 2",
+    "entities": [
+      {
+        "start": 40,
+        "end": 73,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 36,
+        "end": 39,
+        "confidence_entity": 0.5036674737930298,
+        "value": "for",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 40,
+        "end": 71,
+        "confidence_entity": 0.40449368953704834,
+        "value": "3 large pizzas for the price of",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 72,
+        "end": 73,
+        "confidence_entity": 0.281602680683136,
+        "value": "2",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "no but i want to include a promotion for two small pizzas for half price",
+    "entities": [
+      {
+        "start": 41,
+        "end": 72,
+        "value": "two small pizzas for half price",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 41,
+        "end": 57,
+        "confidence_entity": 0.6410344243049622,
+        "value": "two small pizzas",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 62,
+        "end": 72,
+        "confidence_entity": 0.46874040365219116,
+        "value": "half price",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to use the promo for 25% off hawaiian pizzas",
+    "entities": [
+      {
+        "start": 28,
+        "end": 51,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 24,
+        "end": 35,
+        "confidence_entity": 0.6771901249885559,
+        "value": "for 25% off",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 36,
+        "end": 51,
+        "confidence_entity": 0.906696081161499,
+        "value": "hawaiian pizzas",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want those pizzas with the promotion two large pizzas and one free",
+    "entities": [
+      {
+        "start": 39,
+        "end": 68,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 13,
+        "end": 19,
+        "confidence_entity": 0.7139294743537903,
+        "value": "pizzas",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 39,
+        "end": 68,
+        "confidence_entity": 0.5679287314414978,
+        "value": "2 Large Pizzas and 1 Free",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "hawaii pizza small",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9929004907608032,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 13,
+        "end": 18,
+        "confidence_entity": 0.9735983610153198,
+        "value": "10\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "hello, i want to order two arge margheritas",
+    "entities": [
+      {
+        "start": 23,
+        "end": 26,
+        "value": "two",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 23,
+        "end": 26,
+        "confidence_entity": 0.9446035027503967,
+        "value": "two",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 27,
+        "end": 31,
+        "confidence_entity": 0.9948530793190002,
+        "value": "arge",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to order an 18 inch pepperoni pizza on thin crust",
+    "entities": [
+      {
+        "start": 19,
+        "end": 26,
+        "value": "18\"",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 27,
+        "end": 36,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 46,
+        "end": 50,
+        "value": "thin",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 16,
+        "end": 18,
+        "confidence_entity": 0.40360358357429504,
+        "value": "an",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 19,
+        "end": 26,
+        "confidence_entity": 0.9095069169998169,
+        "value": "18\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 27,
+        "end": 36,
+        "confidence_entity": 0.9989227652549744,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_crust",
+        "start": 46,
+        "end": 50,
+        "confidence_entity": 0.9988227486610413,
+        "value": "thin",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

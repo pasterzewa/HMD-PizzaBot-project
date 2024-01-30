@@ -1,0 +1,190 @@
+[
+  {
+    "text": "cracker",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "cracker",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Probably avg",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "12\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "the largest you have",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "18\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 4,
+        "end": 11,
+        "confidence_entity": 0.5226656086842713,
+        "value": "largest",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "can i get a vegetarian instead?",
+    "entities": [
+      {
+        "start": 12,
+        "end": 22,
+        "value": "vegetarian",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I like olive",
+    "entities": [
+      {
+        "start": 7,
+        "end": 12,
+        "value": "olive",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "arancini pizza",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "arancini",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's eliza orzeszkowa",
+    "entities": [
+      {
+        "start": 10,
+        "end": 26,
+        "value": "eliza orzeszkowa",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my nae's justin",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "justin",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alejandro gomez",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "value": "alejandro gomez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alan johnson",
+    "entities": [
+      {
+        "start": 10,
+        "end": 22,
+        "value": "alan johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's eloise bridgerton",
+    "entities": [
+      {
+        "start": 10,
+        "end": 27,
+        "value": "eloise bridgerton",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I hawaii pizza small",
+    "entities": [
+      {
+        "start": 2,
+        "end": 8,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 2,
+        "end": 8,
+        "confidence_entity": 0.9289697244844283,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.7608757391368017,
+        "value": "10\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "jumbo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "jumbo",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

@@ -1,0 +1,162 @@
+[
+  {
+    "text": "what are the pizza options?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_sizes",
+      "confidence": 0.9905703301605862
+    }
+  },
+  {
+    "text": "no, I don't want it sliced",
+    "intent": "item_change_sliced_to_no",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_yes",
+      "confidence": 0.502037794003694
+    }
+  },
+  {
+    "text": "i changed my mind, i actually want bacon pizza",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.6490094204394925
+    }
+  },
+  {
+    "text": "book a flight from milan to ny",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.2601590619695292
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_all_pizzas",
+      "confidence": 0.5132984374715116
+    }
+  },
+  {
+    "text": "3843208493",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5245856864260044
+    }
+  },
+  {
+    "text": "345489343",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5245856864260044
+    }
+  },
+  {
+    "text": "4738478329",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5245856864260044
+    }
+  },
+  {
+    "text": "7843248543",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5245856864260044
+    }
+  },
+  {
+    "text": "Probably avg",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.27595714100164587
+    }
+  },
+  {
+    "text": "ah, wait, sorry, i want stuffed crust",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_crust",
+      "confidence": 0.5951860680693439
+    }
+  },
+  {
+    "text": "I want cracker crust instead",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_crust",
+      "confidence": 0.6446247378845557
+    }
+  },
+  {
+    "text": "margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.4764314530284035
+    }
+  },
+  {
+    "text": "cheese",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.30534254050162946
+    }
+  },
+  {
+    "text": "I want to order pizza with olives",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.7491499619791178
+    }
+  },
+  {
+    "text": "large corns",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.8593367961446208
+    }
+  },
+  {
+    "text": "Funghi pizza",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.7989761595237905
+    }
+  },
+  {
+    "text": "jumbo",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5298257381640932
+    }
+  },
+  {
+    "text": "Hawaii",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.8353595241594853
+    }
+  },
+  {
+    "text": "one pizza funghi",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.5299509976669687
+    }
+  }
+]

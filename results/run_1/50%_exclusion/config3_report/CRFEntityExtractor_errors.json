@@ -1,0 +1,396 @@
+[
+  {
+    "text": "cracker",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "cracker",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "Probably avg",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "12\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "the largest you have",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "18\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "can i get a vegetarian instead?",
+    "entities": [
+      {
+        "start": 12,
+        "end": 22,
+        "value": "vegetarian",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want cracker crust instead",
+    "entities": [
+      {
+        "start": 7,
+        "end": 14,
+        "value": "cracker",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I like olive",
+    "entities": [
+      {
+        "start": 7,
+        "end": 12,
+        "value": "olive",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "arancini pizza",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "arancini",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's eliza orzeszkowa",
+    "entities": [
+      {
+        "start": 10,
+        "end": 26,
+        "value": "eliza orzeszkowa",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my nae's justin",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "justin",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's giovanni",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "value": "giovanni",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alejandro gomez",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "value": "alejandro gomez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alan johnson",
+    "entities": [
+      {
+        "start": 10,
+        "end": 22,
+        "value": "alan johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's eloise bridgerton",
+    "entities": [
+      {
+        "start": 10,
+        "end": 27,
+        "value": "eloise bridgerton",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I'd like to use 2+1 Large Pizzas promotion",
+    "entities": [
+      {
+        "start": 16,
+        "end": 32,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I hawaii pizza small",
+    "entities": [
+      {
+        "start": 2,
+        "end": 8,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 2,
+        "end": 8,
+        "confidence_entity": 0.8802088528250278,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.8774173544656184,
+        "value": "10\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Hawaii pizza large  9",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 13,
+        "end": 18,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 20,
+        "end": 21,
+        "value": "9",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9709650787729143,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 13,
+        "end": 18,
+        "confidence_entity": 0.930361786143604,
+        "value": "14\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "phone_number",
+        "start": 20,
+        "end": 21,
+        "confidence_entity": 0.31346249202208176,
+        "value": "9",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "jumbo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "jumbo",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I want to order large pizza with tuna and tomatoes on thin crust",
+    "entities": [
+      {
+        "start": 16,
+        "end": 21,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 33,
+        "end": 50,
+        "value": "tuna and tomatoes",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 54,
+        "end": 58,
+        "value": "thin",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 16,
+        "end": 21,
+        "confidence_entity": 0.9684427815467126,
+        "value": "14\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 33,
+        "end": 37,
+        "confidence_entity": 0.5423602453032367,
+        "value": "tuna",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 42,
+        "end": 50,
+        "confidence_entity": 0.8345424888691291,
+        "value": "tomatoes",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_crust",
+        "start": 54,
+        "end": 58,
+        "confidence_entity": 0.9978957584993906,
+        "value": "thin",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Pepperoni pizza medium   4",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 16,
+        "end": 22,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 25,
+        "end": 26,
+        "value": "4",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9532165922195769,
+        "value": "Pepperoni",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.9830796179482493,
+        "value": "12\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "phone_number",
+        "start": 25,
+        "end": 26,
+        "confidence_entity": 0.3270570102123235,
+        "value": "4",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

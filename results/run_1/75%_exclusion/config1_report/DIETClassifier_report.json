@@ -1,0 +1,86 @@
+{
+  "phone_number": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 6,
+    "confused_with": {}
+  },
+  "pizza_crust": {
+    "precision": 1.0,
+    "recall": 0.8333333333333334,
+    "f1-score": 0.9090909090909091,
+    "support": 18,
+    "confused_with": {}
+  },
+  "pizza_type": {
+    "precision": 0.9491525423728814,
+    "recall": 0.9180327868852459,
+    "f1-score": 0.9333333333333333,
+    "support": 61,
+    "confused_with": {
+      "pizza_size": 1
+    }
+  },
+  "pizza_size": {
+    "precision": 0.8260869565217391,
+    "recall": 0.95,
+    "f1-score": 0.8837209302325583,
+    "support": 40,
+    "confused_with": {}
+  },
+  "possible_promotion": {
+    "precision": 0.7037037037037037,
+    "recall": 0.24358974358974358,
+    "f1-score": 0.3619047619047619,
+    "support": 78,
+    "confused_with": {
+      "pizza_amount": 41
+    }
+  },
+  "client_name": {
+    "precision": 1.0,
+    "recall": 0.5294117647058824,
+    "f1-score": 0.6923076923076924,
+    "support": 17,
+    "confused_with": {
+      "delivery_address": 2
+    }
+  },
+  "delivery_address": {
+    "precision": 0.9545454545454546,
+    "recall": 0.9545454545454546,
+    "f1-score": 0.9545454545454546,
+    "support": 44,
+    "confused_with": {}
+  },
+  "pizza_amount": {
+    "precision": 0.38571428571428573,
+    "recall": 0.9310344827586207,
+    "f1-score": 0.5454545454545455,
+    "support": 29,
+    "confused_with": {
+      "possible_promotion": 1,
+      "pizza_size": 1
+    }
+  },
+  "micro avg": {
+    "precision": 0.7681159420289855,
+    "recall": 0.7235494880546075,
+    "f1-score": 0.7451669595782073,
+    "support": 293
+  },
+  "macro avg": {
+    "precision": 0.852400367857258,
+    "recall": 0.794993445727285,
+    "f1-score": 0.7850447033586568,
+    "support": 293
+  },
+  "weighted avg": {
+    "precision": 0.8191685546765136,
+    "recall": 0.7235494880546075,
+    "f1-score": 0.7251255662875633,
+    "support": 293
+  },
+  "accuracy": 0.9024640657084189
+}

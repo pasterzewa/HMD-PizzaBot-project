@@ -14,7 +14,7 @@
         "entity": "delivery_address",
         "start": 21,
         "end": 22,
-        "confidence_entity": 0.642754852771759,
+        "confidence_entity": 0.5072835087776184,
         "value": ",",
         "extractor": "DIETClassifier"
       },
@@ -22,7 +22,7 @@
         "entity": "delivery_address",
         "start": 26,
         "end": 50,
-        "confidence_entity": 0.8159160017967224,
+        "confidence_entity": 0.6862343549728394,
         "value": "Prezzo street, number 42",
         "extractor": "DIETClassifier",
         "processors": [
@@ -32,21 +32,61 @@
     ]
   },
   {
-    "text": "i want the two margherita pizzas for price of one",
+    "text": "no, but i've hear you have the deal for 3 large pizzas for the price of 2",
     "entities": [
       {
-        "start": 11,
-        "end": 49,
+        "start": 40,
+        "end": 73,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 27,
+        "end": 30,
+        "confidence_entity": 0.7717159390449524,
+        "value": "the",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 40,
+        "end": 73,
+        "confidence_entity": 0.5058245062828064,
+        "value": "2 Large Pizzas and 1 Free",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i just want my pizzas with the promotion for two margherita pizzas for price of one",
+    "entities": [
+      {
+        "start": 45,
+        "end": 83,
         "value": "2 Margheritas For The Price of 1",
         "entity": "possible_promotion"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "pizza_amount",
-        "start": 11,
-        "end": 49,
-        "confidence_entity": 0.7266950607299805,
+        "entity": "possible_promotion",
+        "start": 15,
+        "end": 21,
+        "confidence_entity": 0.6518723368644714,
+        "value": "pizzas",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 45,
+        "end": 83,
+        "confidence_entity": 0.764909565448761,
         "value": "2 Margheritas For The Price of 1",
         "extractor": "DIETClassifier",
         "processors": [
@@ -56,26 +96,225 @@
     ]
   },
   {
-    "text": "i want to use a two margherita pizzas for price of one promotion",
+    "text": "please add the promotion for three large pizzas for price of two",
     "entities": [
       {
-        "start": 16,
-        "end": 54,
+        "start": 29,
+        "end": 64,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 25,
+        "end": 28,
+        "confidence_entity": 0.7751759886741638,
+        "value": "for",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 29,
+        "end": 64,
+        "confidence_entity": 0.8587210178375244,
+        "value": "2 Large Pizzas and 1 Free",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "no, that's enough for the promotion two margheritas for price of one no",
+    "entities": [
+      {
+        "start": 36,
+        "end": 68,
         "value": "2 Margheritas For The Price of 1",
         "entity": "possible_promotion"
       }
     ],
     "predicted_entities": [
       {
-        "entity": "pizza_amount",
-        "start": 16,
-        "end": 54,
-        "confidence_entity": 0.7330732345581055,
+        "entity": "possible_promotion",
+        "start": 18,
+        "end": 21,
+        "confidence_entity": 0.5479193925857544,
+        "value": "for",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 36,
+        "end": 68,
+        "confidence_entity": 0.7289012670516968,
         "value": "2 Margheritas For The Price of 1",
         "extractor": "DIETClassifier",
         "processors": [
           "EntitySynonymMapper"
         ]
+      }
+    ]
+  },
+  {
+    "text": "i just want to add the promotion for three large pizzas for the price of two",
+    "entities": [
+      {
+        "start": 37,
+        "end": 76,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 19,
+        "end": 22,
+        "confidence_entity": 0.5388405919075012,
+        "value": "the",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 37,
+        "end": 76,
+        "confidence_entity": 0.7166405916213989,
+        "value": "2 Large Pizzas and 1 Free",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "do i now qualify for the two margheritas for price of one promotion",
+    "entities": [
+      {
+        "start": 25,
+        "end": 57,
+        "value": "2 Margheritas For The Price of 1",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 17,
+        "end": 20,
+        "confidence_entity": 0.6208917498588562,
+        "value": "for",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 25,
+        "end": 57,
+        "confidence_entity": 0.7751986980438232,
+        "value": "2 Margheritas For The Price of 1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want to use the promo for hawaiian pizza for 25% off",
+    "entities": [
+      {
+        "start": 28,
+        "end": 54,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 24,
+        "end": 54,
+        "confidence_entity": 0.5448010563850403,
+        "value": "for hawaiian pizza for 25% off",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i want to use the promo for 25% off hawaiian pizzas",
+    "entities": [
+      {
+        "start": 28,
+        "end": 51,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 24,
+        "end": 51,
+        "confidence_entity": 0.5144066214561462,
+        "value": "for 25% off hawaiian pizzas",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i would just like to include the promo for second pepperoni pizza for 50% off",
+    "entities": [
+      {
+        "start": 43,
+        "end": 77,
+        "value": "Second Pepperoni Pizza for 50% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 39,
+        "end": 42,
+        "confidence_entity": 0.7502292394638062,
+        "value": "for",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 43,
+        "end": 77,
+        "confidence_entity": 0.5892684459686279,
+        "value": "Second Pepperoni Pizza for 50% Off",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want to use the promo for pepperoni pizza for fifty percent off",
+    "entities": [
+      {
+        "start": 28,
+        "end": 65,
+        "value": "Second Pepperoni Pizza for 50% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 24,
+        "end": 65,
+        "confidence_entity": 0.5077388882637024,
+        "value": "for pepperoni pizza for fifty percent off",
+        "extractor": "DIETClassifier"
       }
     ]
   }

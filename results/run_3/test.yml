@@ -1,0 +1,464 @@
+version: "3.1"
+nlu:
+- intent: order_delivery
+  examples: |
+    - 
+    - delivery
+- intent: request_sizes
+  examples: |
+    - what sizes can I choose from
+- intent: request_all_pizzas
+  examples: |
+    - 
+    - what type of pizza do you have?
+- intent: request_vege_pizzas
+  examples: |
+    - do you have any vegetarian options?
+- intent: item_change_sliced_to_yes
+  examples: |
+    - wait, I actually want it sliced
+    - no, you got it wrong, I want it sliced
+- intent: item_change_sliced_to_no
+  examples: |
+    - don't slice it
+    - wait, actually, don't slice my pizzas
+- intent: request_restaurant_location
+  examples: |
+    - where's my pizza?
+    - where is your restaurant located?
+- intent: explain
+  examples: |
+    - meaning?
+    - what does it mean?
+- intent: item_change_request_without_entity
+  examples: |
+    - i want to change pizza crust
+    - i want different toppings
+- intent: restart_ordering
+  examples: |
+    - restart please
+    - 
+- intent: out_of_scope
+  examples: |
+    - Who's the US President?
+    - do you have shoes
+- intent: request_promotions
+  examples: |
+    - what are your deals
+    - Are there any promotions I can use?
+    - I'm wondering, do you have any promotions?
+- intent: add_more_pizzas
+  examples: |
+    - yes, great, can i also add another pizza
+    - yes, correct, and i want to add more pizzas to the order
+- intent: welcome_greet
+  examples: |
+    - hey
+    - hello hi
+    - howdy
+    - 
+- intent: item_amount
+  examples: |
+    - [one](pizza_amount)
+    - [three](pizza_amount)
+    - [one](pizza_amount) of this type
+- intent: order_pickup
+  examples: |
+    - pick up
+    - take away
+    - 
+    - pick up please
+- intent: response_negative
+  examples: |
+    - no, just continue to check out
+    - nope
+    - Nope
+    - no, thank you
+- intent: item_crust
+  examples: |
+    - [thin](pizza_crust)
+    - hm, maybe [stuffed](pizza_crust) crust
+    - I want [thin](pizza_crust) crust
+    - also [thin](pizza_crust)
+    - 
+    - [thin](pizza_crust) crust please
+- intent: item_phone_number
+  examples: |
+    - [7843248543](phone_number)
+    - my phone is [4878738473](phone_number)
+    - my number is [83429748327](phone_number)
+    - sure its [839432943](phone_number)
+    - it's [4389484783](phone_number)
+    - it's [347284638](phone_number)
+- intent: item_size
+  examples: |
+    - I want a [large]{"entity": "pizza_size", "value": "14\""} pizza
+    - [14 inches]{"entity": "pizza_size", "value": "14\""}
+    - 
+    - [Little]{"entity": "pizza_size", "value": "10\""} pizza
+    - [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""}, and another [small]{"entity": "pizza_size", "value": "10\""}
+    - [XL]{"entity": "pizza_size", "value": "18\""} pizza
+    - [18 inch]{"entity": "pizza_size", "value": "18\""} pizza
+- intent: item_change
+  examples: |
+    - I changed my mind. Can I get  a [funghi](pizza_type) instead?
+    - 
+    - wait, i want instead [two](pizza_amount) pizzas
+    - actually , can I get [margherita](pizza_type)?
+    - I'd like in [small](pizza_size) instead.
+    - wait i actually want pizza with [bacon](pizza_type)
+    - 
+    - actually, i changed my mind, i want [two](pizza_amount) pizzas
+- intent: order_delivery_address
+  examples: |
+    - please deliver the order to [via del Dante 54](delivery_address)
+    - please deliver it to [via del travai 543](delivery_address)
+    - to [no. 46, Strada street](delivery_address)
+    - please deliver to [via del grotoo 124](delivery_address)
+    - my address is [via del Posso 23](delivery_address)
+    - 
+    - deliver to [Prezzo street, number 42](delivery_address)
+    - [house num 46  655 avenue du techno pole street](delivery_address)
+- intent: item_type
+  examples: |
+    - like i said, [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - [Griselda Montoya](client_name)
+    - i want [funghi](pizza_type) pizza
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"}
+    - with [bacon](pizza_type)
+    - [tomatoes](pizza_type)
+    - with [mortadella](pizza_type)
+    - with [onion](pizza_type)
+- intent: response_positive
+  examples: |
+    - Yeah
+    - yesx
+    - perfect
+    - of course, who wouldn't want that
+    - yes, that's exactly it
+    - ugh yea
+    - yes, correct
+    - es
+    - yes, perfect
+- intent: item_client_name
+  examples: |
+    - sure, my name is [Natalie Portman](client_name)
+    - my name's [johnny](client_name)
+    - my name is [Eva Julietta Juandos](client_name)
+    - my name is [John](client_name)
+    - [John Doe](client_name)
+    - my name's [giovanni](client_name)
+    - my name is [John Doe](client_name)
+    - sure, my name is [anthony](client_name)
+    - my name's [John](client_name)
+    - my name's [John Doe](client_name)
+    - my name's [johnny travolta](client_name)
+    - [John Mayfly](client_name)
+- intent: init_promotion
+  examples: |
+    - no, but i want to use the [two large pizzas and one free]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
+    - i just want to apply the promotion for [three large pizzas for price of two]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
+    - no, that's enough for the promotion [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} no
+    - no just the promotion for [second pizza fifty percent off]{"entity": "possible_promotion", "value": "Second Pepperoni Pizza for 50% Off"}
+    - no just the promotion for [cheaper hawaiian pizza]{"entity": "possible_promotion", "value": "Hawaiian Pizza for 25% Off"}
+    - i just want to add the promotion for [three large pizzas for the price of two]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"}
+    - i would just like to include the promo for [hawaiian pizza for twenty five percent off]{"entity": "possible_promotion", "value": "Hawaiian Pizza for 25% Off"}
+    - i just want my pizzas with the promotion for [two margherita pizzas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - yeah pefect is it enough for the promo for [second pizza fifty percent off]{"entity": "possible_promotion", "value": "Second Pepperoni Pizza for 50% Off"}
+    - i've heard you have a promotion for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"} - is that true
+    - 
+    - i just want to use the promotion for [two margheritas for price of one]{"entity": "possible_promotion", "value": "2 Margheritas For The Price of 1"}
+    - then i want to use that [50% off second pepperoni pizza]{"entity": "possible_promotion", "value": "Second Pepperoni Pizza for 50% Off"} promo
+    - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
+    - then i want to use the [hawaiian pizza for twenty five percent off]{"entity": "possible_promotion", "value": "Hawaiian Pizza for 25% Off"} promotion
+- intent: item_start_generic
+  examples: |
+    - 
+    - [two](pizza_amount) [large](pizza_size) pizza [hawaii](pizza_type)
+    - hello, i want to order [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizza
+    - just the [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}
+    - [medium](pizza_size) and [olives](pizza_type)
+    - hello, i want to buy [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} [hawaiian]{"entity": "pizza_type", "value": "Hawaii"} pizza
+    - 
+    - i want to order [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
+    - hi, i want to buy [two](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} margheritas with [stuffed](pizza_crust) crust
+    - want to oder [large](pizza_size) [cheese](pizza_type) pizza
+    - [medium](pizza_size) with [onion](pizza_type)
+    - 
+    - i want a [margherita](pizza_type) pizza
+    - 
+    - [Margherita](pizza_type)
+    - hi, i want to buy [three](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizzas with [onions](pizza_type) on [thin](pizza_crust) crust
+    - [large](pizza_size) corns
+    - I want [Funghi](pizza_type) pizza
+    - hi please let me buy [3](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} pizzas with [ham](pizza_type)
+    - i want to order a [large](pizza_size) [margherita](pizza_type) pizza
+    - [two](pizza_amount) [medium](pizza_size) [Margherita](pizza_type) pizza
+    - [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"}, also on [thin](pizza_crust) crust
+    - hello, i want to order a pizza
+    - hello, i want to buy [two](pizza_amount) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
+    - [Vegetarian](pizza_type) pizza pizza
+    - hi, i want to buy [two](pizza_amount) [18 inch]{"entity": "pizza_size", "value": "18\""} pizzas with [bacon and onions](pizza_type)
+    - hi i want to order [two](pizza_amount) [medium]{"entity": "pizza_size", "value": "12\""} [margherita][{"entity": "pizza_type", "value": "Margherita"}, {"entity": "pizza_type", "value": "Margherita"}] pizzas with [thin][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] crust
+    - I want [two](pizza_amount) [small](pizza_size) [Funghi](pizza_type) pizza
+    - [Pepperoni](pizza_type) pizza
+    - I want to order [large](pizza_size) pizza with [olives](pizza_type) on [thin](pizza_crust) crust
+    - I want a [medium](pizza_size) [cheese](pizza_type) pizza
+    - [Pepperoni](pizza_type) [medium](pizza_size) pizza  [4](pizza_amount)
+    - [four](pizza_amount) [small](pizza_size) [flat bread](pizza_crust) crust pizza [Funghi](pizza_type)
+    - I would like to a pizza
+    - [small](pizza_size) pizza with [tomatoes](pizza_type) topping and on [flat bread](pizza_crust)
+    - hello i want to buy [two](pizza_amount) margheritas
+    - [3](pizza_amount) [Vegetarian](pizza_type) [small](pizza_size) pizza
+    - 
+    - heyyy
+    - hi i want to order [two](pizza_amount) [14 inch]{"entity": "pizza_size", "value": "14\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas
+    - hi i want to buy [two](pizza_amount) [18 inch]{"entity": "pizza_size", "value": "18\""} [margherita]{"entity": "pizza_type", "value": "Margherita"} pizzas on [thin](pizza_crust) crust
+    - [cheese](pizza_type) and SMALL
+    - [hawaii](pizza_type) pizza [small](pizza_size) please
+    - peperoni, large
+    - just [one](pizza_amount) [small](pizza_size) [margherita](pizza_type)
+    - hello, i want to order [two](pizza_amount) [large](pizza_size) [pepperoni](pizza_type) pizzas
+- synonym: Margherita
+  examples: |
+    - margherita
+    - cheese
+    - Margherita
+    - margheritas
+    - Margheritas
+    - margarita
+    - margharita
+- synonym: Pepperoni
+  examples: |
+    - pepperoni
+    - Pepp
+    - Peperoni
+- synonym: 14"
+  examples: |
+    - large
+    - 14 inch
+    - 14 inches
+    - 14
+    - size L
+    - bug
+- synonym: Hawaii
+  examples: |
+    - hawaii
+    - hawaiian
+    - Hawaii
+    - ham and pineapple
+    - Hawaiian
+- synonym: 10"
+  examples: |
+    - small
+    - Little
+    - 10 inch
+    - 10
+    - Small
+    - size S
+    - little
+- synonym: 18"
+  examples: |
+    - 18 inch
+    - 18 inches
+    - XL
+    - the largest
+    - 18
+    - jumbo
+    - huge
+    - the biggest
+    - size XL
+    - xl
+    - extra large
+    - Extra Large
+- synonym: Vegetarian
+  examples: |
+    - vegetarian
+    - Vegetarian
+    - Vegetable
+    - Vege
+    - Veggie
+    - veggie
+    - vegetables
+- synonym: 12"
+  examples: |
+    - medium
+    - avg
+    - average
+    - 12 inches
+    - 12
+    - 12 inch
+    - Medium
+    - normal
+    - Average
+    - twelve inch
+    - size M
+- synonym: Funghi
+  examples: |
+    - funghi
+    - Funghi
+    - mushrooms
+    - mushroom
+    - Mushroom
+    - Mushrooms
+- synonym: 2 Large Pizzas and 1 Free
+  examples: |
+    - 2+1 Large Pizzas
+    - two large pizzas and one free
+    - 3 large pizzas for the price of 2
+    - three pizzas for price of two
+    - three large pizzas for price of two
+    - three large pizzas for the price of two
+    - Buy 2 Large, Get 1 Free
+    - buy 2 large get 1 free
+    - buy two large pizzas, get 1 free
+    - buy two large, get 1 free
+    - 2+1 large pizzas
+    - 2 large pizzas + 1 free
+    - 2 large pizzas and 1 free
+    - two large pizzas + one free
+    - 3 Large Pizzas For the Price of 2
+    - 3 large pizzas for price of 2
+- synonym: 2 Margheritas For The Price of 1
+  examples: |
+    - two margherita pizzas for price of one
+    - two margheritas for price of one
+    - 2 margheritas for price of one
+    - one free margherita
+    - two margheritas for the price of one
+    - 2 Margheritas For The Price of 1
+    - 2 margheritas for the price of 1
+    - 2 Margherita Pizzas For The Price of 1
+    - two margherita pizzas for the price of one
+    - two margherita pizza for the price of one
+    - two margherita pizza for price of one
+    - two margherita for price of one
+    - 1+1 margheritas
+    - 1+1 margherita pizzas
+- synonym: Hawaiian Pizza for 25% Off
+  examples: |
+    - hawaiian pizza for twenty five percent off
+    - hawaiian pizza for 25% off
+    - 25% off hawaiian pizzas
+    - twenty five percent off hawaiian pizzas
+    - cheaper hawaiian pizza
+    - hawaii pizza for 25% off
+    - pineapple pizza for 25% off
+    - hawaiian for 25% off
+    - twenty five off my pizza
+    - twenty five off hawaiian pizza
+    - twenty five off hawaiian
+    - hawaii pizza for twenty five percent off
+    - pineapple pizza for twenty five percent off
+    - pineapple and ham pizza for twenty five percent off
+    - hawaiian for twenty five percent off
+    - 25% off hawaiian pizza
+    - twenty five percent off hawaiian pizza
+- synonym: Second Pepperoni Pizza for 50% Off
+  examples: |
+    - second pepperoni pizza for 50% off
+    - 50% off second pepperoni pizza
+    - pepperoni pizza for fifty percent off
+    - second pepperoni pizza for fifty percent off
+    - second pizza fifty percent off
+    - second pizza for 50% off
+    - Second Pepperoni Pizza for 50% Off
+    - pepperoni pizza for 50% off
+    - second pizza for fifty percent off
+    - Second Pepperoni Pizza 50% Off
+    - second pepperoni pizza 50% off
+    - pepperoni pizza 50% off
+    - second pepperoni pizza fifty percent off
+    - pepperoni pizza fifty percent off
+    - second pizza 50% off
+    - 50% off second Pepperoni pizza
+    - fifty percent off second pepperoni pizza
+    - fifty percent off second pizza
+    - 50% off second pizza
+    - 50% off pepperoni pizza
+    - fifty percent off pepperoni pizza
+- synonym: Americana
+  examples: |
+    - Americana
+- synonym: Calzone
+  examples: |
+    - Calzone
+- synonym: Caprese
+  examples: |
+    - Caprese
+- synonym: Crudo
+  examples: |
+    - Crudo
+- synonym: Chicken BBC
+  examples: |
+    - Chicken BBC
+- synonym: Rustica
+  examples: |
+    - Rustica
+- lookup: anti_pizza_type
+  examples: |
+    - Americana
+    - Calzone
+    - Caprese
+    - Crudo
+    - Chicken BBC
+- lookup: pizza_amount
+  examples: |
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+    - 7
+    - 8
+    - 9
+    - 10
+    - 11
+    - 12
+    - 13
+    - 14
+    - 15
+    - 16
+    - 17
+    - 18
+    - 19
+    - 20
+- lookup: pizza_crust
+  examples: |
+    - stuffed
+    - cracker
+    - flat bread
+    - thin
+- lookup: pizza_size
+  examples: |
+    - 10"
+    - 12"
+    - 14"
+    - 18"
+- lookup: pizza_type
+  examples: |
+    - Funghi
+    - Hawaii
+    - Margherita
+    - Pepperoni
+    - Vegetarian
+    - artichoke
+    - artichokes
+    - ham
+    - olives
+    - onions
+    - onion
+    - potatoes
+    - bacon
+    - mortadella
+    - salami
+    - arancini
+    - tomatoes
+    - corn
+- lookup: possible_promotion
+  examples: |
+    - 2 Large Pizzas and 1 Free
+    - 2 Margheritas For The Price of 1
+    - Hawaiian Pizza for 25% Off
+    - Second Pepperoni Pizza for 50% Off

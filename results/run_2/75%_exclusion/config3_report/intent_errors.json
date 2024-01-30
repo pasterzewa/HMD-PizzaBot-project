@@ -1,0 +1,290 @@
+[
+  {
+    "text": "what sizes can I choose from",
+    "intent": "request_sizes",
+    "intent_prediction": {
+      "name": "explain",
+      "confidence": 0.13383331172582394
+    }
+  },
+  {
+    "text": "what type of pizza do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.6911188249599253
+    }
+  },
+  {
+    "text": "what pizzas do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.5602277393025655
+    }
+  },
+  {
+    "text": "do you have vege options?",
+    "intent": "request_vege_pizzas",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.5861488724909457
+    }
+  },
+  {
+    "text": "yes, slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.45579099726073324
+    }
+  },
+  {
+    "text": "how far are you?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.3150100229889224
+    }
+  },
+  {
+    "text": "what do you mean by how many pizzas do I want",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.3412274886027426
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.1883018992961328
+    }
+  },
+  {
+    "text": "There were some mistakes, can you restart my order?",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.2579806535230741
+    }
+  },
+  {
+    "text": "do you have a sister",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.21017678253920644
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.23263545383316345
+    }
+  },
+  {
+    "text": "r u running promos rn",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.23842015709411676
+    }
+  },
+  {
+    "text": "heyyy",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.24432606099331297
+    }
+  },
+  {
+    "text": "just one",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.16980980540475807
+    }
+  },
+  {
+    "text": "pickup",
+    "intent": "order_pickup",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.2745196306540541
+    }
+  },
+  {
+    "text": "no, that's all, let's move to checkout",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.287075472198945
+    }
+  },
+  {
+    "text": "3494835934",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.6489339053851444
+    }
+  },
+  {
+    "text": "327843854",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.6489339053851444
+    }
+  },
+  {
+    "text": "Probably avg",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.17963495279779965
+    }
+  },
+  {
+    "text": "actually , i 'd like small pizza.",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.7526921555795203
+    }
+  },
+  {
+    "text": "actually, i changed my mind. I want simple margherita pizza",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_change_request_without_entity",
+      "confidence": 0.7008958583201149
+    }
+  },
+  {
+    "text": "actually, i would like a small vegetarian.",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.42292457949660783
+    }
+  },
+  {
+    "text": "to piazza danto 65",
+    "intent": "order_delivery_address",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.3862523959261525
+    }
+  },
+  {
+    "text": "favorite topping is Corn",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.2396129453976053
+    }
+  },
+  {
+    "text": "I want to order pizza with olives",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.7590321124035081
+    }
+  },
+  {
+    "text": "Pepperoni is my favorite topping",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.388080807029488
+    }
+  },
+  {
+    "text": "right, it's matthew",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "item_phone_number",
+      "confidence": 0.17251823949582837
+    }
+  },
+  {
+    "text": "it's julie",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.16372858070889235
+    }
+  },
+  {
+    "text": "I want four small pizza Funghi",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.858730008570174
+    }
+  },
+  {
+    "text": "Hawaii large pizza 9",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.8014058912028591
+    }
+  },
+  {
+    "text": "Hawaii pizza",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.48436299159805535
+    }
+  },
+  {
+    "text": "yes, i also want two large funghi pizzas on thin crust",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.518168877730377
+    }
+  },
+  {
+    "text": "I want Funghi small pizza three",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.6436825224484938
+    }
+  },
+  {
+    "text": "4 large pizza Hawaii",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.8014058912028591
+    }
+  },
+  {
+    "text": "Pepperoni",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.8501654574807274
+    }
+  },
+  {
+    "text": "3 Vegetarian pizza small",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.6289806021976784
+    }
+  }
+]

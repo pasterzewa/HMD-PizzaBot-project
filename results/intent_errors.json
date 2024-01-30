@@ -1,10 +1,34 @@
 [
   {
+    "text": "Funghi",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.5573362112045288
+    }
+  },
+  {
+    "text": "Pepperoni",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.5930306911468506
+    }
+  },
+  {
     "text": "you got it wrong, I want it sliced",
     "intent": "item_change_sliced_to_no",
     "intent_prediction": {
       "name": "item_change_sliced_to_yes",
-      "confidence": 0.7019115686416626
+      "confidence": 0.6404452323913574
+    }
+  },
+  {
+    "text": "hawaii",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9237298965454102
     }
   },
   {
@@ -12,7 +36,7 @@
     "intent": "item_type",
     "intent_prediction": {
       "name": "item_start_generic",
-      "confidence": 0.6559702157974243
+      "confidence": 0.9512952566146851
     }
   },
   {
@@ -20,15 +44,7 @@
     "intent": "item_type",
     "intent_prediction": {
       "name": "item_start_generic",
-      "confidence": 0.5260953903198242
-    }
-  },
-  {
-    "text": "funghi",
-    "intent": "item_type",
-    "intent_prediction": {
-      "name": "item_start_generic",
-      "confidence": 0.5043231248855591
+      "confidence": 0.8665459752082825
     }
   }
 ]

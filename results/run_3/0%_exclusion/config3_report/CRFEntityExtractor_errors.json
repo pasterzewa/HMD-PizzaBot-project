@@ -1,0 +1,254 @@
+[
+  {
+    "text": "Little pizza",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "10\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.5007436274029431,
+        "value": "10\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "XL pizza",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "18\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "to no. 46, Strada street",
+    "entities": [
+      {
+        "start": 3,
+        "end": 24,
+        "value": "no. 46, Strada street",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.6319271157493791,
+        "value": "46",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 11,
+        "end": 24,
+        "confidence_entity": 0.7358007897298522,
+        "value": "Strada street",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "with mortadella",
+    "entities": [
+      {
+        "start": 5,
+        "end": 15,
+        "value": "mortadella",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "sure, my name is anthony",
+    "entities": [
+      {
+        "start": 17,
+        "end": 24,
+        "value": "anthony",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's johnny travolta",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "value": "johnny travolta",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "then i want to use that 50% off second pepperoni pizza promo",
+    "entities": [
+      {
+        "start": 24,
+        "end": 54,
+        "value": "Second Pepperoni Pizza for 50% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 24,
+        "end": 26,
+        "confidence_entity": 0.6258799667174068,
+        "value": "50",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 28,
+        "end": 38,
+        "confidence_entity": 0.6192438750219601,
+        "value": "off second",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 39,
+        "end": 48,
+        "confidence_entity": 0.6217819425528985,
+        "value": "Pepperoni",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "medium and olives",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 11,
+        "end": 17,
+        "value": "olives",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 0,
+        "end": 17,
+        "confidence_entity": 0.8750003537340072,
+        "value": "medium and olives",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "hello i want to buy two margheritas",
+    "entities": [
+      {
+        "start": 20,
+        "end": 23,
+        "value": "two",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 20,
+        "end": 23,
+        "confidence_entity": 0.9402933002928272,
+        "value": "two",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 24,
+        "end": 35,
+        "confidence_entity": 0.5012289252017861,
+        "value": "Margherita",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "cheese and SMALL",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "cheese",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 16,
+        "confidence_entity": 0.5035752089789919,
+        "value": "cheese and SMALL",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "peperoni, large",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.7675124481708426,
+        "value": "Pepperoni",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 10,
+        "end": 15,
+        "confidence_entity": 0.975558692083246,
+        "value": "14\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

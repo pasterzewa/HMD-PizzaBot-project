@@ -16,6 +16,7 @@ nlu:
     - greetings
     - long time no see
     - hello
+    - heyyy
 - intent: item_start_generic
   examples: |
     - i want to buy a pizza
@@ -230,6 +231,10 @@ nlu:
     - hi i want to order [two](pizza_amount) [hawaiian]{"entity": "pizza_type", "value": "Hawaii"} pizzas with [flat bread](pizza_crust) crust
     - oh sick then i want to order [one](pizza_amount) [hawaiian]{"entity": "pizza_type", "value": "Hawaii"} pizza with [stuffed](pizza_crust) crust
     - i want to order [two](pizza_amount) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas then
+    - hi i want to order [two](pizza_amount) [pepperoni]{"entity": "pizza_type", "value": "Pepperoni"} pizzas
+    - heyyy
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"} pizza dude
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"}
 - intent: item_change
   examples: |
     - I changed my mind. Can I get  a [funghi](pizza_type) instead?
@@ -262,6 +267,9 @@ nlu:
     - wait, i want [medium]{"entity": "pizza_size", "value": "12\""} pizzas
     - umm no i only want [one](pizza_amount) [small]{"entity": "pizza_size", "value": "10\""} pizza
     - no, you got it wrong, i only want [one](pizza_amount) pizza in this size
+    - wait no i actually wnat [two](pizza_amount) pizzas
+    - wait i actually want pizza with [bacon](pizza_type)
+    - um no i actually want [stuffed](pizza_crust) crust
 - intent: item_change_sliced_to_yes
   examples: |
     - wait, I actually want it sliced
@@ -362,6 +370,8 @@ nlu:
     - sure, why not
     - yeah awesome
     - yeah perfect
+    - ugh yea
+    - uh sure
 - intent: response_name_phone
   examples: |
     - my name is [Raymond](client_name) and number is [098765432](phone_number).
@@ -431,6 +441,7 @@ nlu:
     - please deliver it to [via del travai 543](delivery_address)
     - please deliver it to [street Bonjovi number 55](delivery_address)
     - please deliver to [via del gatto 76](delivery_address)
+    - to [via del grotto 345](delivery_address)
 - intent: item_client_name
   examples: |
     - i'm [John Doe](client_name)
@@ -490,6 +501,7 @@ nlu:
     - sure my name is [Eloise](client_name)
     - my nae's [justin](client_name)
     - my name's [giovanni](client_name)
+    - it's [janice](client_name)
 - intent: item_phone_number
   examples: |
     - my phone number is [37824739](phone_number)
@@ -520,6 +532,7 @@ nlu:
     - it's [483924825](phone_number)
     - it's [347284638](phone_number)
     - [7843248543](phone_number)
+    - [3494835934](phone_number)
 - intent: item_type
   examples: |
     - [hawaii]{"entity": "pizza_type", "value": "Hawaii"}
@@ -561,6 +574,7 @@ nlu:
     - [Griselda Montoya](client_name)
     - like i said, [margherita]{"entity": "pizza_type", "value": "Margherita"}
     - how about pizzas with [bacon and ham](pizza_type)
+    - [margherita]{"entity": "pizza_type", "value": "Margherita"}
 - intent: item_size
   examples: |
     - [small]{"entity": "pizza_size", "value": "10\""}
@@ -590,7 +604,8 @@ nlu:
     - [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""}, and another [small]{"entity": "pizza_size", "value": "10\""}
     - [one](pizza_amount) should be [large]{"entity": "pizza_size", "value": "14\""}, the other [medium]{"entity": "pizza_size", "value": "12\""}
     - [10 inches](pizza_size)
-    - [large]{"entity": "pizza_size", "value": "14\""}
+    - ummm [large]{"entity": "pizza_size", "value": "14\""}
+    - [one](pizza_amount) [large]{"entity": "pizza_size", "value": "14\""} whatever pizza
 - intent: item_crust
   examples: |
     - [thin](pizza_crust) crust
@@ -618,7 +633,8 @@ nlu:
     - [margherita]{"entity": "pizza_type", "value": "Margherita"} with [stuffed](pizza_crust) crust
     - [thin][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}]
     - eeeh [thin][{"entity": "pizza_crust"}, {"entity": "pizza_crust"}] maybe
-    - [flat bread](pizza_crust)
+    - [large]{"entity": "pizza_size", "value": "14\""} and on [thin](pizza_crust) crust
+    - [thin](pizza_crust)
 - intent: explain
   examples: |
     - what do you mean?
@@ -709,6 +725,7 @@ nlu:
     - ohhhh [one](pizza_amount) then
     - [one](pizza_amount) of this type
     - ummmm [two](pizza_amount) maybe
+    - [one](pizza_amount)
 - intent: init_promotion
   examples: |
     - I'd like to use [2+1 Large Pizzas]{"entity": "possible_promotion", "value": "2 Large Pizzas and 1 Free"} promotion
@@ -779,6 +796,7 @@ nlu:
     - yeah pefect is it enough for the promo for [second pizza fifty percent off]{"entity": "possible_promotion", "value": "Second Pepperoni Pizza for 50% Off"}
     - no just the promotion for [second pizza fifty percent off]{"entity": "possible_promotion", "value": "Second Pepperoni Pizza for 50% Off"}
     - no that's enough for the promotion of [second pepperoni pizza for fifty percent off]{"entity": "possible_promotion", "value": "Second Pepperoni Pizza for 50% Off"} right
+    - no i would just like to get [second pizza for 50% off]{"entity": "possible_promotion", "value": "Second Pepperoni Pizza for 50% Off"}
 - intent: add_more_pizzas
   examples: |
     - i want to extend my order
@@ -804,6 +822,7 @@ nlu:
     - restart
     - start from the beggining
     - i want to restart this conversation
+    - wait actually no let's restart this order
 - intent: out_of_scope
   examples: |
     - What is 2 + 2?
@@ -815,6 +834,7 @@ nlu:
     - book a flight from milan to ny
     - how far is the square
     - give me the directions to time square
+    - what's the weather today
 - synonym: Margherita
   examples: |
     - margherita
@@ -957,9 +977,9 @@ nlu:
     - pepperoni pizza for fifty percent off
     - second pepperoni pizza for fifty percent off
     - second pizza fifty percent off
+    - second pizza for 50% off
     - Second Pepperoni Pizza for 50% Off
     - pepperoni pizza for 50% off
-    - second pizza for 50% off
     - second pizza for fifty percent off
     - Second Pepperoni Pizza 50% Off
     - second pepperoni pizza 50% off

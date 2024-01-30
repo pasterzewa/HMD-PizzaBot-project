@@ -33,14 +33,14 @@ intents:
 - restart_ordering
 - welcome_greet
 entities:
-- pizza_type
 - pizza_crust
-- pizza_size
+- pizza_type
 - pizza_amount
+- pizza_size
+- phone_number
+- client_name
 - possible_promotion
 - delivery_address
-- client_name
-- phone_number
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
@@ -210,30 +210,31 @@ responses:
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
 actions:
-- action_check_promotion
-- action_reset_pizza_form
-- action_pizza_order_add
-- utter_extra_order
-- action_get_promotions
-- utter_anything_else
-- utter_pizza_confirm
-- utter_total_and_delivery
-- action_suggest_promotion
-- utter_promotion
-- utter_order_complete
 - action_apply_promotion
-- action_order_number
-- utter_promotion_valid
-- utter_delivery_address
+- action_pizza_order_add
+- action_reset_pizza_form
+- utter_promotion
+- utter_pizza_confirm
+- action_suggest_promotion
+- utter_total_and_delivery
 - utter_welcome_greet
+- action_change_order
+- utter_out_of_scope
+- utter_anything_else
+- utter_extra_order
+- utter_promotion_almost
+- action_reset_everything
+- utter_delivery_address
+- action_order_number
+- action_check_promotion
+- utter_order_complete
+- action_get_promotions
+- utter_promotion_valid
 - utter_promotion_not_valid
 - utter_explain_pizza_quantities
-- utter_promotion_almost
-- action_change_order
 - action_get_restaurant_location
 - action_get_crust
 - action_get_sizes
-- utter_out_of_scope
 - utter_item_change
 - action_get_all_pizzas
 - action_get_vege_pizzas
@@ -252,7 +253,6 @@ actions:
 - utter_ask_client_name
 - utter_ask_phone_number
 - utter_default
-- action_reset_everything
 forms:
   pizza_order_form:
     required_slots:

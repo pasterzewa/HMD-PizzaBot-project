@@ -1,0 +1,1185 @@
+[
+  {
+    "text": "what type of pizza do you have?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 10,
+        "end": 12,
+        "confidence_entity": 0.6049967408180237,
+        "value": "of",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "do you have any vegetarian options?",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 16,
+        "end": 26,
+        "confidence_entity": 0.9820306301116943,
+        "value": "Vegetarian",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "yes, correct, and i want to add more pizzas to the order",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 14,
+        "end": 17,
+        "confidence_entity": 0.5418919920921326,
+        "value": "and",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "one of this type",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "one",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.5732747912406921,
+        "value": "one of",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my number is 83429748327",
+    "entities": [
+      {
+        "start": 13,
+        "end": 24,
+        "value": "83429748327",
+        "entity": "phone_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 3,
+        "end": 9,
+        "confidence_entity": 0.5378758907318115,
+        "value": "number",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "phone_number",
+        "start": 13,
+        "end": 24,
+        "confidence_entity": 0.9985938668251038,
+        "value": "83429748327",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "Little pizza",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "10\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "one large, and another small",
+    "entities": [
+      {
+        "start": 0,
+        "end": 3,
+        "value": "one",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 4,
+        "end": 9,
+        "value": "14\"",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 23,
+        "end": 28,
+        "value": "10\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 3,
+        "confidence_entity": 0.5669272541999817,
+        "value": "one",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 4,
+        "end": 9,
+        "confidence_entity": 0.7112871408462524,
+        "value": "14\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 11,
+        "end": 14,
+        "confidence_entity": 0.5780045390129089,
+        "value": "and",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 23,
+        "end": 28,
+        "confidence_entity": 0.9825506806373596,
+        "value": "10\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "XL pizza",
+    "entities": [
+      {
+        "start": 0,
+        "end": 2,
+        "value": "18\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "to no. 46, Strada street",
+    "entities": [
+      {
+        "start": 3,
+        "end": 24,
+        "value": "no. 46, Strada street",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.7072401642799377,
+        "value": "46",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 18,
+        "end": 24,
+        "confidence_entity": 0.4246659278869629,
+        "value": "street",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "deliver to Prezzo street, number 42",
+    "entities": [
+      {
+        "start": 11,
+        "end": 35,
+        "value": "Prezzo street, number 42",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 11,
+        "end": 24,
+        "confidence_entity": 0.3820101320743561,
+        "value": "Prezzo street",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 26,
+        "end": 35,
+        "confidence_entity": 0.7019754648208618,
+        "value": "number 42",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "house num 46  655 avenue du techno pole street",
+    "entities": [
+      {
+        "start": 0,
+        "end": 46,
+        "value": "house num 46  655 avenue du techno pole street",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.8544624447822571,
+        "value": "house",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 10,
+        "end": 12,
+        "confidence_entity": 0.7104710340499878,
+        "value": "46",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 14,
+        "end": 46,
+        "confidence_entity": 0.31579235196113586,
+        "value": "655 avenue du techno pole street",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "with mortadella",
+    "entities": [
+      {
+        "start": 5,
+        "end": 15,
+        "value": "mortadella",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 5,
+        "end": 15,
+        "confidence_entity": 0.555299699306488,
+        "value": "mortadella",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "yesx",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.5694453120231628,
+        "value": "yesx",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "of course, who wouldn't want that",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 0,
+        "end": 2,
+        "confidence_entity": 0.7300872206687927,
+        "value": "of",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name is Eva Julietta Juandos",
+    "entities": [
+      {
+        "start": 11,
+        "end": 31,
+        "value": "Eva Julietta Juandos",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 15,
+        "end": 31,
+        "confidence_entity": 0.6730822324752808,
+        "value": "Julietta Juandos",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "John Doe",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "John Doe",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.5159569382667542,
+        "value": "John",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name's giovanni",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "value": "giovanni",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 10,
+        "end": 18,
+        "confidence_entity": 0.27613866329193115,
+        "value": "giovanni",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name is John Doe",
+    "entities": [
+      {
+        "start": 11,
+        "end": 19,
+        "value": "John Doe",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 11,
+        "end": 15,
+        "confidence_entity": 0.5844691395759583,
+        "value": "John",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "my name's John Doe",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "value": "John Doe",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 10,
+        "end": 14,
+        "confidence_entity": 0.6023952960968018,
+        "value": "John",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "John Mayfly",
+    "entities": [
+      {
+        "start": 0,
+        "end": 11,
+        "value": "John Mayfly",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "client_name",
+        "start": 0,
+        "end": 4,
+        "confidence_entity": 0.5187039375305176,
+        "value": "John",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "no, but i want to use the two large pizzas and one free promotion",
+    "entities": [
+      {
+        "start": 26,
+        "end": 55,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 26,
+        "end": 29,
+        "confidence_entity": 0.6847184300422668,
+        "value": "two",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 30,
+        "end": 35,
+        "confidence_entity": 0.732111394405365,
+        "value": "14\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 43,
+        "end": 46,
+        "confidence_entity": 0.557178795337677,
+        "value": "and",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 47,
+        "end": 55,
+        "confidence_entity": 0.5160156488418579,
+        "value": "one free",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i just want to apply the promotion for three large pizzas for price of two",
+    "entities": [
+      {
+        "start": 39,
+        "end": 74,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 39,
+        "end": 44,
+        "confidence_entity": 0.5180541276931763,
+        "value": "three",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 45,
+        "end": 50,
+        "confidence_entity": 0.5516560077667236,
+        "value": "14\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 58,
+        "end": 70,
+        "confidence_entity": 0.6700708866119385,
+        "value": "for price of",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 71,
+        "end": 74,
+        "confidence_entity": 0.5255635380744934,
+        "value": "two",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "no, that's enough for the promotion two margheritas for price of one no",
+    "entities": [
+      {
+        "start": 36,
+        "end": 68,
+        "value": "2 Margheritas For The Price of 1",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 36,
+        "end": 68,
+        "confidence_entity": 0.48694977164268494,
+        "value": "2 Margheritas For The Price of 1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "no just the promotion for second pizza fifty percent off",
+    "entities": [
+      {
+        "start": 26,
+        "end": 56,
+        "value": "Second Pepperoni Pizza for 50% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 26,
+        "end": 32,
+        "confidence_entity": 0.28880035877227783,
+        "value": "second",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 39,
+        "end": 56,
+        "confidence_entity": 0.48587968945503235,
+        "value": "fifty percent off",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "no just the promotion for cheaper hawaiian pizza",
+    "entities": [
+      {
+        "start": 26,
+        "end": 48,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 26,
+        "end": 42,
+        "confidence_entity": 0.8571597933769226,
+        "value": "cheaper hawaiian",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i just want to add the promotion for three large pizzas for the price of two",
+    "entities": [
+      {
+        "start": 37,
+        "end": 76,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 37,
+        "end": 42,
+        "confidence_entity": 0.5216584205627441,
+        "value": "three",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 43,
+        "end": 48,
+        "confidence_entity": 0.5622474551200867,
+        "value": "14\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 64,
+        "end": 72,
+        "confidence_entity": 0.8159363865852356,
+        "value": "price of",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 73,
+        "end": 76,
+        "confidence_entity": 0.5295205116271973,
+        "value": "two",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i would just like to include the promo for hawaiian pizza for twenty five percent off",
+    "entities": [
+      {
+        "start": 43,
+        "end": 85,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 43,
+        "end": 51,
+        "confidence_entity": 0.8159645199775696,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 62,
+        "end": 68,
+        "confidence_entity": 0.36549827456474304,
+        "value": "twenty",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 69,
+        "end": 85,
+        "confidence_entity": 0.7276041507720947,
+        "value": "five percent off",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i just want my pizzas with the promotion for two margherita pizzas for price of one",
+    "entities": [
+      {
+        "start": 45,
+        "end": 83,
+        "value": "2 Margheritas For The Price of 1",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 45,
+        "end": 48,
+        "confidence_entity": 0.6345208287239075,
+        "value": "two",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 49,
+        "end": 59,
+        "confidence_entity": 0.4989261031150818,
+        "value": "Margherita",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 71,
+        "end": 83,
+        "confidence_entity": 0.4864206314086914,
+        "value": "price of one",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "yeah pefect is it enough for the promo for second pizza fifty percent off",
+    "entities": [
+      {
+        "start": 43,
+        "end": 73,
+        "value": "Second Pepperoni Pizza for 50% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 43,
+        "end": 49,
+        "confidence_entity": 0.29502245783805847,
+        "value": "second",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 56,
+        "end": 73,
+        "confidence_entity": 0.4851714074611664,
+        "value": "fifty percent off",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i've heard you have a promotion for two margheritas for price of one - is that true",
+    "entities": [
+      {
+        "start": 36,
+        "end": 68,
+        "value": "2 Margheritas For The Price of 1",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 36,
+        "end": 70,
+        "confidence_entity": 0.28381726145744324,
+        "value": "two margheritas for price of one -",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "i just want to use the promotion for two margheritas for price of one",
+    "entities": [
+      {
+        "start": 37,
+        "end": 69,
+        "value": "2 Margheritas For The Price of 1",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 37,
+        "end": 69,
+        "confidence_entity": 0.4949570298194885,
+        "value": "2 Margheritas For The Price of 1",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "then i want to use that 50% off second pepperoni pizza promo",
+    "entities": [
+      {
+        "start": 24,
+        "end": 54,
+        "value": "Second Pepperoni Pizza for 50% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 24,
+        "end": 31,
+        "confidence_entity": 0.2944978177547455,
+        "value": "50% off",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 32,
+        "end": 38,
+        "confidence_entity": 0.2460271269083023,
+        "value": "second",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 39,
+        "end": 48,
+        "confidence_entity": 0.9978850483894348,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "I'd like to use 2+1 Large Pizzas promotion",
+    "entities": [
+      {
+        "start": 16,
+        "end": 32,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 16,
+        "end": 19,
+        "confidence_entity": 0.3350430727005005,
+        "value": "2+1",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 20,
+        "end": 25,
+        "confidence_entity": 0.5886479616165161,
+        "value": "14\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "then i want to use the hawaiian pizza for twenty five percent off promotion",
+    "entities": [
+      {
+        "start": 23,
+        "end": 65,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 23,
+        "end": 31,
+        "confidence_entity": 0.8047354817390442,
+        "value": "Hawaii",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 42,
+        "end": 48,
+        "confidence_entity": 0.3688245117664337,
+        "value": "twenty",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_amount",
+        "start": 49,
+        "end": 65,
+        "confidence_entity": 0.7278229594230652,
+        "value": "five percent off",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "medium and olives",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 11,
+        "end": 17,
+        "value": "olives",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 0,
+        "end": 17,
+        "confidence_entity": 0.652367889881134,
+        "value": "medium and olives",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "hi, i want to buy two large margheritas with stuffed crust",
+    "entities": [
+      {
+        "start": 18,
+        "end": 21,
+        "value": "two",
+        "entity": "pizza_amount"
+      },
+      {
+        "start": 22,
+        "end": 27,
+        "value": "14\"",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 45,
+        "end": 52,
+        "value": "stuffed",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 18,
+        "end": 21,
+        "confidence_entity": 0.8215015530586243,
+        "value": "two",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 22,
+        "end": 39,
+        "confidence_entity": 0.9127879738807678,
+        "value": "large margheritas",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_crust",
+        "start": 45,
+        "end": 52,
+        "confidence_entity": 0.9914106130599976,
+        "value": "stuffed",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "small pizza with tomatoes topping and on flat bread",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "small",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 17,
+        "end": 25,
+        "value": "tomatoes",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 41,
+        "end": 51,
+        "value": "flat bread",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 0,
+        "end": 5,
+        "confidence_entity": 0.9925596714019775,
+        "value": "10\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_type",
+        "start": 17,
+        "end": 25,
+        "confidence_entity": 0.9448156356811523,
+        "value": "tomatoes",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 34,
+        "end": 37,
+        "confidence_entity": 0.6066589951515198,
+        "value": "and",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_crust",
+        "start": 41,
+        "end": 51,
+        "confidence_entity": 0.9719411134719849,
+        "value": "flat bread",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "hello i want to buy two margheritas",
+    "entities": [
+      {
+        "start": 20,
+        "end": 23,
+        "value": "two",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 20,
+        "end": 35,
+        "confidence_entity": 0.7043774127960205,
+        "value": "two margheritas",
+        "extractor": "DIETClassifier"
+      }
+    ]
+  },
+  {
+    "text": "cheese and SMALL",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "cheese",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 10,
+        "confidence_entity": 0.6646630764007568,
+        "value": "cheese and",
+        "extractor": "DIETClassifier"
+      },
+      {
+        "entity": "pizza_size",
+        "start": 11,
+        "end": 16,
+        "confidence_entity": 0.991271436214447,
+        "value": "10\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "peperoni, large",
+    "entities": [],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 8,
+        "confidence_entity": 0.980707585811615,
+        "value": "Pepperoni",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 10,
+        "end": 15,
+        "confidence_entity": 0.8216109871864319,
+        "value": "14\"",
+        "extractor": "DIETClassifier",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]
