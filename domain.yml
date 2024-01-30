@@ -33,14 +33,14 @@ intents:
 - restart_ordering
 - welcome_greet
 entities:
-- client_name
-- pizza_amount
-- pizza_crust
-- possible_promotion
-- pizza_size
 - pizza_type
-- phone_number
+- pizza_crust
+- pizza_size
+- pizza_amount
+- possible_promotion
 - delivery_address
+- client_name
+- phone_number
 - pizza_sliced
 - anti_pizza_type
 - active_form_pizza_order_form
@@ -210,27 +210,27 @@ responses:
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
 actions:
-- utter_total_and_delivery
-- action_pizza_order_add
-- utter_pizza_confirm
-- action_reset_pizza_form
-- utter_extra_order
 - action_check_promotion
-- action_order_number
+- action_reset_pizza_form
+- action_pizza_order_add
+- utter_extra_order
+- action_get_promotions
+- utter_anything_else
+- utter_pizza_confirm
+- utter_total_and_delivery
+- action_suggest_promotion
+- utter_promotion
 - utter_order_complete
+- action_apply_promotion
+- action_order_number
 - utter_promotion_valid
 - utter_delivery_address
 - utter_welcome_greet
 - utter_promotion_not_valid
-- action_suggest_promotion
 - utter_explain_pizza_quantities
 - utter_promotion_almost
-- action_apply_promotion
-- utter_promotion
 - action_change_order
 - action_get_restaurant_location
-- utter_anything_else
-- action_get_promotions
 - action_get_crust
 - action_get_sizes
 - utter_out_of_scope
