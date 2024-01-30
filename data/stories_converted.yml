@@ -3221,7 +3221,7 @@ stories:
     - order_number: Ewa_89324343
   - action: utter_order_complete
 
-- story: interactive_story_1234
+- story: interactive_story_12341
   steps:
   - intent: item_start_generic
   - action: pizza_order_form
@@ -6779,6 +6779,11 @@ stories:
   - intent: item_client_name
     entities:
     - client_name: eloise bridgerton
+  - slot_was_set:
+    - client_name: eloise bridgerton
+  - action: customer_details_form
+  - slot_was_set:
+    - requested_slot: phone_number
 
 - story: interactive_story_1119
   steps:
@@ -7239,6 +7244,16 @@ stories:
     - phone_number: '327843854'
   - slot_was_set:
     - phone_number: '327843854'
+  - action: customer_details_form
+  - slot_was_set:
+    - phone_number: '327843854'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_order_number
+  - slot_was_set:
+    - order_number: Veronica_327843854
+  - action: utter_order_complete
 
 - story: interactive_story_1300
   steps:
@@ -7357,14 +7372,6 @@ stories:
     - pizza_type: Margherita
   - slot_was_set:
     - requested_slot: pizza_size
-  - intent: item_size
-    entities:
-    - pizza_size: tha largest
-  - slot_was_set:
-    - pizza_size: tha largest
-  - intent: item_size
-    entities:
-    - pizza_size: tha largest
   - intent: item_size
     entities:
     - pizza_size: 18"
@@ -8540,7 +8547,7 @@ stories:
     - order_number: Eloise_347284638
   - action: utter_order_complete
 
-- story: interactive_story_1234
+- story: interactive_story_12342
   steps:
   - intent: item_start_generic
     entities:
@@ -9484,13 +9491,11 @@ stories:
 
 - story: interactive_story_1458
   steps:
-  - intent: item_start_generic
   - intent: welcome_greet
   - action: utter_welcome_greet
   - intent: response_positive
   - intent: out_of_scope
   - action: utter_out_of_scope
-  - action: utter_anything_else
   - intent: request_vege_pizzas
   - intent: response_positive
   - intent: item_start_generic
@@ -9518,14 +9523,6 @@ stories:
     - pizza_amount: two
   - slot_was_set:
     - requested_slot: pizza_type
-  - intent: item_start_generic
-    entities:
-    - pizza_type: Margherita
-  - slot_was_set:
-    - pizza_type: Margherita
-  - intent: item_type
-    entities:
-    - pizza_type: Margherita
   - intent: item_start_generic
     entities:
     - pizza_type: Margherita
