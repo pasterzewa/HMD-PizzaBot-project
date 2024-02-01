@@ -338,7 +338,7 @@ class ActionGetRestaurantLocation(Action):
 	def run(self, dispatcher, tracker, domain):
 		print("getting restaurant location")
 		restaurant_address = "Via Giuseppe Verdi, 15, 38122 Trento TN"
-		answer = "Our restaurant is located at " + restaurant_address
+		answer = "Our restaurant is located at " + restaurant_address + "."
 		dispatcher.utter_message(text=answer)
 
 		return[SlotSet("restaurant_location", restaurant_address)]
@@ -392,7 +392,7 @@ class ActionGetPizzaSizes(Action):
 		print("getting sizes")
 		sizes = "small - 10\", medium - 12\", large - 14\", extra large - 18\""
 
-		answer = "We offer these sizes: " + sizes
+		answer = "We offer these sizes: " + sizes + "."
 		dispatcher.utter_message(text=answer)
 
 		return []
@@ -405,7 +405,7 @@ class ActionGetPizzaCrust(Action):
 		print("getting crust")
 		crusts = "stuffed, cracker, flat bread, thin"
 
-		answer = "We have these crust types: " + crusts
+		answer = "We have these crust types: " + crusts + "."
 		dispatcher.utter_message(text=answer)
 
 		return []
@@ -416,9 +416,8 @@ class ActionGetPromotions(Action):
 	
 	def run(self, dispatcher, tracker, domain):
 		print("geting promotions")
-		promo = "2 Large Pizzas and 1 Free, 2 Margheritas For The Price of 1"
 
-		answer = "We are currently running following promotions: 2 Large Pizzas and 1 Free (buy 3 large pizzas and one will be free), 2 Margheritas For The Price of 1 (buy 2 Margherita pizzas and one will be free), Hawaiian Pizza for 25% Off, Second Pepperoni Pizza for 50% Off"
+		answer = "We are currently running following promotions: 2 Large Pizzas and 1 Free, 2 Margheritas For The Price of 1, Hawaiian Pizza for 25% Off, Second Pepperoni Pizza for 50% Off."
 		dispatcher.utter_message(text=answer)
 
 		return []
