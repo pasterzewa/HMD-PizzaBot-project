@@ -1,0 +1,274 @@
+[
+  {
+    "text": "what sizes can I choose from",
+    "intent": "request_sizes",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.31098130345344543
+    }
+  },
+  {
+    "text": "what type of pizza do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.2991201877593994
+    }
+  },
+  {
+    "text": "wait, I actually want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_request_without_entity",
+      "confidence": 0.3542455732822418
+    }
+  },
+  {
+    "text": "no, you got it wrong, I want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.4997556209564209
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.38354045152664185
+    }
+  },
+  {
+    "text": "what does it mean?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.271363765001297
+    }
+  },
+  {
+    "text": "i want to change pizza crust",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.6451523303985596
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.1569950431585312
+    }
+  },
+  {
+    "text": "what are your deals",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.2982098460197449
+    }
+  },
+  {
+    "text": "Are there any promotions I can use?",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.8030346035957336
+    }
+  },
+  {
+    "text": "yes, great, can i also add another pizza",
+    "intent": "add_more_pizzas",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9998109936714172
+    }
+  },
+  {
+    "text": "howdy",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "order_delivery",
+      "confidence": 0.14923527836799622
+    }
+  },
+  {
+    "text": "one of this type",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.5546329021453857
+    }
+  },
+  {
+    "text": "take away",
+    "intent": "order_pickup",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.184512197971344
+    }
+  },
+  {
+    "text": "nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.35497111082077026
+    }
+  },
+  {
+    "text": "Nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.35497111082077026
+    }
+  },
+  {
+    "text": "I want thin crust",
+    "intent": "item_crust",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.48245781660079956
+    }
+  },
+  {
+    "text": "sure its 839432943",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.43336954712867737
+    }
+  },
+  {
+    "text": "Little pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.5746530294418335
+    }
+  },
+  {
+    "text": "one large, and another small",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.7634004354476929
+    }
+  },
+  {
+    "text": "XL pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.7326705455780029
+    }
+  },
+  {
+    "text": "actually, i changed my mind, i want two pizzas",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_change_request_without_entity",
+      "confidence": 0.550717830657959
+    }
+  },
+  {
+    "text": "like i said, margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.967359185218811
+    }
+  },
+  {
+    "text": "Griselda Montoya",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.4975973665714264
+    }
+  },
+  {
+    "text": "i want funghi pizza",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9577652215957642
+    }
+  },
+  {
+    "text": "margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.812427818775177
+    }
+  },
+  {
+    "text": "perfect",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.32981717586517334
+    }
+  },
+  {
+    "text": "ugh yea",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.19352026283740997
+    }
+  },
+  {
+    "text": "es",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.3262024521827698
+    }
+  },
+  {
+    "text": "medium and olives",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.5656407475471497
+    }
+  },
+  {
+    "text": "medium with onion",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.7040813565254211
+    }
+  },
+  {
+    "text": "large corns",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.8218578100204468
+    }
+  },
+  {
+    "text": "cheese and SMALL",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.5481120347976685
+    }
+  },
+  {
+    "text": "peperoni, large",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.789590060710907
+    }
+  }
+]

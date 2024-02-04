@@ -1,0 +1,146 @@
+[
+  {
+    "text": "i prefer delivery",
+    "intent": "order_delivery",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.44811561703681946
+    }
+  },
+  {
+    "text": "what sizes can I choose from",
+    "intent": "request_sizes",
+    "intent_prediction": {
+      "name": "order_pickup",
+      "confidence": 0.23943795263767242
+    }
+  },
+  {
+    "text": "what type of pizza do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.42136725783348083
+    }
+  },
+  {
+    "text": "what pizzas do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.233516126871109
+    }
+  },
+  {
+    "text": "slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.577195942401886
+    }
+  },
+  {
+    "text": "how far are you?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.4848528504371643
+    }
+  },
+  {
+    "text": "wait, I want to make some changes.",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.5601441860198975
+    }
+  },
+  {
+    "text": "do you have a sister",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.12048376351594925
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.2012772411108017
+    }
+  },
+  {
+    "text": "r u running promos rn",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "explain",
+      "confidence": 0.10035835206508636
+    }
+  },
+  {
+    "text": "heyyy",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 1.0
+    }
+  },
+  {
+    "text": "Probably avg",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "order_pickup",
+      "confidence": 0.26070865988731384
+    }
+  },
+  {
+    "text": "I want to order pizza with olives",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9999996423721313
+    }
+  },
+  {
+    "text": "Pepperoni is my favorite topping",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9967043995857239
+    }
+  },
+  {
+    "text": "ok",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.44598355889320374
+    }
+  },
+  {
+    "text": "es",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.16884909570217133
+    }
+  },
+  {
+    "text": "yesx",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_crust",
+      "confidence": 0.367394357919693
+    }
+  },
+  {
+    "text": "Pepperoni",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.9469723701477051
+    }
+  }
+]

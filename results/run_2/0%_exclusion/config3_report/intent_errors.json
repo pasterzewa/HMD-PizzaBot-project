@@ -1,0 +1,138 @@
+[
+  {
+    "text": "slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.4350047087529751
+    }
+  },
+  {
+    "text": "yes, slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.550061029831123
+    }
+  },
+  {
+    "text": "how far are you?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.7859604223909763
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.35838093718525976
+    }
+  },
+  {
+    "text": "There were some mistakes, can you restart my order?",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.6681406647976517
+    }
+  },
+  {
+    "text": "do you have a sister",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_all_pizzas",
+      "confidence": 0.3182972113463034
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_all_pizzas",
+      "confidence": 0.29020245992138166
+    }
+  },
+  {
+    "text": "dozen",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.25238561686550615
+    }
+  },
+  {
+    "text": "3494835934",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5736112490664315
+    }
+  },
+  {
+    "text": "327843854",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5736112490664315
+    }
+  },
+  {
+    "text": "Probably avg",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.23580039188500723
+    }
+  },
+  {
+    "text": "actually , i 'd like small pizza.",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.6700816969283063
+    }
+  },
+  {
+    "text": "I want to order pizza with olives",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.8610139169879177
+    }
+  },
+  {
+    "text": "ok",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.22178483474408434
+    }
+  },
+  {
+    "text": "right, it's matthew",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.20093394671651305
+    }
+  },
+  {
+    "text": "no, but i've hear you have the deal for 3 large pizzas for the price of 2",
+    "intent": "init_promotion",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.5308213188568373
+    }
+  },
+  {
+    "text": "Pepperoni",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.8757002073206631
+    }
+  }
+]

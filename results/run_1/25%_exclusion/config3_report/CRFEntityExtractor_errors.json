@@ -1,0 +1,290 @@
+[
+  {
+    "text": "cracker",
+    "entities": [
+      {
+        "start": 0,
+        "end": 7,
+        "value": "cracker",
+        "entity": "pizza_crust"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "3843208493",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "3843208493",
+        "entity": "phone_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 10,
+        "confidence_entity": 0.2556040409436301,
+        "value": "3843208493",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "4738478329",
+    "entities": [
+      {
+        "start": 0,
+        "end": 10,
+        "value": "4738478329",
+        "entity": "phone_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 10,
+        "confidence_entity": 0.2556040409436301,
+        "value": "4738478329",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Probably avg",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "12\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "can i get a vegetarian instead?",
+    "entities": [
+      {
+        "start": 12,
+        "end": 22,
+        "value": "vegetarian",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I like olive",
+    "entities": [
+      {
+        "start": 7,
+        "end": 12,
+        "value": "olive",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "arancini pizza",
+    "entities": [
+      {
+        "start": 0,
+        "end": 8,
+        "value": "arancini",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "it's julie",
+    "entities": [
+      {
+        "start": 5,
+        "end": 10,
+        "value": "julie",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's eliza orzeszkowa",
+    "entities": [
+      {
+        "start": 10,
+        "end": 26,
+        "value": "eliza orzeszkowa",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my nae's justin",
+    "entities": [
+      {
+        "start": 9,
+        "end": 15,
+        "value": "justin",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's giovanni",
+    "entities": [
+      {
+        "start": 10,
+        "end": 18,
+        "value": "giovanni",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alejandro gomez",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "value": "alejandro gomez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alan johnson",
+    "entities": [
+      {
+        "start": 10,
+        "end": 22,
+        "value": "alan johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's eloise bridgerton",
+    "entities": [
+      {
+        "start": 10,
+        "end": 27,
+        "value": "eloise bridgerton",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I hawaii pizza small",
+    "entities": [
+      {
+        "start": 2,
+        "end": 8,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 2,
+        "end": 8,
+        "confidence_entity": 0.8741822013417772,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 15,
+        "end": 20,
+        "confidence_entity": 0.8149882564106736,
+        "value": "10\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Hawaii pizza large  9",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 13,
+        "end": 18,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 20,
+        "end": 21,
+        "value": "9",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.9715026720601924,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 13,
+        "end": 18,
+        "confidence_entity": 0.9327125404654141,
+        "value": "14\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "phone_number",
+        "start": 20,
+        "end": 21,
+        "confidence_entity": 0.28795859796831114,
+        "value": "9",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "jumbo",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "jumbo",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  }
+]

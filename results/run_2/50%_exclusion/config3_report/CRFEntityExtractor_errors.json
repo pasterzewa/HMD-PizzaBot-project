@@ -1,0 +1,465 @@
+[
+  {
+    "text": "dozen",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "dozen",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "327843854",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "327843854",
+        "entity": "phone_number"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_amount",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.2678849953070388,
+        "value": "327843854",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Probably avg",
+    "entities": [
+      {
+        "start": 9,
+        "end": 12,
+        "value": "12\"",
+        "entity": "pizza_size"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "to piazza danto 65",
+    "entities": [
+      {
+        "start": 3,
+        "end": 18,
+        "value": "piazza danto 65",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "to no. 46, Strada street",
+    "entities": [
+      {
+        "start": 3,
+        "end": 24,
+        "value": "no. 46, Strada street",
+        "entity": "delivery_address"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "delivery_address",
+        "start": 7,
+        "end": 9,
+        "confidence_entity": 0.5163079494435665,
+        "value": "46",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "delivery_address",
+        "start": 11,
+        "end": 24,
+        "confidence_entity": 0.66821842618948,
+        "value": "Strada street",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Olive",
+    "entities": [
+      {
+        "start": 0,
+        "end": 5,
+        "value": "Olive",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "I love tomatoes",
+    "entities": [
+      {
+        "start": 7,
+        "end": 15,
+        "value": "tomatoes",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "right, it's matthew",
+    "entities": [
+      {
+        "start": 12,
+        "end": 19,
+        "value": "matthew",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "it's julie",
+    "entities": [
+      {
+        "start": 5,
+        "end": 10,
+        "value": "julie",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's alejandro gomez",
+    "entities": [
+      {
+        "start": 10,
+        "end": 25,
+        "value": "alejandro gomez",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "my name's marco",
+    "entities": [
+      {
+        "start": 10,
+        "end": 15,
+        "value": "marco",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "right, i'm johnson",
+    "entities": [
+      {
+        "start": 11,
+        "end": 18,
+        "value": "johnson",
+        "entity": "client_name"
+      }
+    ],
+    "predicted_entities": []
+  },
+  {
+    "text": "yeah pefect is it enough for the promo for cheaper hawaiian pizza",
+    "entities": [
+      {
+        "start": 43,
+        "end": 65,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 51,
+        "end": 59,
+        "confidence_entity": 0.592479592899056,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Can I use 2+1 Large Pizzas promotion",
+    "entities": [
+      {
+        "start": 10,
+        "end": 26,
+        "value": "2 Large Pizzas and 1 Free",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_size",
+        "start": 14,
+        "end": 19,
+        "confidence_entity": 0.41418448140579633,
+        "value": "14\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want to use the promo for twenty five percent off hawaiian pizzas",
+    "entities": [
+      {
+        "start": 28,
+        "end": 67,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 28,
+        "end": 51,
+        "confidence_entity": 0.8303211408408008,
+        "value": "twenty five percent off",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "pizza_type",
+        "start": 52,
+        "end": 60,
+        "confidence_entity": 0.3718769181178256,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "i want to use the promo for 25% off hawaiian pizzas",
+    "entities": [
+      {
+        "start": 28,
+        "end": 51,
+        "value": "Hawaiian Pizza for 25% Off",
+        "entity": "possible_promotion"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "possible_promotion",
+        "start": 28,
+        "end": 30,
+        "confidence_entity": 0.9014443551148265,
+        "value": "25",
+        "extractor": "CRFEntityExtractor"
+      },
+      {
+        "entity": "possible_promotion",
+        "start": 32,
+        "end": 44,
+        "confidence_entity": 0.6833177416507958,
+        "value": "off hawaiian",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Hawaii large pizza 9",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "Hawaii",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 7,
+        "end": 12,
+        "value": "large",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 19,
+        "end": 20,
+        "value": "9",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.8562087127667407,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 7,
+        "end": 12,
+        "confidence_entity": 0.9789764935722743,
+        "value": "14\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "Pepperoni pizza medium   4",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 16,
+        "end": 22,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 25,
+        "end": 26,
+        "value": "4",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.9248039550788709,
+        "value": "Pepperoni",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 16,
+        "end": 22,
+        "confidence_entity": 0.9647584939567306,
+        "value": "12\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "phone_number",
+        "start": 25,
+        "end": 26,
+        "confidence_entity": 0.26898682448347033,
+        "value": "4",
+        "extractor": "CRFEntityExtractor"
+      }
+    ]
+  },
+  {
+    "text": "Pepperoni medium pizza  4",
+    "entities": [
+      {
+        "start": 0,
+        "end": 9,
+        "value": "Pepperoni",
+        "entity": "pizza_type"
+      },
+      {
+        "start": 10,
+        "end": 16,
+        "value": "medium",
+        "entity": "pizza_size"
+      },
+      {
+        "start": 24,
+        "end": 25,
+        "value": "4",
+        "entity": "pizza_amount"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 9,
+        "confidence_entity": 0.659224281701944,
+        "value": "Pepperoni",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 10,
+        "end": 16,
+        "confidence_entity": 0.9935546086592867,
+        "value": "12\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  },
+  {
+    "text": "hawaii pizza small",
+    "entities": [
+      {
+        "start": 0,
+        "end": 6,
+        "value": "hawaii",
+        "entity": "pizza_type"
+      }
+    ],
+    "predicted_entities": [
+      {
+        "entity": "pizza_type",
+        "start": 0,
+        "end": 6,
+        "confidence_entity": 0.988143155266727,
+        "value": "Hawaii",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      },
+      {
+        "entity": "pizza_size",
+        "start": 13,
+        "end": 18,
+        "confidence_entity": 0.6456418408474901,
+        "value": "10\"",
+        "extractor": "CRFEntityExtractor",
+        "processors": [
+          "EntitySynonymMapper"
+        ]
+      }
+    ]
+  }
+]

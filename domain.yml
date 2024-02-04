@@ -33,13 +33,13 @@ intents:
 - restart_ordering
 - welcome_greet
 entities:
-- client_name
-- pizza_amount
-- pizza_crust
-- possible_promotion
-- pizza_size
 - pizza_type
+- pizza_size
+- possible_promotion
+- pizza_crust
+- pizza_amount
 - phone_number
+- client_name
 - delivery_address
 - pizza_sliced
 - anti_pizza_type
@@ -160,7 +160,7 @@ responses:
   utter_out_of_scope:
   - text: Sorry, I can't handle that request.
   utter_welcome_greet:
-  - text: Hello There! Welcome to Pizzbot of New Trento pizzeria. How can I help you?
+  - text: Hello There! Welcome to Pizzabot of New Trento pizzeria. How can I help you?
   utter_ask_pizza_size:
   - text: What size of pizza do you want?
   utter_ask_pizza_type:
@@ -186,7 +186,7 @@ responses:
   utter_delivery_address:
   - text: To what address would you like your pizza to be delivered to?
   utter_default:
-  - text: Sorry, I didn’t understand that. Can you please retype it?
+  - text: Sorry, I didn’t understand that. Can you please repeat it?
   utter_explain_pizza_quantities:
   - text: In this specific question, we are asking you how many pizzas of the same type you would like in your order.
   utter_explain_pizza_sizes:
@@ -197,10 +197,6 @@ responses:
   - text: Great! Your order is {pizza_amount} {pizza_type} pizzas on {pizza_crust} crust in {pizza_size} size. Can you confirm, please?
   utter_anything_else:
   - text: Is there anything else I can do for you?
-  utter_promotion_not_valid:
-  - text: Sorry, either your order doesn't meet the requirements for the promotion or we're not running this promotion currently. Would you like to extend your order?
-  utter_promotion_valid:
-  - text: The promotion has been included in your total order.
   utter_promotion_almost:
   - text: I've noticed you can qualify for the {possible_promotion} promotion, if you order some more pizzas - would you like to extend your order?
   utter_promotion:
@@ -210,30 +206,31 @@ responses:
   utter_ask_phone_number:
   - text: And what is your phone number, in case we need to contact you?
 actions:
-- utter_total_and_delivery
-- action_pizza_order_add
-- utter_pizza_confirm
 - action_reset_pizza_form
-- utter_extra_order
 - action_check_promotion
-- action_order_number
-- utter_order_complete
-- utter_promotion_valid
-- utter_delivery_address
-- utter_welcome_greet
-- utter_promotion_not_valid
+- utter_pizza_confirm
+- action_pizza_order_add
+- utter_extra_order
+- utter_total_and_delivery
+- utter_promotion
 - action_suggest_promotion
-- utter_explain_pizza_quantities
 - utter_promotion_almost
 - action_apply_promotion
-- utter_promotion
+- utter_welcome_greet
 - action_change_order
-- action_get_restaurant_location
+- utter_out_of_scope
 - utter_anything_else
+- action_reset_everything
+- utter_delivery_address
+- action_order_number
+- utter_order_complete
 - action_get_promotions
+- utter_promotion_valid
+- utter_promotion_not_valid
+- utter_explain_pizza_quantities
+- action_get_restaurant_location
 - action_get_crust
 - action_get_sizes
-- utter_out_of_scope
 - utter_item_change
 - action_get_all_pizzas
 - action_get_vege_pizzas
@@ -252,7 +249,6 @@ actions:
 - utter_ask_client_name
 - utter_ask_phone_number
 - utter_default
-- action_reset_everything
 forms:
   pizza_order_form:
     required_slots:

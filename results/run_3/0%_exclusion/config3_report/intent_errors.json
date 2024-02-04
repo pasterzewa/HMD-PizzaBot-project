@@ -1,0 +1,218 @@
+[
+  {
+    "text": "wait, I actually want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.6889283666375312
+    }
+  },
+  {
+    "text": "no, you got it wrong, I want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.9945693547337175
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.38480620860259035
+    }
+  },
+  {
+    "text": "i want to change pizza crust",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.4639924913734522
+    }
+  },
+  {
+    "text": "i want different toppings",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.42408639515268315
+    }
+  },
+  {
+    "text": "Who's the US President?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.3020756570386051
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.1988227213070124
+    }
+  },
+  {
+    "text": "what are your deals",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.616794236819851
+    }
+  },
+  {
+    "text": "Are there any promotions I can use?",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.3506909562631041
+    }
+  },
+  {
+    "text": "yes, great, can i also add another pizza",
+    "intent": "add_more_pizzas",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.4584489397151455
+    }
+  },
+  {
+    "text": "three",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.37400419147403563
+    }
+  },
+  {
+    "text": "nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.23314599945525957
+    }
+  },
+  {
+    "text": "Nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.23314599945525957
+    }
+  },
+  {
+    "text": "7843248543",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5100185522596279
+    }
+  },
+  {
+    "text": "Little pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.4447071568953115
+    }
+  },
+  {
+    "text": "XL pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.31650689122583925
+    }
+  },
+  {
+    "text": "like i said, margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.5237589358494943
+    }
+  },
+  {
+    "text": "i want funghi pizza",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.7693819882926436
+    }
+  },
+  {
+    "text": "margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.33309716257050326
+    }
+  },
+  {
+    "text": "John Doe",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.3073956380724692
+    }
+  },
+  {
+    "text": "medium and olives",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.5373371524538987
+    }
+  },
+  {
+    "text": "want to oder large cheese pizza",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.5598828190730641
+    }
+  },
+  {
+    "text": "medium with onion",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.9159573877574068
+    }
+  },
+  {
+    "text": "large corns",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.8959082816261834
+    }
+  },
+  {
+    "text": "heyyy",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.9676658375217007
+    }
+  },
+  {
+    "text": "cheese and SMALL",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.708576525408587
+    }
+  },
+  {
+    "text": "peperoni, large",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.7352311474009561
+    }
+  }
+]

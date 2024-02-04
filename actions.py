@@ -18,10 +18,12 @@ from rasa_sdk.executor import CollectingDispatcher
 from rasa_sdk.types import DomainDict
 from word2number import w2n
 import re
+import math
 
 def CalculatePrice(full_order, promotion): # full_order - list, promotion - string
 	cost = 0
 	margherita_count = 0
+	pepperoni_count = 0
 	large_count = 0
 	print("calculating price")
 	for order in full_order:
@@ -74,6 +76,21 @@ def CalculatePrice(full_order, promotion): # full_order - list, promotion - stri
 			else:
 				print("resetting counter")
 				large_count = 0 # like with margheritas
+		elif promotion and "Hawaiian Pizza for 25% Off" in promotion and "hawaii" in order.lower():
+			print("promotion included in final cost: " + promotion)
+			cost += 0.75 * (type_cost + crust_bonus)*size_multiplier*amount_multipier
+		elif promotion and "Second Pepperoni Pizza for 50% Off" in promotion:
+			print("promotion included in final cost: " + promotion)
+			pepperoni_count += amount_multipier
+			if pepperoni_count == 1:
+				cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
+			elif pepperoni_count%2 == 2:
+				print("resetting counter")
+				cost += 0.75 * (type_cost + crust_bonus)*size_multiplier*amount_multipier
+				pepperoni_count = 0 # we 'reset' the counter
+			else: # more than 1, so promo is applied, but not as nicely as above
+				cost += 0.5 * (type_cost + crust_bonus)*size_multiplier*(amount_multipier//2) + (type_cost + crust_bonus)*size_multiplier*math.ceil(amount_multipier/2)
+				pepperoni_count = 1
 		else:
 			cost += (type_cost + crust_bonus)*size_multiplier*amount_multipier
 
@@ -191,8 +208,24 @@ class ActionCheckPromotion(Action):
 				if margherita_count >= 2:
 					ok = True 
 					break
+		elif promotion == "Hawaiian Pizza for 25% Off":
+			for ord in order_split:
+				if "hawaii" in ord.lower():
+					ok = True 
+					break
+		elif promotion == "Second Pepperoni Pizza for 50% Off":
+			pepperoni_count = 0
+			for ord in order_split:
+				amount = w2n.word_to_num(ord.split()[0])
+				if "pepperoni" in ord.lower():
+					pepperoni_count += amount 
+				if pepperoni_count >= 2:
+					ok = True 
+					break
 		else:
-			print("wrong promotion")
+			answer = "Sorry, we're not running this promotion currently."
+			dispatcher.utter_message(text=answer)
+			return[SlotSet("possible_promotion", None)]
 
 		if ok:
 			order = tracker.get_slot("total_order")
@@ -202,7 +235,7 @@ class ActionCheckPromotion(Action):
 			dispatcher.utter_message(text=answer)
 			return[SlotSet("applied_promotion", promotion), SlotSet("order_cost", cost)]
 		else:
-			answer = "Sorry, either your order doesn't meet the requirements for the promotion or we're not running this promotion currently."
+			answer = "Sorry, either your order doesn't meet the requirements for the promotion."
 			dispatcher.utter_message(text=answer)
 			return[SlotSet("possible_promotion", None)]
 	
@@ -219,6 +252,8 @@ class ActionSuggestPromotion(Action):
 		conditions_met = False
 		count_of_14_inch = 0
 		margherita_count = 0
+		pepperoni_count = 0
+		hawaiian_present = False
 
 		for ord in order_split:
 			amount = w2n.word_to_num(ord.split()[0]) # first word is the amount
@@ -226,16 +261,37 @@ class ActionSuggestPromotion(Action):
 				count_of_14_inch += amount
 			if "margherita" in ord.lower():
 				margherita_count += amount 	
+			if "hawaii" in ord.lower():
+				hawaiian_present = True
+			if "pepperoni" in ord.lower():
+				pepperoni_count += amount
 
-		# "2 Large Pizzas and 1 Free"
+		# Hawaiian Pizza for 25% Off
+		# check if user has a hawaiian pizza
+		# if yes - set the possible_promotion_conditions_met to True
+  
+		# Second Pepperoni Pizza for 50% Off
+		# check if user has at least one pepperoni pizza
+		# if 2 already - set the possible_promotions_conditions_met to True
+  
+  		# "2 Large Pizzas and 1 Free"
 		# check if the user has at least two large pizzas
 		# if 3 already - set the possible_promotion_conditions_met to True
 				
 		# "2 Margheritas For The Price of 1"
 		# check if the user has at least one margherita
 		# if 2 already - set the possible_promotion_conditions_met to True
+  
 
-		if count_of_14_inch >= 3:
+		if hawaiian_present:
+			promotion = "Hawaiian Pizza for 25% Off"
+			ok = True
+			conditions_met = True
+		elif pepperoni_count >= 2:
+			promotion = "Second Pepperoni Pizza for 50% Off"
+			ok = True 
+			conditions_met = True
+		elif count_of_14_inch >= 3:
 			promotion = "2 Large Pizzas and 1 Free"
 			ok = True
 			conditions_met = True 
@@ -244,8 +300,11 @@ class ActionSuggestPromotion(Action):
 			ok = True
 			conditions_met = True 
 
-		if ok == False:
-			if count_of_14_inch == 2:
+		if ok == False:	
+			if pepperoni_count == 1:
+				promotion = "Second Pepperoni Pizza for 50% Off"
+				ok = True
+			elif count_of_14_inch == 2:
 				promotion = "2 Large Pizzas and 1 Free"
 				ok = True
 			elif margherita_count == 1:
@@ -279,7 +338,7 @@ class ActionGetRestaurantLocation(Action):
 	def run(self, dispatcher, tracker, domain):
 		print("getting restaurant location")
 		restaurant_address = "Via Giuseppe Verdi, 15, 38122 Trento TN"
-		answer = "Our restaurant is located at " + restaurant_address
+		answer = "Our restaurant is located at " + restaurant_address + "."
 		dispatcher.utter_message(text=answer)
 
 		return[SlotSet("restaurant_location", restaurant_address)]
@@ -333,7 +392,7 @@ class ActionGetPizzaSizes(Action):
 		print("getting sizes")
 		sizes = "small - 10\", medium - 12\", large - 14\", extra large - 18\""
 
-		answer = "We offer these sizes: " + sizes
+		answer = "We offer these sizes: " + sizes + "."
 		dispatcher.utter_message(text=answer)
 
 		return []
@@ -346,7 +405,7 @@ class ActionGetPizzaCrust(Action):
 		print("getting crust")
 		crusts = "stuffed, cracker, flat bread, thin"
 
-		answer = "We have these crust types: " + crusts
+		answer = "We have these crust types: " + crusts + "."
 		dispatcher.utter_message(text=answer)
 
 		return []
@@ -357,9 +416,8 @@ class ActionGetPromotions(Action):
 	
 	def run(self, dispatcher, tracker, domain):
 		print("geting promotions")
-		promo = "2 Large Pizzas and 1 Free, 2 Margheritas For The Price of 1"
 
-		answer = "We are currently running following promotions: 2 Large Pizzas and 1 Free (buy 3 large pizzas and one will be free), 2 Margheritas For The Price of 1 (buy 2 Margherita pizzas and one will be free)"
+		answer = "We are currently running following promotions: 2 Large Pizzas and 1 Free, 2 Margheritas For The Price of 1, Hawaiian Pizza for 25% Off, Second Pepperoni Pizza for 50% Off."
 		dispatcher.utter_message(text=answer)
 
 		return []

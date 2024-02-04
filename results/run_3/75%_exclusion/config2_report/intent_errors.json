@@ -1,0 +1,354 @@
+[
+  {
+    "text": "delivery",
+    "intent": "order_delivery",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.6405150890350342
+    }
+  },
+  {
+    "text": "what sizes can I choose from",
+    "intent": "request_sizes",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.4095084071159363
+    }
+  },
+  {
+    "text": "what type of pizza do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_vege_pizzas",
+      "confidence": 0.22090569138526917
+    }
+  },
+  {
+    "text": "wait, I actually want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.9149900674819946
+    }
+  },
+  {
+    "text": "no, you got it wrong, I want it sliced",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.6178495287895203
+    }
+  },
+  {
+    "text": "wait, actually, don't slice my pizzas",
+    "intent": "item_change_sliced_to_no",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.6502715349197388
+    }
+  },
+  {
+    "text": "where's my pizza?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.24538928270339966
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.24356134235858917
+    }
+  },
+  {
+    "text": "what does it mean?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.22982321679592133
+    }
+  },
+  {
+    "text": "i want to change pizza crust",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.6879169940948486
+    }
+  },
+  {
+    "text": "i want different toppings",
+    "intent": "item_change_request_without_entity",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.3700878918170929
+    }
+  },
+  {
+    "text": "restart please",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.1984308958053589
+    }
+  },
+  {
+    "text": "Who's the US President?",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.27284306287765503
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.27662211656570435
+    }
+  },
+  {
+    "text": "what are your deals",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.20795214176177979
+    }
+  },
+  {
+    "text": "Are there any promotions I can use?",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.3211728632450104
+    }
+  },
+  {
+    "text": "howdy",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.3728836476802826
+    }
+  },
+  {
+    "text": "one of this type",
+    "intent": "item_amount",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.35874924063682556
+    }
+  },
+  {
+    "text": "take away",
+    "intent": "order_pickup",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.11122557520866394
+    }
+  },
+  {
+    "text": "nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.4205634295940399
+    }
+  },
+  {
+    "text": "Nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "welcome_greet",
+      "confidence": 0.4205634295940399
+    }
+  },
+  {
+    "text": "7843248543",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.56031733751297
+    }
+  },
+  {
+    "text": "sure its 839432943",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.18371468782424927
+    }
+  },
+  {
+    "text": "I want a large pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.4643603265285492
+    }
+  },
+  {
+    "text": "14 inches",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.6192065477371216
+    }
+  },
+  {
+    "text": "Little pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.3198971152305603
+    }
+  },
+  {
+    "text": "XL pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.23310412466526031
+    }
+  },
+  {
+    "text": "18 inch pizza",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.2896193861961365
+    }
+  },
+  {
+    "text": "actually , can I get margherita?",
+    "intent": "item_change",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.3601830005645752
+    }
+  },
+  {
+    "text": "like i said, margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9760505557060242
+    }
+  },
+  {
+    "text": "Griselda Montoya",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.5495232939720154
+    }
+  },
+  {
+    "text": "i want funghi pizza",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.8198904991149902
+    }
+  },
+  {
+    "text": "margherita",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9996008276939392
+    }
+  },
+  {
+    "text": "yes, that's exactly it",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.34889429807662964
+    }
+  },
+  {
+    "text": "ugh yea",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.15291528403759003
+    }
+  },
+  {
+    "text": "es",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.2003917545080185
+    }
+  },
+  {
+    "text": "John Doe",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "order_delivery_address",
+      "confidence": 0.44372209906578064
+    }
+  },
+  {
+    "text": "sure, my name is anthony",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "out_of_scope",
+      "confidence": 0.24662911891937256
+    }
+  },
+  {
+    "text": "then i want to use that 50% off second pepperoni pizza promo",
+    "intent": "init_promotion",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9249261021614075
+    }
+  },
+  {
+    "text": "medium with onion",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.5240965485572815
+    }
+  },
+  {
+    "text": "large corns",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.7832483053207397
+    }
+  },
+  {
+    "text": "I would like to a pizza",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.1991150826215744
+    }
+  },
+  {
+    "text": "cheese and SMALL",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.6319450736045837
+    }
+  },
+  {
+    "text": "peperoni, large",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.8441901803016663
+    }
+  }
+]

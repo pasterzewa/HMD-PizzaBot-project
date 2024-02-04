@@ -8,6 +8,7 @@ pipeline:
 - name: SpacyTokenizer
 - name: SpacyFeaturizer
 - name: RegexFeaturizer
+  case_sensitive: False
 - name: LexicalSyntacticFeaturizer
 - name: CountVectorsFeaturizer
 - name: CountVectorsFeaturizer

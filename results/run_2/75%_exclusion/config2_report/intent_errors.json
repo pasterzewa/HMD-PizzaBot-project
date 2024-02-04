@@ -1,0 +1,314 @@
+[
+  {
+    "text": "what sizes can I choose from",
+    "intent": "request_sizes",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.32737866044044495
+    }
+  },
+  {
+    "text": "what type of pizza do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.24792514741420746
+    }
+  },
+  {
+    "text": "what pizzas do you have?",
+    "intent": "request_all_pizzas",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.16670016944408417
+    }
+  },
+  {
+    "text": "do you have vege options?",
+    "intent": "request_vege_pizzas",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.2150052934885025
+    }
+  },
+  {
+    "text": "slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_phone_number",
+      "confidence": 0.5529142618179321
+    }
+  },
+  {
+    "text": "yes, slice it",
+    "intent": "item_change_sliced_to_yes",
+    "intent_prediction": {
+      "name": "item_phone_number",
+      "confidence": 0.4127676784992218
+    }
+  },
+  {
+    "text": "how far are you?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.12222087383270264
+    }
+  },
+  {
+    "text": "where is your restaurant located?",
+    "intent": "request_restaurant_location",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.4237004220485687
+    }
+  },
+  {
+    "text": "what do you mean by how many pizzas do I want",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.2257137894630432
+    }
+  },
+  {
+    "text": "meaning?",
+    "intent": "explain",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.4265345335006714
+    }
+  },
+  {
+    "text": "There were some mistakes, can you restart my order?",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "request_restaurant_location",
+      "confidence": 0.15644723176956177
+    }
+  },
+  {
+    "text": "wait actually no let's restart this order",
+    "intent": "restart_ordering",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.34322094917297363
+    }
+  },
+  {
+    "text": "do you have a sister",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.3634708523750305
+    }
+  },
+  {
+    "text": "do you have shoes",
+    "intent": "out_of_scope",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.3068684935569763
+    }
+  },
+  {
+    "text": "r u running promos rn",
+    "intent": "request_promotions",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.13560263812541962
+    }
+  },
+  {
+    "text": "Yes, that's right, I also want to order more pizzas",
+    "intent": "add_more_pizzas",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9194039702415466
+    }
+  },
+  {
+    "text": "heyyy",
+    "intent": "welcome_greet",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9999924898147583
+    }
+  },
+  {
+    "text": "pickup",
+    "intent": "order_pickup",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.3972409665584564
+    }
+  },
+  {
+    "text": "Nope",
+    "intent": "response_negative",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.2236303985118866
+    }
+  },
+  {
+    "text": "with stuffed crust please",
+    "intent": "item_crust",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9016972184181213
+    }
+  },
+  {
+    "text": "my number is 83429748327",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.5778295397758484
+    }
+  },
+  {
+    "text": "my phone is 89832243432",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.768012285232544
+    }
+  },
+  {
+    "text": "sure its 839432943",
+    "intent": "item_phone_number",
+    "intent_prediction": {
+      "name": "request_promotions",
+      "confidence": 0.1990058273077011
+    }
+  },
+  {
+    "text": "a 14 inches pizza please",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.7494771480560303
+    }
+  },
+  {
+    "text": "Probably avg",
+    "intent": "item_size",
+    "intent_prediction": {
+      "name": "init_promotion",
+      "confidence": 0.4756287932395935
+    }
+  },
+  {
+    "text": "I love tomatoes",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.41441407799720764
+    }
+  },
+  {
+    "text": "I want to order pizza with olives",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_start_generic",
+      "confidence": 0.9995417594909668
+    }
+  },
+  {
+    "text": "Pepperoni is my favorite topping",
+    "intent": "item_type",
+    "intent_prediction": {
+      "name": "item_client_name",
+      "confidence": 0.2677740156650543
+    }
+  },
+  {
+    "text": "ok",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_change",
+      "confidence": 0.1442434936761856
+    }
+  },
+  {
+    "text": "es",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "response_negative",
+      "confidence": 0.2688924968242645
+    }
+  },
+  {
+    "text": "yep",
+    "intent": "response_positive",
+    "intent_prediction": {
+      "name": "item_change_sliced_to_no",
+      "confidence": 0.10953842848539352
+    }
+  },
+  {
+    "text": "right, it's matthew",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "item_phone_number",
+      "confidence": 0.6645102500915527
+    }
+  },
+  {
+    "text": "it's julie",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "item_phone_number",
+      "confidence": 0.5358126163482666
+    }
+  },
+  {
+    "text": "right, i'm johnson",
+    "intent": "item_client_name",
+    "intent_prediction": {
+      "name": "response_positive",
+      "confidence": 0.2798757255077362
+    }
+  },
+  {
+    "text": "two large pizza hawaii",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.44713908433914185
+    }
+  },
+  {
+    "text": "Hawaii large pizza 9",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.5940035581588745
+    }
+  },
+  {
+    "text": "4 large pizza Hawaii",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_size",
+      "confidence": 0.314837783575058
+    }
+  },
+  {
+    "text": "Pepperoni",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_type",
+      "confidence": 0.9487709999084473
+    }
+  },
+  {
+    "text": "3 Vegetarian pizza small",
+    "intent": "item_start_generic",
+    "intent_prediction": {
+      "name": "item_amount",
+      "confidence": 0.5274165272712708
+    }
+  }
+]

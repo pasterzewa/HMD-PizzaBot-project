@@ -1,0 +1,254 @@
+{
+  "request_vege_pizzas": {
+    "precision": 0.16666666666666666,
+    "recall": 1.0,
+    "f1-score": 0.2857142857142857,
+    "support": 1,
+    "confused_with": {}
+  },
+  "init_promotion": {
+    "precision": 0.8666666666666667,
+    "recall": 1.0,
+    "f1-score": 0.9285714285714286,
+    "support": 13,
+    "confused_with": {}
+  },
+  "item_type": {
+    "precision": 0.6,
+    "recall": 0.375,
+    "f1-score": 0.4615384615384615,
+    "support": 8,
+    "confused_with": {
+      "item_start_generic": 4,
+      "item_phone_number": 1
+    }
+  },
+  "item_phone_number": {
+    "precision": 0.5454545454545454,
+    "recall": 1.0,
+    "f1-score": 0.7058823529411764,
+    "support": 6,
+    "confused_with": {}
+  },
+  "out_of_scope": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "item_start_generic": 1,
+      "request_vege_pizzas": 1
+    }
+  },
+  "order_delivery_address": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 7,
+    "confused_with": {}
+  },
+  "item_amount": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "response_positive": 1
+    }
+  },
+  "item_start_generic": {
+    "precision": 0.7959183673469388,
+    "recall": 0.9069767441860465,
+    "f1-score": 0.8478260869565216,
+    "support": 43,
+    "confused_with": {
+      "item_type": 2,
+      "item_change": 1
+    }
+  },
+  "response_negative": {
+    "precision": 0.5,
+    "recall": 0.5,
+    "f1-score": 0.5,
+    "support": 4,
+    "confused_with": {
+      "response_positive": 1,
+      "item_phone_number": 1
+    }
+  },
+  "item_change_request_without_entity": {
+    "precision": 0.16666666666666666,
+    "recall": 0.5,
+    "f1-score": 0.25,
+    "support": 2,
+    "confused_with": {
+      "item_change": 1
+    }
+  },
+  "item_crust": {
+    "precision": 1.0,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.8,
+    "support": 6,
+    "confused_with": {
+      "item_start_generic": 1,
+      "item_change_request_without_entity": 1
+    }
+  },
+  "request_restaurant_location": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {
+      "out_of_scope": 1
+    }
+  },
+  "item_size": {
+    "precision": 0.8,
+    "recall": 0.5714285714285714,
+    "f1-score": 0.6666666666666666,
+    "support": 7,
+    "confused_with": {
+      "item_start_generic": 1,
+      "init_promotion": 1
+    }
+  },
+  "restart_ordering": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 2,
+    "confused_with": {
+      "order_pickup": 1
+    }
+  },
+  "add_more_pizzas": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "item_start_generic": 2
+    }
+  },
+  "explain": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "request_vege_pizzas": 2
+    }
+  },
+  "request_all_pizzas": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "request_vege_pizzas": 1,
+      "request_promotions": 1
+    }
+  },
+  "order_delivery": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 1,
+    "confused_with": {
+      "item_phone_number": 1
+    }
+  },
+  "welcome_greet": {
+    "precision": 1.0,
+    "recall": 0.5,
+    "f1-score": 0.6666666666666666,
+    "support": 4,
+    "confused_with": {
+      "response_negative": 1,
+      "request_sizes": 1
+    }
+  },
+  "response_positive": {
+    "precision": 0.7272727272727273,
+    "recall": 0.8888888888888888,
+    "f1-score": 0.7999999999999999,
+    "support": 9,
+    "confused_with": {
+      "response_negative": 1
+    }
+  },
+  "item_change_sliced_to_yes": {
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1-score": 0.0,
+    "support": 2,
+    "confused_with": {
+      "item_change_request_without_entity": 1,
+      "item_phone_number": 1
+    }
+  },
+  "item_client_name": {
+    "precision": 1.0,
+    "recall": 0.8181818181818182,
+    "f1-score": 0.9,
+    "support": 11,
+    "confused_with": {
+      "response_positive": 1,
+      "item_phone_number": 1
+    }
+  },
+  "order_pickup": {
+    "precision": 0.8,
+    "recall": 1.0,
+    "f1-score": 0.888888888888889,
+    "support": 4,
+    "confused_with": {}
+  },
+  "request_promotions": {
+    "precision": 0.6666666666666666,
+    "recall": 0.6666666666666666,
+    "f1-score": 0.6666666666666666,
+    "support": 3,
+    "confused_with": {
+      "init_promotion": 1
+    }
+  },
+  "item_change": {
+    "precision": 0.5,
+    "recall": 0.375,
+    "f1-score": 0.42857142857142855,
+    "support": 8,
+    "confused_with": {
+      "item_change_request_without_entity": 3,
+      "item_start_generic": 1
+    }
+  },
+  "item_change_sliced_to_no": {
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1-score": 1.0,
+    "support": 2,
+    "confused_with": {}
+  },
+  "micro avg": {
+    "precision": 0.7320261437908496,
+    "recall": 0.7272727272727273,
+    "f1-score": 0.729641693811075,
+    "support": 154
+  },
+  "macro avg": {
+    "precision": 0.5436658579515723,
+    "recall": 0.5295695906161022,
+    "f1-score": 0.5050125487121355,
+    "support": 154
+  },
+  "weighted avg": {
+    "precision": 0.7234372615634211,
+    "recall": 0.7272727272727273,
+    "f1-score": 0.708606450586721,
+    "support": 154
+  },
+  "accuracy": 0.7272727272727273
+}
